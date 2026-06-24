@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Vue stylisée du port Tanger Med">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dce9e7"/>
+      <stop offset="1" stop-color="#f7efe1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <path d="M0 610h1600v290H0z" fill="#b8d4d0"/>
+  <path d="M0 660c185-42 330-25 510 4 180 30 352 46 550-8 200-55 365-62 540-18v262H0z" fill="#8fbdb6" opacity=".7"/>
+  <path d="M130 532h1120v58H130z" fill="#234f56"/>
+  <path d="M214 480h82v52h-82zm120-74h82v126h-82zm120 42h82v84h-82zm120-112h82v196h-82zm120 70h82v126h-82zm120-106h82v232h-82zm120 54h82v178h-82z" fill="#e8f0ee"/>
+  <path d="M1130 278h32v254h-32zm120 76h32v178h-32z" fill="#c7923e"/>
+  <path d="M1146 284l210 112m-210-78l-230 112m350-70l-168 92" stroke="#123c45" stroke-width="10" stroke-linecap="round"/>
+  <path d="M100 590h1230l95 64H150z" fill="#173f47"/>
+  <path d="M146 686h760" stroke="#f6f8f7" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+  <circle cx="1280" cy="168" r="70" fill="#f2d18e" opacity=".9"/>
+  <path d="M0 738c210-35 379-32 520 8 180 51 362 49 552 0 218-56 364-45 528 4v150H0z" fill="#6fa9a2" opacity=".8"/>
+</svg>

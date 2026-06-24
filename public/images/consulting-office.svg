@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="720" viewBox="0 0 900 720" role="img" aria-label="Salle de conseil professionnelle">
+  <rect width="900" height="720" fill="#eef4f2"/>
+  <path d="M88 98h724v410H88z" fill="#fff"/>
+  <path d="M128 138h270v330H128zm314 0h330v330H442z" fill="#dce9e7"/>
+  <path d="M154 166h218v276H154zm320 0h266v276H474z" fill="#f8fbfa"/>
+  <path d="M0 520h900v200H0z" fill="#d7e5e2"/>
+  <path d="M186 520h528l76 140H112z" fill="#123c45"/>
+  <path d="M238 484h424v54H238z" fill="#c7923e"/>
+  <path d="M278 536h344v74H278z" fill="#174b54"/>
+  <path d="M318 286h244" stroke="#1f6f62" stroke-width="16" stroke-linecap="round"/>
+  <path d="M318 332h184" stroke="#c7923e" stroke-width="16" stroke-linecap="round"/>
+  <path d="M318 378h274" stroke="#123c45" stroke-width="16" stroke-linecap="round" opacity=".75"/>
+  <circle cx="678" cy="300" r="62" fill="#1f6f62" opacity=".18"/>
+  <path d="M650 326l28-74 34 74z" fill="#1f6f62"/>
+</svg>
