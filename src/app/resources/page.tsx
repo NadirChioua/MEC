@@ -9,7 +9,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: "Ressources",
   description:
-    "Ressources utiles pour mieux comprendre les enjeux financiers, fiscaux et réglementaires au Maroc et en Europe."
+    "Ressources utiles pour mieux comprendre les enjeux financiers, fiscaux et reglementaires au Maroc et en Europe."
 };
 
 export default function ResourcesPage() {
@@ -17,7 +17,7 @@ export default function ResourcesPage() {
     <>
       <PageHero
         title="Ressources"
-        intro="Retrouvez des ressources utiles pour mieux comprendre les enjeux financiers, fiscaux et réglementaires au Maroc et en Europe."
+        intro="Retrouvez des ressources utiles pour mieux comprendre les enjeux financiers, fiscaux et reglementaires au Maroc et en Europe."
       />
       <section className="section">
         <div className="container resource-layout">
@@ -38,9 +38,12 @@ export default function ResourcesPage() {
             <div className="insight-grid two" style={{ marginTop: 24 }}>
               {insights.map((insight) => (
                 <Link className="insight-card reveal" href={insight.href} key={insight.title}>
-                  <div className={`insight-visual tone-${insight.imageTone}`} />
+                  <div className={`insight-visual tone-${insight.imageTone}`}>
+                    <img src={insight.imageSrc} alt={insight.imageAlt} loading="lazy" />
+                    <span>{insight.category}</span>
+                  </div>
                   <div className="insight-content">
-                    <span className="meta">{insight.category} · {insight.date}</span>
+                    <span className="meta">{insight.category} - {insight.date}</span>
                     <h3>{insight.title}</h3>
                     <p>{insight.description}</p>
                     <span className="card-link">
@@ -51,22 +54,22 @@ export default function ResourcesPage() {
               ))}
             </div>
           </div>
-          <aside className="sidebar card resource-sidebar">
+          <aside className="sidebar card resource-sidebar reveal">
             <label className="field" htmlFor="resource-search">
               <span>Recherche</span>
               <span className="search-field">
                 <Icon name="search" />
-                <input id="resource-search" type="search" placeholder="Mot-clé" />
+                <input id="resource-search" type="search" placeholder="Mot-cle" />
               </span>
             </label>
-            <h3>Catégories</h3>
+            <h3>Categories</h3>
             <ul className="footer-list">
-              <li>Fiscalité</li>
-              <li>Stratégie</li>
+              <li>Fiscalite</li>
+              <li>Strategie</li>
               <li>Pilotage financier</li>
               <li>Commerce Maroc-Europe</li>
             </ul>
-            <h3 style={{ marginTop: 24 }}>Dernières ressources</h3>
+            <h3 style={{ marginTop: 24 }}>Dernieres ressources</h3>
             <ul className="footer-list">
               {insights.map((insight) => (
                 <li key={insight.title}>
@@ -76,7 +79,7 @@ export default function ResourcesPage() {
             </ul>
             <h3 style={{ marginTop: 24 }}>Tags</h3>
             <div className="tag-list">
-              {["Finance", "Maroc", "Europe", "Croissance", "Conformité"].map((tag) => (
+              {["Finance", "Maroc", "Europe", "Croissance", "Conformite"].map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
             </div>

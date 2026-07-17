@@ -14,11 +14,17 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link className="brand" href="/" aria-label="Accueil Morocco Europe Consulting">
-          <span className="brand-mark">MEC</span>
-          <span className="brand-text">
-            <span>{siteConfig.name}</span>
-            <small>Conseil Maroc-Europe</small>
-          </span>
+          <img
+            className="brand-logo brand-logo-main"
+            src="/images/brand/logo-main.png"
+            alt={siteConfig.name}
+          />
+          <img
+            className="brand-logo brand-logo-mark"
+            src="/images/brand/logo-mark.png"
+            alt=""
+            aria-hidden="true"
+          />
         </Link>
 
         <div className="desktop-nav">
@@ -49,7 +55,7 @@ export function Header() {
             </ul>
           </nav>
           <ButtonLink href="/contact" variant="primary">
-            Consultation gratuite
+            Consultation confidentielle
           </ButtonLink>
         </div>
 
@@ -89,7 +95,7 @@ export function Header() {
               )
             )}
             <ButtonLink href="/contact" variant="primary">
-              Consultation gratuite
+              Consultation confidentielle
             </ButtonLink>
           </nav>
         </div>

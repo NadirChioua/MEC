@@ -3,6 +3,7 @@ import { Approach } from "@/components/sections/Approach";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { Hero } from "@/components/sections/Hero";
 import { InsightsGrid } from "@/components/sections/InsightsGrid";
+import { MoroccoEuropePositioning } from "@/components/sections/MoroccoEuropePositioning";
 import { QuickContact } from "@/components/sections/QuickContact";
 import { ServiceImageGrid } from "@/components/sections/ServiceImageGrid";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <QuickContact />
       <AboutPreview />
       <ServicesGrid />
+      <MoroccoEuropePositioning />
       <ServiceImageGrid />
       <WhyChooseUs />
       <Approach />

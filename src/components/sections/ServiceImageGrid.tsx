@@ -9,13 +9,14 @@ export function ServiceImageGrid() {
       <div className="container">
         <SectionTitle
           eyebrow="Domaines d'intervention"
-          title="Des cartes de mission lisibles pour décider plus vite"
-          text="Chaque service MEC combine une lecture financière, une exigence réglementaire et une exécution opérationnelle."
+          title="Des cartes de mission lisibles pour decider plus vite"
+          text="Chaque service MEC combine une lecture financiere, une exigence reglementaire et une execution operationnelle."
         />
         <div className="image-card-grid" style={{ marginTop: 34 }}>
           {services.map((service) => (
             <Link className="image-service-card reveal" href={`/services/${service.slug}`} key={service.slug}>
               <div className={`service-visual tone-${service.imageTone}`}>
+                <img src={service.imageSrc} alt={service.imageAlt} loading="lazy" />
                 <span>{service.imageLabel}</span>
               </div>
               <div className="image-service-content">

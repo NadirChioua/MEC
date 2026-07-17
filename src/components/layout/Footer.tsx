@@ -9,15 +9,11 @@ export function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <Link className="brand" href="/">
-              <span className="brand-mark">MEC</span>
-              <span className="brand-text">
-                <span>{siteConfig.name}</span>
-                <small>Conseil Maroc-Europe</small>
-              </span>
+            <Link className="brand" href="/" aria-label="Accueil Morocco Europe Consulting">
+              <img className="footer-logo" src="/images/brand/logo-main.png" alt={siteConfig.name} />
             </Link>
             <p className="muted" style={{ marginTop: 18 }}>
-              Votre partenaire en conseil financier, comptabilité et développement entre le Maroc et l'Europe.
+              Conseil financier, audit, comptabilite et strategie pour les entreprises qui operent entre le Maroc et l'Europe.
             </p>
           </div>
           <div>
@@ -50,19 +46,19 @@ export function Footer() {
               <li>{siteConfig.contact.email}</li>
               <li>{siteConfig.contact.address}</li>
             </ul>
-            <h3 style={{ marginTop: 22 }}>Légal</h3>
+            <h3 style={{ marginTop: 22 }}>Legal</h3>
             <ul className="footer-list">
               <li>
-                <Link href="/legal/mentions-legales">Mentions légales</Link>
+                <Link href="/legal/mentions-legales">Mentions legales</Link>
               </li>
               <li>
-                <Link href="/legal/confidentialite">Confidentialité</Link>
+                <Link href="/legal/confidentialite">Confidentialite</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 {siteConfig.name}. Tous droits réservés.</span>
+          <span>2026 {siteConfig.name}. Tous droits reserves.</span>
           <span>Tanger, Maroc</span>
         </div>
       </div>

@@ -2,17 +2,19 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export function ContactCTA() {
   return (
-    <section className="section compact dark-band final-cta">
-      <div className="container resource-card" style={{ background: "transparent", borderColor: "rgba(255,255,255,.24)", boxShadow: "none" }}>
+    <section className="final-cta">
+      <img src="/images/generated/mec-contact-cta.png" alt="" aria-hidden="true" />
+      <div className="container final-cta-content">
         <div>
-          <p className="eyebrow">Première consultation</p>
-          <h2>Prêt à structurer votre croissance ?</h2>
+          <p className="eyebrow">Premiere consultation</p>
+          <h2>Parlons de vos decisions les plus importantes.</h2>
           <p className="lead" style={{ marginTop: 12 }}>
-            Échangeons sur vos priorités et les leviers financiers, comptables ou réglementaires à sécuriser.
+            Un echange confidentiel pour cadrer vos priorites financieres, comptables, d'audit ou de developpement
+            entre le Maroc et l'Europe.
           </p>
         </div>
         <ButtonLink href="/contact" variant="primary">
-          Demandez une consultation gratuite
+          Demander une consultation
         </ButtonLink>
       </div>
     </section>
