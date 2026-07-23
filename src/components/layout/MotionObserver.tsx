@@ -4,17 +4,21 @@ import { useEffect } from "react";
 
 export function MotionObserver() {
   useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const observed = new WeakSet<HTMLElement>();
+
+    const getAnimated = () => Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+    const showImmediately = () => getAnimated().forEach((element) => element.classList.add("is-visible"));
+
     window.requestAnimationFrame(() => {
       document.documentElement.classList.add("motion-ready");
     });
 
-    const animated = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    if (!animated.length) return;
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion || !("IntersectionObserver" in window)) {
-      animated.forEach((element) => element.classList.add("is-visible"));
-      return;
+      showImmediately();
+      const fallbackObserver = new MutationObserver(showImmediately);
+      fallbackObserver.observe(document.body, { childList: true, subtree: true });
+      return () => fallbackObserver.disconnect();
     }
 
     const observer = new IntersectionObserver(
@@ -25,12 +29,29 @@ export function MotionObserver() {
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.16 }
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
     );
 
-    animated.forEach((element) => observer.observe(element));
+    const observeAnimated = () => {
+      getAnimated().forEach((element) => {
+        if (observed.has(element) || element.classList.contains("is-visible")) return;
+        observed.add(element);
+        observer.observe(element);
+      });
+    };
 
-    return () => observer.disconnect();
+    observeAnimated();
+
+    const mutationObserver = new MutationObserver(() => {
+      window.requestAnimationFrame(observeAnimated);
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
   }, []);
 
   return null;

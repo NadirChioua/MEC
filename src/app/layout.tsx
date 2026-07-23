@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { LanguageRuntime } from "@/components/layout/LanguageRuntime";
 import { MotionObserver } from "@/components/layout/MotionObserver";
 import { TopBar } from "@/components/layout/TopBar";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="fr">
       <body>
+        <LanguageRuntime />
         <MotionObserver />
         <TopBar />
         <Header />

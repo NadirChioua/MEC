@@ -8,9 +8,9 @@ export function ServiceImageGrid() {
     <section className="section">
       <div className="container">
         <SectionTitle
-          eyebrow="Domaines d'intervention"
-          title="Des cartes de mission lisibles pour decider plus vite"
-          text="Chaque service MEC combine une lecture financiere, une exigence reglementaire et une execution operationnelle."
+          eyebrow="Domaines d’intervention"
+          title="Des cartes de mission lisibles pour décider plus vite"
+          text="Chaque service MEC combine une lecture financière, une exigence réglementaire et une exécution opérationnelle."
         />
         <div className="image-card-grid" style={{ marginTop: 34 }}>
           {services.map((service) => (

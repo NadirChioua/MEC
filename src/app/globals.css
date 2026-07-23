@@ -199,6 +199,28 @@ p {
   font-size: 0.75rem;
 }
 
+.language-switcher button {
+  min-width: 34px;
+  min-height: 30px;
+  border: 1px solid rgba(232, 214, 163, 0.32);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  padding: 3px 9px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.language-switcher button.active,
+.language-switcher button:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #07101f;
+}
+
 .language-switcher .disabled {
   opacity: 0.48;
 }
@@ -856,6 +878,303 @@ a.card:hover {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Admin dashboard */
+.admin-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  min-height: calc(100vh - 120px);
+  background:
+    linear-gradient(135deg, #f8f4ea, #ffffff 48%, #f8f4ea),
+    #ffffff;
+}
+
+.admin-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  min-height: calc(100vh - 120px);
+  border-right: 1px solid rgba(0, 31, 63, 0.12);
+  background: linear-gradient(180deg, #001f3f, #02162b);
+  color: #ffffff;
+  padding: 28px 24px;
+}
+
+.admin-sidebar img {
+  width: 74px;
+  height: 74px;
+  border-radius: 12px;
+  background: #ffffff;
+  object-fit: cover;
+}
+
+.admin-sidebar strong,
+.admin-sidebar span {
+  display: block;
+}
+
+.admin-sidebar strong {
+  margin-top: 16px;
+  font-size: 1.25rem;
+}
+
+.admin-sidebar span {
+  color: #d9e6f2;
+}
+
+.admin-sidebar nav {
+  display: grid;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.admin-sidebar a {
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 8px;
+  color: #f7efd4;
+  padding: 11px 12px;
+  font-weight: 850;
+}
+
+.admin-sidebar a:hover {
+  border-color: rgba(212, 175, 55, 0.52);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.admin-main {
+  padding: 36px;
+}
+
+.admin-hero {
+  overflow: hidden;
+  border-radius: 10px;
+  background:
+    linear-gradient(90deg, rgba(0, 31, 63, 0.96), rgba(0, 31, 63, 0.74)),
+    url("/images/generated/mec-strategy-meeting.png") center / cover;
+  color: #ffffff;
+  padding: 44px;
+  box-shadow: var(--shadow-navy-deep);
+}
+
+.admin-hero h1 {
+  color: #ffffff;
+  max-width: 760px;
+}
+
+.admin-hero p:not(.eyebrow) {
+  max-width: 720px;
+  color: #dce8f3;
+}
+
+.admin-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.admin-kpis div,
+.admin-panel {
+  border: 1px solid rgba(0, 31, 63, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-card-premium);
+}
+
+.admin-kpis div {
+  padding: 20px;
+}
+
+.admin-kpis span {
+  display: block;
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.admin-kpis strong {
+  display: block;
+  color: var(--color-primary);
+  font-size: 2rem;
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.admin-panel {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+}
+
+.admin-panel-head {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.admin-panel-head .icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 8px;
+  color: var(--color-accent);
+  padding: 10px;
+}
+
+.admin-panel h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+}
+
+.admin-panel p {
+  color: var(--color-muted);
+}
+
+.admin-panel label {
+  display: grid;
+  gap: 8px;
+  color: var(--color-primary);
+  font-weight: 850;
+}
+
+.admin-panel input,
+.admin-panel textarea,
+.admin-panel select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--color-text);
+  padding: 12px 13px;
+}
+
+.admin-panel textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.admin-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-image-grid button {
+  overflow: hidden;
+  border: 1px solid rgba(0, 31, 63, 0.1);
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.admin-image-grid img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+}
+
+.admin-image-grid span {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 9px;
+}
+
+.admin-client-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.admin-table {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-table > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 140px;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid rgba(0, 31, 63, 0.08);
+  border-radius: 8px;
+  background: #fbfaf6;
+  padding: 10px;
+}
+
+.admin-table span {
+  color: var(--color-muted);
+}
+
+.admin-task-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-task-list li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 10px;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.admin-task-list .icon {
+  color: var(--color-accent);
+}
+
+.admin-note {
+  border-radius: 8px;
+  background: #fff8e3;
+  color: #624813 !important;
+  padding: 14px;
+  font-weight: 750;
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+html[dir="rtl"] .icon,
+html[dir="rtl"] .button .icon,
+html[dir="rtl"] .card-link .icon {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 980px) {
+  .admin-shell,
+  .admin-grid,
+  .admin-kpis,
+  .admin-client-form,
+  .admin-table > div {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    position: static;
+    min-height: auto;
+  }
+
+  .admin-main {
+    padding: 22px;
   }
 }
 
@@ -2636,4 +2955,23 @@ html.motion-ready .hero::after {
   .stat:hover strong {
     animation: none !important;
   }
+}
+
+/* Safety fallback: core content must remain visible if motion JS is delayed or unavailable. */
+.reveal {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.motion-ready .reveal:not(.is-visible) {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(34px);
+}
+
+.motion-ready .reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }

@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { services } from "@/data/services";
 
 const consentText =
-  "J'accepte que mes données personnelles soient collectées et traitées conformément à la loi n°09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel. Les informations recueillies sont utilisées uniquement pour répondre à ma demande.";
+  "J’accepte que mes données personnelles soient collectées et traitées conformément à la loi n°09-08 relative à la protection des personnes physiques à l’égard du traitement des données à caractère personnel. Les informations recueillies sont utilisées uniquement pour répondre à ma demande.";
 
 type Errors = Partial<Record<"name" | "email" | "service" | "message" | "consent" | "website", string>>;
 
@@ -22,7 +22,7 @@ export function ContactForm() {
     if (!String(form.get("service") || "")) nextErrors.service = "Sélectionnez le service souhaité.";
     if (String(form.get("message") || "").trim().length < 12) nextErrors.message = "Ajoutez un message plus précis.";
     if (!form.get("consent")) nextErrors.consent = "Le consentement est requis pour envoyer la demande.";
-    if (String(form.get("website") || "").trim()) nextErrors.website = "Le formulaire n'a pas pu être envoyé.";
+    if (String(form.get("website") || "").trim()) nextErrors.website = "Le formulaire n’a pas pu être envoyé.";
 
     setErrors(nextErrors);
     setSuccess(Object.keys(nextErrors).length === 0);
@@ -34,21 +34,21 @@ export function ContactForm() {
       <div className="form-grid">
         <div className="field">
           <label htmlFor="name">Nom complet</label>
-          <input id="name" name="name" autoComplete="name" aria-describedby={errors.name ? "name-error" : undefined} />
+          <input id="name" name="name" autoComplete="name" placeholder="Votre nom" aria-describedby={errors.name ? "name-error" : undefined} />
           {errors.name ? <span className="error" id="name-error">{errors.name}</span> : null}
         </div>
         <div className="field">
           <label htmlFor="company">Entreprise</label>
-          <input id="company" name="company" autoComplete="organization" />
+          <input id="company" name="company" autoComplete="organization" placeholder="Nom de l’entreprise" />
         </div>
         <div className="field">
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" autoComplete="email" aria-describedby={errors.email ? "email-error" : undefined} />
+          <input id="email" name="email" type="email" autoComplete="email" placeholder="adresse@email.com" aria-describedby={errors.email ? "email-error" : undefined} />
           {errors.email ? <span className="error" id="email-error">{errors.email}</span> : null}
         </div>
         <div className="field">
           <label htmlFor="phone">Téléphone</label>
-          <input id="phone" name="phone" type="tel" autoComplete="tel" />
+          <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+212 ..." />
         </div>
         <div className="field full">
           <label htmlFor="service">Service souhaité</label>
@@ -62,7 +62,7 @@ export function ContactForm() {
         </div>
         <div className="field full">
           <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" aria-describedby={errors.message ? "message-error" : undefined} />
+          <textarea id="message" name="message" placeholder="Expliquez brièvement votre besoin" aria-describedby={errors.message ? "message-error" : undefined} />
           {errors.message ? <span className="error" id="message-error">{errors.message}</span> : null}
         </div>
         <div className="field" aria-hidden="true" style={{ display: "none" }}>

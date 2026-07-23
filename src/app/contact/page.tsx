@@ -6,7 +6,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez Morocco Europe Consulting pour une première consultation gratuite en conseil financier, comptabilité ou gestion d'entreprise Maroc-Europe."
+    "Contactez Morocco Europe Consulting pour une première consultation gratuite en conseil financier, comptabilité ou gestion d’entreprise Maroc-Europe."
 };
 
 export default function ContactPage() {
@@ -14,7 +14,7 @@ export default function ContactPage() {
     <>
       <PageHero
         title="Contact"
-        intro="Vous recherchez un accompagnement fiable en conseil financier, comptabilité ou gestion d'entreprise entre le Maroc et l'Europe ? Notre équipe est disponible pour une première consultation gratuite sans engagement."
+        intro="Vous recherchez un accompagnement fiable en conseil financier, comptabilité ou gestion d’entreprise entre le Maroc et l’Europe ? Notre équipe est disponible pour une première consultation gratuite sans engagement."
       />
       <section className="section">
         <div className="container contact-layout">

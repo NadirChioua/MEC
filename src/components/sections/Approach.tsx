@@ -15,7 +15,7 @@ const approach = [
   {
     icon: "shield",
     title: "Rigueur & confiance",
-    text: "Nous plaçons la qualité, la confidentialité et l'éthique au cœur de chaque mission."
+    text: "Nous plaçons la qualité, la confidentialité et l’éthique au cœur de chaque mission."
   },
   {
     icon: "growth",

@@ -11,8 +11,8 @@ export function InsightsGrid() {
           <SectionTitle
             center
             eyebrow="Ressources & insights"
-            title="Des reperes utiles pour vos decisions"
-            text="Une base editoriale prete a evoluer avec les publications validees par Morocco Europe Consulting."
+            title="Des repères utiles pour vos décisions"
+            text="Une base éditoriale prête à évoluer avec les publications validées par Morocco Europe Consulting."
           />
         </div>
         <div className="insight-grid insight-grid-priority" style={{ marginTop: 34 }}>

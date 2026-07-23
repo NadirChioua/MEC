@@ -9,7 +9,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: "Ressources",
   description:
-    "Ressources utiles pour mieux comprendre les enjeux financiers, fiscaux et reglementaires au Maroc et en Europe."
+    "Ressources utiles pour mieux comprendre les enjeux financiers, fiscaux et réglementaires au Maroc et en Europe."
 };
 
 export default function ResourcesPage() {
@@ -17,7 +17,7 @@ export default function ResourcesPage() {
     <>
       <PageHero
         title="Ressources"
-        intro="Retrouvez des ressources utiles pour mieux comprendre les enjeux financiers, fiscaux et reglementaires au Maroc et en Europe."
+        intro="Retrouvez des ressources utiles pour mieux comprendre les enjeux financiers, fiscaux et réglementaires au Maroc et en Europe."
       />
       <section className="section">
         <div className="container resource-layout">
@@ -59,17 +59,17 @@ export default function ResourcesPage() {
               <span>Recherche</span>
               <span className="search-field">
                 <Icon name="search" />
-                <input id="resource-search" type="search" placeholder="Mot-cle" />
+                <input id="resource-search" type="search" placeholder="Mot-clé" />
               </span>
             </label>
-            <h3>Categories</h3>
+            <h3>Catégories</h3>
             <ul className="footer-list">
-              <li>Fiscalite</li>
-              <li>Strategie</li>
+              <li>Fiscalité</li>
+              <li>Stratégie</li>
               <li>Pilotage financier</li>
               <li>Commerce Maroc-Europe</li>
             </ul>
-            <h3 style={{ marginTop: 24 }}>Dernieres ressources</h3>
+            <h3 style={{ marginTop: 24 }}>Dernières ressources</h3>
             <ul className="footer-list">
               {insights.map((insight) => (
                 <li key={insight.title}>
@@ -79,7 +79,7 @@ export default function ResourcesPage() {
             </ul>
             <h3 style={{ marginTop: 24 }}>Tags</h3>
             <div className="tag-list">
-              {["Finance", "Maroc", "Europe", "Croissance", "Conformite"].map((tag) => (
+              {["Finance", "Maroc", "Europe", "Croissance", "Conformité"].map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
             </div>

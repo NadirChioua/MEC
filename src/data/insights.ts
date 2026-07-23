@@ -11,30 +11,30 @@ export type Insight = {
 
 export const insights: Insight[] = [
   {
-    category: "Fiscalite",
+    category: "Fiscalité",
     date: "2026",
-    title: "Loi de Finances Maroc 2026 : les mesures cles a connaitre",
-    description: "Un acces direct aux ressources officielles pour suivre les nouvelles dispositions financieres.",
+    title: "Loi de Finances Maroc 2026 : les mesures clés à connaître",
+    description: "Un accès direct aux ressources officielles pour suivre les nouvelles dispositions financières.",
     href: "https://www.finances.gov.ma",
     imageTone: "tax",
     imageSrc: "/images/sections/finance-table.png",
     imageAlt: "Documents financiers, graphiques et calculatrice dans une palette navy et or"
   },
   {
-    category: "Strategie",
-    date: "A preparer",
-    title: "Structurer sa croissance entre le Maroc et l'Europe",
-    description: "Un futur guide MEC pour cadrer les priorites financieres, juridiques et operationnelles.",
+    category: "Stratégie",
+    date: "À préparer",
+    title: "Structurer sa croissance entre le Maroc et l’Europe",
+    description: "Un futur guide MEC pour cadrer les priorités financières, juridiques et opérationnelles.",
     href: "/contact",
     imageTone: "strategy",
     imageSrc: "/images/generated/mec-morocco-europe-bridge.png",
-    imageAlt: "Consultants en reunion strategique devant une carte internationale"
+    imageAlt: "Consultants en réunion stratégique devant une carte internationale"
   },
   {
     category: "Pilotage",
-    date: "A preparer",
-    title: "Les indicateurs financiers a suivre avant une expansion",
-    description: "Une ressource editoriale prevue pour aider les dirigeants a lire leurs chiffres avec precision.",
+    date: "À préparer",
+    title: "Les indicateurs financiers à suivre avant une expansion",
+    description: "Une ressource éditoriale prévue pour aider les dirigeants à lire leurs chiffres avec précision.",
     href: "/contact",
     imageTone: "market",
     imageSrc: "/images/generated/mec-financial-advisory.png",
@@ -43,11 +43,11 @@ export const insights: Insight[] = [
   {
     category: "Audit",
     date: "Guide",
-    title: "Preparer un audit interne sans ralentir l'activite",
-    description: "Les points de controle essentiels pour securiser vos donnees, vos flux et vos obligations.",
+    title: "Préparer un audit interne sans ralentir l’activité",
+    description: "Les points de contrôle essentiels pour sécuriser vos données, vos flux et vos obligations.",
     href: "/services/audit-controle",
     imageTone: "audit",
     imageSrc: "/images/generated/mec-audit-compliance.png",
-    imageAlt: "Auditeurs examinant des documents de controle et de conformite"
+    imageAlt: "Auditeurs examinant des documents de contrôle et de conformité"
   }
 ];

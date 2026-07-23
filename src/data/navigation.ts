@@ -12,5 +12,6 @@ export const navigation = [
     }))
   },
   { label: "Ressources", href: "/resources" },
-  { label: "Contact", href: "/contact" }
+  { label: "Contact", href: "/contact" },
+  { label: "Admin", href: "/admin" }
 ];

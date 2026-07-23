@@ -68,7 +68,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
             </div>
             <div className="card">
-              <h3>Besoin d'un avis structuré ?</h3>
+              <h3>Besoin d’un avis structuré ?</h3>
               <p>Planifiez une première consultation pour cadrer vos priorités et identifier les prochaines étapes.</p>
               <div className="cta-row">
                 <ButtonLink href="/contact" variant="primary">
