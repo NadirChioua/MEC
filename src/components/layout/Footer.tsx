@@ -42,8 +42,12 @@ export function Footer() {
           <div>
             <h3>Contact</h3>
             <ul className="footer-list">
-              <li>{siteConfig.contact.phone}</li>
-              <li>{siteConfig.contact.email}</li>
+              <li>
+                <a href={`tel:+${siteConfig.contact.whatsappNumber}`}>{siteConfig.contact.phone}</a>
+              </li>
+              <li>
+                <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+              </li>
               <li>{siteConfig.contact.address}</li>
             </ul>
             <h3 style={{ marginTop: 22 }}>Legal</h3>

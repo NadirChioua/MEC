@@ -4,12 +4,12 @@ export const siteConfig = {
   tagline: "Conseil financier et stratégie Maroc-Europe.",
   description:
     "Cabinet de conseil premium basé à Tanger, spécialisé en finance, audit, comptabilité, stratégie d'entreprise et accompagnement Maroc-Europe.",
-  url: "https://mo-eu-consulting.com",
+  url: "https://www.mecfinance.ma",
   locale: "fr_MA",
   contact: {
-    phone: "+212 6 00 00 00 00",
-    whatsappNumber: "212600000000",
-    email: "contact@mec-consulting.com",
+    phone: "+212 6 14 47 49 36",
+    whatsappNumber: "212614474936",
+    email: "contact@mecfinance.ma",
     address: "1er étage N3, Rue Farabi, Résidence N18 - Tanger, Maroc",
     hours: "Lun - Ven : 9h00 - 18h00"
   },

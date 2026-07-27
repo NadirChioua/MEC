@@ -943,6 +943,81 @@ a.card:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.admin-logout {
+  width: 100%;
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f7efd4;
+  cursor: pointer;
+  font-weight: 900;
+  margin-top: 22px;
+  padding: 11px 12px;
+  text-align: left;
+}
+
+.admin-logout:hover,
+.admin-logout:focus-visible {
+  border-color: rgba(212, 175, 55, 0.62);
+  background: rgba(212, 175, 55, 0.14);
+}
+
+.admin-loading,
+.admin-login-shell {
+  min-height: calc(100vh - 120px);
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(212, 175, 55, 0.12), transparent 30%),
+    linear-gradient(135deg, #f8f4ea, #ffffff 48%, #f8f4ea);
+  padding: 40px 20px;
+}
+
+.admin-login-card {
+  width: min(100%, 520px);
+  border: 1px solid rgba(0, 31, 63, 0.12);
+  border-top: 3px solid var(--color-accent);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-card-premium);
+  padding: clamp(28px, 5vw, 44px);
+}
+
+.admin-login-card img {
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+.admin-login-card h1 {
+  color: var(--color-primary);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.admin-login-card form {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.admin-login-card label {
+  display: grid;
+  gap: 8px;
+  color: var(--color-primary);
+  font-weight: 900;
+}
+
+.admin-login-card input {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--color-text);
+  padding: 13px 14px;
+}
+
 .admin-main {
   padding: 36px;
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { clearAdminSession, hasAdminSession } from "@/components/admin/AdminLogin";
 import { Icon } from "@/components/icons/Icon";
 import { services } from "@/data/services";
 import { insights } from "@/data/insights";
@@ -37,13 +39,21 @@ const defaultState: AdminState = {
 const storageKey = "mec-admin-dashboard";
 
 export function AdminDashboard() {
+  const router = useRouter();
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const [state, setState] = useState<AdminState>(defaultState);
   const [client, setClient] = useState({ name: "", company: "", need: "" });
 
   useEffect(() => {
+    if (!hasAdminSession()) {
+      router.replace("/admin/login");
+      return;
+    }
+
+    setIsAuthorized(true);
     const saved = window.localStorage.getItem(storageKey);
     if (saved) setState(JSON.parse(saved) as AdminState);
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     window.localStorage.setItem(storageKey, JSON.stringify(state));
@@ -86,6 +96,19 @@ export function AdminDashboard() {
     }));
   };
 
+  const logout = () => {
+    clearAdminSession();
+    router.replace("/admin/login");
+  };
+
+  if (!isAuthorized) {
+    return (
+      <section className="admin-loading">
+        <p>Vérification de l’accès administrateur…</p>
+      </section>
+    );
+  }
+
   return (
     <div className="admin-shell">
       <aside className="admin-sidebar">
@@ -99,6 +122,9 @@ export function AdminDashboard() {
             <a key={item} href={`#${item.toLowerCase().replace("â", "a").replace(" ", "-")}`}>{item}</a>
           ))}
         </nav>
+        <button className="admin-logout" type="button" onClick={logout}>
+          Déconnexion
+        </button>
       </aside>
 
       <section className="admin-main">

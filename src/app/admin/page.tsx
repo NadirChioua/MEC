@@ -3,7 +3,11 @@ import { AdminDashboard } from "@/components/admin/AdminDashboard";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
-  description: "Tableau de bord administrateur pour Morocco Europe Consulting."
+  description: "Tableau de bord administrateur pour Morocco Europe Consulting.",
+  robots: {
+    index: false,
+    follow: false
+  }
 };
 
 export default function AdminPage() {
