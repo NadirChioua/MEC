@@ -1043,9 +1043,43 @@ a.card:hover {
   color: #dce8f3;
 }
 
+.admin-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-card-premium);
+  color: var(--color-primary);
+  font-weight: 850;
+  margin: 24px 0;
+  padding: 14px 16px;
+}
+
+.admin-status-bar button,
+.admin-record button,
+.admin-task-list.dynamic button {
+  border: 1px solid rgba(0, 31, 63, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-weight: 900;
+  padding: 9px 11px;
+}
+
+.admin-status-bar button:hover,
+.admin-record button:hover,
+.admin-task-list.dynamic button:hover {
+  border-color: rgba(212, 175, 55, 0.52);
+  color: #9a6a00;
+}
+
 .admin-kpis {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 16px;
   margin: 24px 0;
 }
@@ -1172,6 +1206,98 @@ a.card:hover {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
+}
+
+.admin-inline-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.admin-inline-form .button {
+  min-height: 46px;
+}
+
+.admin-record-list {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-record {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 160px) minmax(120px, auto) auto;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(0, 31, 63, 0.1);
+  border-radius: 10px;
+  background: rgba(248, 244, 234, 0.5);
+  padding: 12px;
+}
+
+.admin-record-fields {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-record strong,
+.admin-record span,
+.admin-record small {
+  display: block;
+}
+
+.admin-record strong {
+  color: var(--color-primary);
+}
+
+.admin-record span,
+.admin-record small {
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
+}
+
+.admin-task-list.dynamic {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+}
+
+.admin-task-list.dynamic li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid rgba(0, 31, 63, 0.1);
+  border-radius: 10px;
+  background: rgba(248, 244, 234, 0.5);
+  padding: 12px;
+}
+
+.admin-task-list.dynamic label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 850;
+}
+
+.admin-task-list.dynamic input {
+  width: auto;
+}
+
+@media (max-width: 760px) {
+  .admin-status-bar,
+  .admin-record,
+  .admin-task-list.dynamic li {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-record {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-main {
+    padding: 22px;
+  }
 }
 
 .admin-table {

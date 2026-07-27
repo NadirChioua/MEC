@@ -43,7 +43,7 @@ export function ContactForm() {
         </div>
         <div className="field">
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" autoComplete="email" placeholder="adresse@email.com" aria-describedby={errors.email ? "email-error" : undefined} />
+          <input id="email" name="email" type="email" autoComplete="email" aria-describedby={errors.email ? "email-error" : undefined} />
           {errors.email ? <span className="error" id="email-error">{errors.email}</span> : null}
         </div>
         <div className="field">

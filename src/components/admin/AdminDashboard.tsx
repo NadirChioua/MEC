@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { clearAdminSession, hasAdminSession } from "@/components/admin/AdminLogin";
 import { Icon } from "@/components/icons/Icon";
-import { services } from "@/data/services";
 import { insights } from "@/data/insights";
+import { services } from "@/data/services";
 
 type Client = {
   id: string;
@@ -15,34 +15,118 @@ type Client = {
   status: string;
 };
 
+type MediaAsset = {
+  id: string;
+  title: string;
+  type: "Image" | "Vidéo";
+  section: string;
+  url: string;
+  status: "Actif" | "À remplacer" | "Archivé";
+};
+
+type Project = {
+  id: string;
+  title: string;
+  market: string;
+  status: "Prospection" | "En cours" | "Livré";
+};
+
+type ContactMessage = {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  status: "Nouveau" | "En traitement" | "Traité";
+};
+
+type Task = {
+  id: string;
+  title: string;
+  done: boolean;
+};
+
 type AdminState = {
-  heroTitle: string;
-  heroText: string;
-  mission: string;
+  content: {
+    heroTitle: string;
+    heroText: string;
+    mission: string;
+  };
   clients: Client[];
-  tasks: string[];
+  media: MediaAsset[];
+  projects: Project[];
+  messages: ContactMessage[];
+  tasks: Task[];
+};
+
+const storageKey = "mec-admin-dashboard-v2";
+
+const createId = () => {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) return crypto.randomUUID();
+  return `mec-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 };
 
 const defaultState: AdminState = {
-  heroTitle: "L’excellence au service de votre entreprise.",
-  heroText:
-    "Morocco Europe Consulting accompagne les entreprises marocaines et les sociétés internationales implantées ou souhaitant s’implanter au Maroc.",
-  mission:
-    "Offrir à nos clients un partenaire de confiance, capable de sécuriser leurs projets, d’optimiser leur gestion et de favoriser leur réussite au Maroc.",
+  content: {
+    heroTitle: "L’excellence au service de votre entreprise.",
+    heroText:
+      "Morocco Europe Consulting accompagne les entreprises marocaines et les sociétés internationales implantées ou souhaitant s’implanter au Maroc dans leur gestion comptable, financière, fiscale et administrative.",
+    mission:
+      "Offrir à nos clients un partenaire de confiance, capable de sécuriser leurs projets, d’optimiser leur gestion et de favoriser leur réussite au Maroc."
+  },
   clients: [
-    { id: "1", name: "Nouveau prospect", company: "Entreprise Maroc-Europe", need: "Conseil financier", status: "À qualifier" },
-    { id: "2", name: "Investisseur étranger", company: "Projet implantation Maroc", need: "Création société", status: "En suivi" }
+    { id: "client-1", name: "Prospect stratégique", company: "Entreprise Maroc-Europe", need: "Conseil financier", status: "À qualifier" },
+    { id: "client-2", name: "Investisseur international", company: "Implantation Maroc", need: "Création société", status: "En suivi" }
   ],
-  tasks: ["Valider les images finales", "Préparer les contenus multilingues", "Contrôler les formulaires de contact"]
+  media: [
+    {
+      id: "media-1",
+      title: "Hero consulting meeting",
+      type: "Image",
+      section: "Hero",
+      url: "/images/generated/mec-hero-consulting-meeting.png",
+      status: "Actif"
+    },
+    {
+      id: "media-2",
+      title: "Financial advisory",
+      type: "Image",
+      section: "Services",
+      url: "/images/generated/mec-financial-advisory.png",
+      status: "Actif"
+    },
+    {
+      id: "media-3",
+      title: "Audit compliance",
+      type: "Image",
+      section: "Audit",
+      url: "/images/generated/mec-audit-compliance.png",
+      status: "Actif"
+    }
+  ],
+  projects: [
+    { id: "project-1", title: "Structuration financière PME", market: "Maroc", status: "En cours" },
+    { id: "project-2", title: "Implantation société étrangère", market: "Europe → Maroc", status: "Prospection" }
+  ],
+  messages: [
+    { id: "message-1", name: "Direction PME", email: "contact@mecfinance.ma", subject: "Demande de consultation confidentielle", status: "Nouveau" }
+  ],
+  tasks: [
+    { id: "task-1", title: "Valider les images finales", done: true },
+    { id: "task-2", title: "Contrôler les formulaires de contact", done: false },
+    { id: "task-3", title: "Vérifier le domaine et l’email professionnel", done: true }
+  ]
 };
-
-const storageKey = "mec-admin-dashboard";
 
 export function AdminDashboard() {
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [state, setState] = useState<AdminState>(defaultState);
-  const [client, setClient] = useState({ name: "", company: "", need: "" });
+  const [clientForm, setClientForm] = useState({ name: "", company: "", need: "" });
+  const [mediaForm, setMediaForm] = useState({ title: "", type: "Image" as MediaAsset["type"], section: "", url: "" });
+  const [projectForm, setProjectForm] = useState({ title: "", market: "" });
+  const [messageForm, setMessageForm] = useState({ name: "", email: "", subject: "" });
+  const [taskTitle, setTaskTitle] = useState("");
+  const [notice, setNotice] = useState("Toutes les modifications sont sauvegardées automatiquement dans ce navigateur.");
 
   useEffect(() => {
     if (!hasAdminSession()) {
@@ -52,41 +136,48 @@ export function AdminDashboard() {
 
     setIsAuthorized(true);
     const saved = window.localStorage.getItem(storageKey);
-    if (saved) setState(JSON.parse(saved) as AdminState);
+    if (saved) {
+      try {
+        setState(JSON.parse(saved) as AdminState);
+      } catch {
+        window.localStorage.removeItem(storageKey);
+      }
+    }
   }, [router]);
 
   useEffect(() => {
+    if (!isAuthorized) return;
     window.localStorage.setItem(storageKey, JSON.stringify(state));
-  }, [state]);
+  }, [isAuthorized, state]);
 
-  const imageAssets = useMemo(
+  const kpis = useMemo(
     () => [
-      "/images/generated/mec-hero-consulting-meeting.png",
-      "/images/generated/mec-financial-advisory.png",
-      "/images/generated/mec-audit-compliance.png",
-      "/images/generated/mec-morocco-europe-bridge.png",
-      "/images/generated/mec-contact-cta.png",
-      "/images/sections/strategy-map.png"
+      { label: "Services publics", value: services.length },
+      { label: "Ressources", value: insights.length },
+      { label: "Médias", value: state.media.length },
+      { label: "Messages", value: state.messages.length },
+      { label: "Clients", value: state.clients.length },
+      { label: "Projets", value: state.projects.length }
     ],
-    []
+    [state.clients.length, state.media.length, state.messages.length, state.projects.length]
   );
 
-  const addClient = () => {
-    if (!client.name.trim() || !client.company.trim()) return;
+  const saveNotice = (text = "Modification enregistrée avec succès.") => setNotice(text);
+
+  const updateContent = (field: keyof AdminState["content"], value: string) => {
+    setState((current) => ({ ...current, content: { ...current.content, [field]: value } }));
+    saveNotice("Contenu sauvegardé automatiquement.");
+  };
+
+  const addClient = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!clientForm.name.trim() || !clientForm.company.trim()) return;
     setState((current) => ({
       ...current,
-      clients: [
-        {
-          id: crypto.randomUUID(),
-          name: client.name,
-          company: client.company,
-          need: client.need || "À préciser",
-          status: "Nouveau"
-        },
-        ...current.clients
-      ]
+      clients: [{ id: createId(), ...clientForm, need: clientForm.need || "À préciser", status: "Nouveau" }, ...current.clients]
     }));
-    setClient({ name: "", company: "", need: "" });
+    setClientForm({ name: "", company: "", need: "" });
+    saveNotice("Client ajouté.");
   };
 
   const updateClientStatus = (id: string, status: string) => {
@@ -94,6 +185,140 @@ export function AdminDashboard() {
       ...current,
       clients: current.clients.map((item) => item.id === id ? { ...item, status } : item)
     }));
+    saveNotice("Statut client mis à jour.");
+  };
+
+  const updateClientField = (id: string, field: keyof Omit<Client, "id">, value: string) => {
+    setState((current) => ({
+      ...current,
+      clients: current.clients.map((item) => item.id === id ? { ...item, [field]: value } : item)
+    }));
+    saveNotice("Client mis à jour.");
+  };
+
+  const deleteClient = (id: string) => {
+    setState((current) => ({ ...current, clients: current.clients.filter((item) => item.id !== id) }));
+    saveNotice("Client supprimé.");
+  };
+
+  const addMedia = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!mediaForm.title.trim() || !mediaForm.url.trim()) return;
+    setState((current) => ({
+      ...current,
+      media: [{ id: createId(), ...mediaForm, section: mediaForm.section || "Site", status: "Actif" }, ...current.media]
+    }));
+    setMediaForm({ title: "", type: "Image", section: "", url: "" });
+    saveNotice("Média ajouté.");
+  };
+
+  const updateMediaStatus = (id: string, status: MediaAsset["status"]) => {
+    setState((current) => ({ ...current, media: current.media.map((item) => item.id === id ? { ...item, status } : item) }));
+    saveNotice("Statut média mis à jour.");
+  };
+
+  const updateMediaField = (id: string, field: keyof Omit<MediaAsset, "id">, value: string) => {
+    setState((current) => ({
+      ...current,
+      media: current.media.map((item) => item.id === id ? { ...item, [field]: value } : item)
+    }));
+    saveNotice("Média mis à jour.");
+  };
+
+  const deleteMedia = (id: string) => {
+    setState((current) => ({ ...current, media: current.media.filter((item) => item.id !== id) }));
+    saveNotice("Média supprimé.");
+  };
+
+  const addProject = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!projectForm.title.trim()) return;
+    setState((current) => ({
+      ...current,
+      projects: [{ id: createId(), title: projectForm.title, market: projectForm.market || "Maroc-Europe", status: "Prospection" }, ...current.projects]
+    }));
+    setProjectForm({ title: "", market: "" });
+    saveNotice("Projet ajouté.");
+  };
+
+  const updateProjectStatus = (id: string, status: Project["status"]) => {
+    setState((current) => ({
+      ...current,
+      projects: current.projects.map((item) => item.id === id ? { ...item, status } : item)
+    }));
+    saveNotice("Statut projet mis à jour.");
+  };
+
+  const updateProjectField = (id: string, field: keyof Omit<Project, "id">, value: string) => {
+    setState((current) => ({
+      ...current,
+      projects: current.projects.map((item) => item.id === id ? { ...item, [field]: value } : item)
+    }));
+    saveNotice("Projet mis à jour.");
+  };
+
+  const deleteProject = (id: string) => {
+    setState((current) => ({ ...current, projects: current.projects.filter((item) => item.id !== id) }));
+    saveNotice("Projet supprimé.");
+  };
+
+  const addMessage = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!messageForm.name.trim() || !messageForm.subject.trim()) return;
+    setState((current) => ({
+      ...current,
+      messages: [{ id: createId(), ...messageForm, email: messageForm.email || "contact@mecfinance.ma", status: "Nouveau" }, ...current.messages]
+    }));
+    setMessageForm({ name: "", email: "", subject: "" });
+    saveNotice("Message ajouté.");
+  };
+
+  const updateMessageStatus = (id: string, status: ContactMessage["status"]) => {
+    setState((current) => ({
+      ...current,
+      messages: current.messages.map((item) => item.id === id ? { ...item, status } : item)
+    }));
+    saveNotice("Statut message mis à jour.");
+  };
+
+  const updateMessageField = (id: string, field: keyof Omit<ContactMessage, "id">, value: string) => {
+    setState((current) => ({
+      ...current,
+      messages: current.messages.map((item) => item.id === id ? { ...item, [field]: value } : item)
+    }));
+    saveNotice("Message mis à jour.");
+  };
+
+  const deleteMessage = (id: string) => {
+    setState((current) => ({ ...current, messages: current.messages.filter((item) => item.id !== id) }));
+    saveNotice("Message supprimé.");
+  };
+
+  const addTask = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!taskTitle.trim()) return;
+    setState((current) => ({ ...current, tasks: [{ id: createId(), title: taskTitle, done: false }, ...current.tasks] }));
+    setTaskTitle("");
+    saveNotice("Tâche ajoutée.");
+  };
+
+  const toggleTask = (id: string) => {
+    setState((current) => ({
+      ...current,
+      tasks: current.tasks.map((task) => task.id === id ? { ...task, done: !task.done } : task)
+    }));
+    saveNotice("Tâche mise à jour.");
+  };
+
+  const deleteTask = (id: string) => {
+    setState((current) => ({ ...current, tasks: current.tasks.filter((task) => task.id !== id) }));
+    saveNotice("Tâche supprimée.");
+  };
+
+  const resetDashboard = () => {
+    setState(defaultState);
+    window.localStorage.removeItem(storageKey);
+    saveNotice("Tableau de bord réinitialisé.");
   };
 
   const logout = () => {
@@ -118,8 +343,8 @@ export function AdminDashboard() {
           <span>Gestion du site</span>
         </div>
         <nav>
-          {["Vue générale", "Contenu", "Images", "Clients", "Tâches"].map((item) => (
-            <a key={item} href={`#${item.toLowerCase().replace("â", "a").replace(" ", "-")}`}>{item}</a>
+          {["Vue générale", "Contenu", "Médias", "Projets", "Clients", "Messages", "Tâches"].map((item) => (
+            <a key={item} href={`#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-")}`}>{item}</a>
           ))}
         </nav>
         <button className="admin-logout" type="button" onClick={logout}>
@@ -132,110 +357,190 @@ export function AdminDashboard() {
           <p className="eyebrow">Dashboard administrateur</p>
           <h1>Centre de pilotage Morocco Europe Consulting</h1>
           <p>
-            Une interface de gestion prête pour organiser le contenu, les images, les clients et les actions importantes avant
-            publication complète.
+            Gérez le contenu, les médias, les projets, les clients, les messages et les tâches depuis une interface
+            dynamique sauvegardée localement.
           </p>
         </div>
 
-        <div className="admin-kpis" id="vue-générale">
-          <div><span>Services</span><strong>{services.length}</strong></div>
-          <div><span>Ressources</span><strong>{insights.length}</strong></div>
-          <div><span>Images clés</span><strong>{imageAssets.length}</strong></div>
-          <div><span>Clients</span><strong>{state.clients.length}</strong></div>
+        <div className="admin-status-bar" role="status">
+          <span>{notice}</span>
+          <button type="button" onClick={resetDashboard}>Réinitialiser</button>
+        </div>
+
+        <div className="admin-kpis" id="vue-generale">
+          {kpis.map((item) => (
+            <div key={item.label}><span>{item.label}</span><strong>{item.value}</strong></div>
+          ))}
         </div>
 
         <div className="admin-grid">
           <section className="admin-panel" id="contenu">
-            <div className="admin-panel-head">
-              <Icon name="document" />
-              <div>
-                <h2>Modifier le contenu principal</h2>
-                <p>Ces champs préparent les textes clés du site pour une future sauvegarde côté serveur.</p>
-              </div>
-            </div>
+            <PanelHead icon="document" title="Modifier le contenu principal" text="Ces champs sont modifiables et conservés après actualisation de la page." />
             <label>
               Titre hero
-              <input value={state.heroTitle} onChange={(event) => setState({ ...state, heroTitle: event.target.value })} />
+              <input value={state.content.heroTitle} onChange={(event) => updateContent("heroTitle", event.target.value)} />
             </label>
             <label>
               Texte hero
-              <textarea value={state.heroText} onChange={(event) => setState({ ...state, heroText: event.target.value })} />
+              <textarea value={state.content.heroText} onChange={(event) => updateContent("heroText", event.target.value)} />
             </label>
             <label>
               Mission
-              <textarea value={state.mission} onChange={(event) => setState({ ...state, mission: event.target.value })} />
+              <textarea value={state.content.mission} onChange={(event) => updateContent("mission", event.target.value)} />
             </label>
           </section>
 
-          <section className="admin-panel" id="images">
-            <div className="admin-panel-head">
-              <Icon name="market" />
-              <div>
-                <h2>Gestion des images</h2>
-                <p>Inventaire des visuels actuellement disponibles pour remplacer les sections du site.</p>
-              </div>
+          <section className="admin-panel" id="medias">
+            <PanelHead icon="market" title="Gestion images & vidéos" text="Ajoutez, archivez ou remplacez les visuels utilisés par l’identité MEC." />
+            <form className="admin-inline-form" onSubmit={addMedia}>
+              <input value={mediaForm.title} onChange={(event) => setMediaForm({ ...mediaForm, title: event.target.value })} placeholder="Titre du média" />
+              <select value={mediaForm.type} onChange={(event) => setMediaForm({ ...mediaForm, type: event.target.value as MediaAsset["type"] })}>
+                <option>Image</option>
+                <option>Vidéo</option>
+              </select>
+              <input value={mediaForm.section} onChange={(event) => setMediaForm({ ...mediaForm, section: event.target.value })} placeholder="Section du site" />
+              <input value={mediaForm.url} onChange={(event) => setMediaForm({ ...mediaForm, url: event.target.value })} placeholder="/images/..." />
+              <button className="button primary" type="submit">Ajouter</button>
+            </form>
+            <div className="admin-record-list">
+              {state.media.map((asset) => (
+                <article key={asset.id} className="admin-record">
+                  <div className="admin-record-fields">
+                    <input value={asset.title} onChange={(event) => updateMediaField(asset.id, "title", event.target.value)} aria-label="Titre média" />
+                    <input value={asset.section} onChange={(event) => updateMediaField(asset.id, "section", event.target.value)} aria-label="Section média" />
+                    <input value={asset.url} onChange={(event) => updateMediaField(asset.id, "url", event.target.value)} aria-label="URL média" />
+                  </div>
+                  <select value={asset.type} onChange={(event) => updateMediaField(asset.id, "type", event.target.value)}>
+                    <option>Image</option>
+                    <option>Vidéo</option>
+                  </select>
+                  <select value={asset.status} onChange={(event) => updateMediaStatus(asset.id, event.target.value as MediaAsset["status"])}>
+                    <option>Actif</option>
+                    <option>À remplacer</option>
+                    <option>Archivé</option>
+                  </select>
+                  <button type="button" onClick={() => deleteMedia(asset.id)}>Supprimer</button>
+                </article>
+              ))}
             </div>
-            <div className="admin-image-grid">
-              {imageAssets.map((src) => (
-                <button key={src} type="button">
-                  <img src={src} alt="Aperçu image du site MEC" />
-                  <span>{src.split("/").pop()}</span>
-                </button>
+          </section>
+
+          <section className="admin-panel" id="projets">
+            <PanelHead icon="growth" title="Projets & missions" text="Suivez les missions importantes et leur niveau d’avancement." />
+            <form className="admin-inline-form" onSubmit={addProject}>
+              <input value={projectForm.title} onChange={(event) => setProjectForm({ ...projectForm, title: event.target.value })} placeholder="Nom de mission" />
+              <input value={projectForm.market} onChange={(event) => setProjectForm({ ...projectForm, market: event.target.value })} placeholder="Marché / pays" />
+              <button className="button primary" type="submit">Ajouter</button>
+            </form>
+            <div className="admin-record-list">
+              {state.projects.map((project) => (
+                <article key={project.id} className="admin-record">
+                  <div className="admin-record-fields">
+                    <input value={project.title} onChange={(event) => updateProjectField(project.id, "title", event.target.value)} aria-label="Titre projet" />
+                    <input value={project.market} onChange={(event) => updateProjectField(project.id, "market", event.target.value)} aria-label="Marché projet" />
+                  </div>
+                  <select value={project.status} onChange={(event) => updateProjectStatus(project.id, event.target.value as Project["status"])}>
+                    <option>Prospection</option>
+                    <option>En cours</option>
+                    <option>Livré</option>
+                  </select>
+                  <button type="button" onClick={() => deleteProject(project.id)}>Supprimer</button>
+                </article>
               ))}
             </div>
           </section>
 
           <section className="admin-panel" id="clients">
-            <div className="admin-panel-head">
-              <Icon name="partnership" />
-              <div>
-                <h2>Clients & prospects</h2>
-                <p>Ajouter et suivre les clients importants du cabinet.</p>
-              </div>
-            </div>
-            <div className="admin-client-form">
-              <input placeholder="Nom" value={client.name} onChange={(event) => setClient({ ...client, name: event.target.value })} />
-              <input placeholder="Entreprise" value={client.company} onChange={(event) => setClient({ ...client, company: event.target.value })} />
-              <input placeholder="Besoin" value={client.need} onChange={(event) => setClient({ ...client, need: event.target.value })} />
-              <button className="button primary" type="button" onClick={addClient}>Ajouter</button>
-            </div>
-            <div className="admin-table">
+            <PanelHead icon="partnership" title="Clients & prospects" text="Ajoutez, qualifiez et supprimez les fiches clients." />
+            <form className="admin-inline-form" onSubmit={addClient}>
+              <input value={clientForm.name} onChange={(event) => setClientForm({ ...clientForm, name: event.target.value })} placeholder="Nom" />
+              <input value={clientForm.company} onChange={(event) => setClientForm({ ...clientForm, company: event.target.value })} placeholder="Entreprise" />
+              <input value={clientForm.need} onChange={(event) => setClientForm({ ...clientForm, need: event.target.value })} placeholder="Besoin" />
+              <button className="button primary" type="submit">Ajouter</button>
+            </form>
+            <div className="admin-record-list">
               {state.clients.map((item) => (
-                <div key={item.id}>
-                  <strong>{item.name}</strong>
-                  <span>{item.company}</span>
-                  <span>{item.need}</span>
+                <article key={item.id} className="admin-record">
+                  <div className="admin-record-fields">
+                    <input value={item.name} onChange={(event) => updateClientField(item.id, "name", event.target.value)} aria-label="Nom client" />
+                    <input value={item.company} onChange={(event) => updateClientField(item.id, "company", event.target.value)} aria-label="Entreprise client" />
+                    <input value={item.need} onChange={(event) => updateClientField(item.id, "need", event.target.value)} aria-label="Besoin client" />
+                  </div>
                   <select value={item.status} onChange={(event) => updateClientStatus(item.id, event.target.value)}>
                     <option>Nouveau</option>
                     <option>À qualifier</option>
                     <option>En suivi</option>
                     <option>Validé</option>
                   </select>
-                </div>
+                  <button type="button" onClick={() => deleteClient(item.id)}>Supprimer</button>
+                </article>
               ))}
             </div>
           </section>
 
-          <section className="admin-panel" id="tâches">
-            <div className="admin-panel-head">
-              <Icon name="check" />
-              <div>
-                <h2>Tâches administrateur</h2>
-                <p>Organisation des actions avant et après déploiement.</p>
-              </div>
+          <section className="admin-panel" id="messages">
+            <PanelHead icon="email" title="Demandes de contact" text="Centralisez les demandes reçues ou ajoutées manuellement." />
+            <form className="admin-inline-form" onSubmit={addMessage}>
+              <input value={messageForm.name} onChange={(event) => setMessageForm({ ...messageForm, name: event.target.value })} placeholder="Nom du contact" />
+              <input value={messageForm.email} onChange={(event) => setMessageForm({ ...messageForm, email: event.target.value })} placeholder="Email du contact" />
+              <input value={messageForm.subject} onChange={(event) => setMessageForm({ ...messageForm, subject: event.target.value })} placeholder="Sujet de la demande" />
+              <button className="button primary" type="submit">Ajouter</button>
+            </form>
+            <div className="admin-record-list">
+              {state.messages.map((message) => (
+                <article key={message.id} className="admin-record">
+                  <div className="admin-record-fields">
+                    <input value={message.name} onChange={(event) => updateMessageField(message.id, "name", event.target.value)} aria-label="Nom message" />
+                    <input value={message.email} onChange={(event) => updateMessageField(message.id, "email", event.target.value)} aria-label="Email message" />
+                    <input value={message.subject} onChange={(event) => updateMessageField(message.id, "subject", event.target.value)} aria-label="Sujet message" />
+                  </div>
+                  <select value={message.status} onChange={(event) => updateMessageStatus(message.id, event.target.value as ContactMessage["status"])}>
+                    <option>Nouveau</option>
+                    <option>En traitement</option>
+                    <option>Traité</option>
+                  </select>
+                  <button type="button" onClick={() => deleteMessage(message.id)}>Supprimer</button>
+                </article>
+              ))}
             </div>
-            <ul className="admin-task-list">
+          </section>
+
+          <section className="admin-panel" id="taches">
+            <PanelHead icon="check" title="Tâches administrateur" text="Créez une checklist dynamique pour l’exploitation du site." />
+            <form className="admin-inline-form" onSubmit={addTask}>
+              <input value={taskTitle} onChange={(event) => setTaskTitle(event.target.value)} placeholder="Nouvelle tâche" />
+              <button className="button primary" type="submit">Ajouter</button>
+            </form>
+            <ul className="admin-task-list dynamic">
               {state.tasks.map((task) => (
-                <li key={task}><Icon name="check" />{task}</li>
+                <li key={task.id}>
+                  <label>
+                    <input type="checkbox" checked={task.done} onChange={() => toggleTask(task.id)} />
+                    <span>{task.title}</span>
+                  </label>
+                  <button type="button" onClick={() => deleteTask(task.id)}>Supprimer</button>
+                </li>
               ))}
             </ul>
             <p className="admin-note">
-              Note technique : cette première version fonctionne côté interface et conserve les modifications localement.
-              Pour une administration complète en production, il faudra connecter une authentification et une base de données.
+              Version dynamique locale : les données sont persistées dans LocalStorage. Pour synchroniser tous les administrateurs,
+              une base de données ou un CMS devra être connecté ultérieurement.
             </p>
           </section>
         </div>
       </section>
+    </div>
+  );
+}
+
+function PanelHead({ icon, title, text }: { icon: string; title: string; text: string }) {
+  return (
+    <div className="admin-panel-head">
+      <Icon name={icon} />
+      <div>
+        <h2>{title}</h2>
+        <p>{text}</p>
+      </div>
     </div>
   );
 }

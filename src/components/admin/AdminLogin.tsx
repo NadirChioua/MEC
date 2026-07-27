@@ -6,19 +6,29 @@ import { useRouter } from "next/navigation";
 const adminEmail = "admin@mecfinance.ma";
 const adminPassword = "Mecadmin2026.";
 export const adminSessionKey = "mec-admin-session";
+export const adminCookieKey = "mec-admin-auth";
+const adminCookieValue = "mec-admin-authorized";
 
 function createSessionToken() {
   return `mec-admin-${Date.now()}`;
 }
 
+export function setAdminSession() {
+  if (typeof window === "undefined") return;
+  const token = createSessionToken();
+  window.localStorage.setItem(adminSessionKey, token);
+  document.cookie = `${adminCookieKey}=${adminCookieValue}; path=/; max-age=86400; SameSite=Lax`;
+}
+
 export function hasAdminSession() {
   if (typeof window === "undefined") return false;
-  return Boolean(window.localStorage.getItem(adminSessionKey));
+  return Boolean(window.localStorage.getItem(adminSessionKey)) || document.cookie.includes(`${adminCookieKey}=${adminCookieValue}`);
 }
 
 export function clearAdminSession() {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(adminSessionKey);
+  document.cookie = `${adminCookieKey}=; path=/; max-age=0; SameSite=Lax`;
 }
 
 export function AdminLogin() {
@@ -28,7 +38,10 @@ export function AdminLogin() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (hasAdminSession()) router.replace("/admin");
+    if (hasAdminSession()) {
+      setAdminSession();
+      router.replace("/admin");
+    }
   }, [router]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -40,7 +53,7 @@ export function AdminLogin() {
       return;
     }
 
-    window.localStorage.setItem(adminSessionKey, createSessionToken());
+    setAdminSession();
     router.replace("/admin");
   };
 
