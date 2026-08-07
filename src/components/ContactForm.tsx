@@ -6,27 +6,72 @@ import { services } from "@/data/services";
 const consentText =
   "J’accepte que mes données personnelles soient collectées et traitées conformément à la loi n°09-08 relative à la protection des personnes physiques à l’égard du traitement des données à caractère personnel. Les informations recueillies sont utilisées uniquement pour répondre à ma demande.";
 
-type Errors = Partial<Record<"name" | "email" | "service" | "message" | "consent" | "website", string>>;
+type Errors = Partial<Record<"name" | "email" | "service" | "message" | "consent" | "website" | "form", string>>;
+
+type SubmitStatus = "idle" | "sending" | "success" | "error";
 
 export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
-  const [success, setSuccess] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const nextErrors: Errors = {};
 
-    if (!String(form.get("name") || "").trim()) nextErrors.name = "Indiquez votre nom complet.";
-    if (!String(form.get("email") || "").includes("@")) nextErrors.email = "Indiquez une adresse email valide.";
-    if (!String(form.get("service") || "")) nextErrors.service = "Sélectionnez le service souhaité.";
-    if (String(form.get("message") || "").trim().length < 12) nextErrors.message = "Ajoutez un message plus précis.";
-    if (!form.get("consent")) nextErrors.consent = "Le consentement est requis pour envoyer la demande.";
-    if (String(form.get("website") || "").trim()) nextErrors.website = "Le formulaire n’a pas pu être envoyé.";
+    const payload = {
+      name: String(form.get("name") || "").trim(),
+      company: String(form.get("company") || "").trim(),
+      email: String(form.get("email") || "").trim(),
+      phone: String(form.get("phone") || "").trim(),
+      service: String(form.get("service") || "").trim(),
+      message: String(form.get("message") || "").trim(),
+      consent: Boolean(form.get("consent")),
+      website: String(form.get("website") || "").trim()
+    };
+
+    if (!payload.name) nextErrors.name = "Indiquez votre nom complet.";
+    if (!payload.email.includes("@")) nextErrors.email = "Indiquez une adresse email valide.";
+    if (!payload.service) nextErrors.service = "Sélectionnez le service souhaité.";
+    if (payload.message.length < 12) nextErrors.message = "Ajoutez un message plus précis.";
+    if (!payload.consent) nextErrors.consent = "Le consentement est requis pour envoyer la demande.";
+    if (payload.website) nextErrors.website = "Le formulaire n’a pas pu être envoyé.";
 
     setErrors(nextErrors);
-    setSuccess(Object.keys(nextErrors).length === 0);
-    if (Object.keys(nextErrors).length === 0) event.currentTarget.reset();
+
+    if (Object.keys(nextErrors).length > 0) {
+      setStatus("idle");
+      return;
+    }
+
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json().catch(() => ({ message: "" }));
+
+      if (!response.ok) {
+        throw new Error(result.message || "Votre demande n’a pas pu être envoyée.");
+      }
+
+      formElement.reset();
+      setErrors({});
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+      setErrors({
+        form: error instanceof Error
+          ? error.message
+          : "Une erreur est survenue. Veuillez réessayer ou nous contacter par WhatsApp."
+      });
+    }
   }
 
   return (
@@ -77,9 +122,22 @@ export function ContactForm() {
           {errors.consent ? <span className="error" id="consent-error">{errors.consent}</span> : null}
         </div>
       </div>
-      {success ? <p className="success" style={{ marginTop: 16 }}>Votre demande est prête à être transmise. Le raccordement email/backend reste à configurer.</p> : null}
-      <button className="button primary" type="submit" style={{ marginTop: 18 }}>
-        Envoyer ma demande <span aria-hidden="true">→</span>
+
+      <div aria-live="polite">
+        {status === "success" ? (
+          <p className="success" style={{ marginTop: 16 }}>
+            Votre demande a bien été envoyée. Notre équipe vous contactera rapidement.
+          </p>
+        ) : null}
+        {errors.form ? (
+          <p className="error" style={{ marginTop: 16 }}>
+            {errors.form}
+          </p>
+        ) : null}
+      </div>
+
+      <button className="button primary" type="submit" disabled={status === "sending"} style={{ marginTop: 18 }}>
+        {status === "sending" ? "Envoi en cours..." : "Envoyer ma demande"} <span aria-hidden="true">→</span>
       </button>
     </form>
   );
