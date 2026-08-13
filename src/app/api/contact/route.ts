@@ -43,6 +43,38 @@ function formatValue(value: string) {
   return escapeHtml(value || "Non renseigné");
 }
 
+function getProviderErrorMessage(errorBody: unknown, fallback: string) {
+  if (errorBody && typeof errorBody === "object") {
+    const body = errorBody as { message?: unknown; error?: unknown; name?: unknown };
+
+    if (typeof body.message === "string" && body.message.trim()) {
+      return body.message.trim();
+    }
+
+    if (typeof body.error === "string" && body.error.trim()) {
+      return body.error.trim();
+    }
+
+    if (body.error && typeof body.error === "object") {
+      const nestedError = body.error as { message?: unknown; name?: unknown };
+
+      if (typeof nestedError.message === "string" && nestedError.message.trim()) {
+        return nestedError.message.trim();
+      }
+
+      if (typeof nestedError.name === "string" && nestedError.name.trim()) {
+        return nestedError.name.trim();
+      }
+    }
+
+    if (typeof body.name === "string" && body.name.trim()) {
+      return body.name.trim();
+    }
+  }
+
+  return fallback;
+}
+
 function buildEmailContent(contact: NormalizedContact) {
   const subject = `Nouvelle demande MEC - ${contact.service}`;
   const text = [
@@ -116,7 +148,7 @@ async function sendWithFormspree(contact: NormalizedContact) {
   if (!response.ok) {
     const errorBody = await response.json().catch(() => null);
     console.error("Formspree contact email error", errorBody);
-    throw new Error("L’envoi via Formspree a échoué. Vérifiez l’endpoint du formulaire.");
+    throw new Error(`Formspree: ${getProviderErrorMessage(errorBody, "L’envoi via Formspree a échoué.")}`);
   }
 
   return true;
@@ -150,7 +182,7 @@ async function sendWithResend(contact: NormalizedContact) {
   if (!response.ok) {
     const errorBody = await response.json().catch(() => null);
     console.error("Resend contact email error", errorBody);
-    throw new Error("L’envoi email a échoué. Veuillez vérifier la configuration Resend.");
+    throw new Error(`Resend: ${getProviderErrorMessage(errorBody, "L’envoi email a échoué.")}`);
   }
 
   return true;
