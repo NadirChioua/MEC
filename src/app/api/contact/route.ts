@@ -125,12 +125,10 @@ async function sendWithFormspree(contact: NormalizedContact) {
 async function sendWithResend(contact: NormalizedContact) {
   const apiKey = process.env.RESEND_API_KEY;
 
-  if (!apiKey) {
-    throw new Error("Le service email n’est pas encore configuré. Ajoutez FORMSPREE_ENDPOINT ou RESEND_API_KEY dans Vercel.");
-  }
+  if (!apiKey) return false;
 
   const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.contact.email;
-  const fromEmail = process.env.CONTACT_FROM_EMAIL || `Morocco Europe Consulting <${siteConfig.contact.email}>`;
+  const fromEmail = process.env.CONTACT_FROM_EMAIL || "Morocco Europe Consulting <noreply@send.mecfinance.ma>";
   const { subject, text, html } = buildEmailContent(contact);
 
   const response = await fetch("https://api.resend.com/emails", {
@@ -154,6 +152,8 @@ async function sendWithResend(contact: NormalizedContact) {
     console.error("Resend contact email error", errorBody);
     throw new Error("L’envoi email a échoué. Veuillez vérifier la configuration Resend.");
   }
+
+  return true;
 }
 
 export async function POST(request: Request) {
@@ -196,10 +196,14 @@ export async function POST(request: Request) {
   };
 
   try {
-    const sentWithFormspree = await sendWithFormspree(contact);
+    const sentWithResend = await sendWithResend(contact);
 
-    if (!sentWithFormspree) {
-      await sendWithResend(contact);
+    if (!sentWithResend) {
+      const sentWithFormspree = await sendWithFormspree(contact);
+
+      if (!sentWithFormspree) {
+        throw new Error("Le service email n’est pas encore configuré. Ajoutez RESEND_API_KEY dans Vercel.");
+      }
     }
   } catch (error) {
     return NextResponse.json(
