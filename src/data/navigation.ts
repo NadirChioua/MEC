@@ -3,6 +3,7 @@ import { services } from "./services";
 export const navigation = [
   { label: "Accueil", href: "/" },
   { label: "À propos", href: "/about" },
+  { label: "Notre équipe", href: "/notre-equipe" },
   {
     label: "Services",
     href: "/services",
