@@ -13,7 +13,14 @@ export function ResourceBlock() {
               {siteConfig.resource.description}
             </p>
           </div>
-          <a className="button primary" href={siteConfig.resource.href} target="_blank" rel="noreferrer">
+          <a
+            className="button primary"
+            href={siteConfig.resource.href}
+            target="_blank"
+            rel="noreferrer"
+            data-track="resource-block-download"
+            data-track-label="Bloc ressource — Télécharger le guide"
+          >
             {siteConfig.resource.cta}
             <span aria-hidden="true">↗</span>
           </a>

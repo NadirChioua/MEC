@@ -27,7 +27,7 @@ export function MoroccoEuropePositioning() {
             ))}
           </ul>
           <div className="cta-row">
-            <ButtonLink href="/services/implantation-internationale" variant="secondary">
+            <ButtonLink href="/services/implantation-internationale" variant="secondary" trackId="positioning-cta-implantation" trackLabel="Positionnement — Implantation internationale">
               Voir l’accompagnement international
             </ButtonLink>
           </div>

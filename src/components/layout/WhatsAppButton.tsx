@@ -5,7 +5,15 @@ export function WhatsAppButton() {
   const href = `https://wa.me/${siteConfig.contact.whatsappNumber}`;
 
   return (
-    <a className="whatsapp" href={href} target="_blank" rel="noreferrer" aria-label="Contacter MEC sur WhatsApp">
+    <a
+      className="whatsapp"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Contacter MEC sur WhatsApp"
+      data-track="floating-whatsapp"
+      data-track-label="Bouton flottant — WhatsApp"
+    >
       <span className="status-dot" aria-hidden="true" />
       <Icon name="phone" />
       <span>

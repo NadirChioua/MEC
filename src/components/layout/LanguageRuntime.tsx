@@ -114,6 +114,8 @@ export function LanguageSwitcher() {
           type="button"
           onClick={() => selectLocale(language.code)}
           title={language.label}
+          data-track={`language-switch-${language.code}`}
+          data-track-label={`Langue — ${language.label}`}
         >
           {language.nativeLabel}
         </button>

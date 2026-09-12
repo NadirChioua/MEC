@@ -136,7 +136,7 @@ export function ContactForm() {
         ) : null}
       </div>
 
-      <button className="button primary" type="submit" disabled={status === "sending"} style={{ marginTop: 18 }}>
+      <button className="button primary" type="submit" data-track="contact-form-submit" data-track-label="Envoyer ma demande" disabled={status === "sending"} style={{ marginTop: 18 }}>
         {status === "sending" ? "Envoi en cours..." : "Envoyer ma demande"} <span aria-hidden="true">→</span>
       </button>
     </form>

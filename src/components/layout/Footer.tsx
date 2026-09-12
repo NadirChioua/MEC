@@ -3,17 +3,22 @@ import { navigation } from "@/data/navigation";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site";
 
+/** Transforme un href en identifiant analytics stable : "/services/audit" -> "services-audit". */
+function trackSlug(href: string) {
+  return href.replace(/^\//, "").replace(/\//g, "-") || "accueil";
+}
+
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="footer-grid">
           <div>
-            <Link className="brand" href="/" aria-label="Accueil Morocco Europe Consulting">
+            <Link className="brand" href="/" aria-label="Accueil Morocco Europe Consulting" data-track="footer-logo" data-track-label="Footer — Logo">
               <img className="footer-logo" src="/images/brand/logo-main.png" alt={siteConfig.name} />
             </Link>
             <p className="muted" style={{ marginTop: 18 }}>
-              Conseil financier, audit, comptabilite et strategie pour les entreprises qui operent entre le Maroc et l'Europe.
+              Conseil financier, audit, comptabilite et strategie pour les entreprises qui operent entre le Maroc et l&apos;Europe.
             </p>
           </div>
           <div>
@@ -21,11 +26,13 @@ export function Footer() {
             <ul className="footer-list">
               {navigation.filter((item) => !item.children).map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href}>{item.label}</Link>
+                  <Link href={item.href} data-track={`footer-nav-${trackSlug(item.href)}`} data-track-label={`Footer — ${item.label}`}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
               <li>
-                <Link href="/services">Services</Link>
+                <Link href="/services" data-track="footer-nav-services" data-track-label="Footer — Services">Services</Link>
               </li>
             </ul>
           </div>
@@ -34,7 +41,9 @@ export function Footer() {
             <ul className="footer-list">
               {services.slice(0, 6).map((service) => (
                 <li key={service.slug}>
-                  <Link href={`/services/${service.slug}`}>{service.title}</Link>
+                  <Link href={`/services/${service.slug}`} data-track={`footer-service-${service.slug}`} data-track-label={`Footer service — ${service.title}`}>
+                    {service.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -43,20 +52,28 @@ export function Footer() {
             <h3>Contact</h3>
             <ul className="footer-list">
               <li>
-                <a href={`tel:+${siteConfig.contact.whatsappNumber}`}>{siteConfig.contact.phone}</a>
+                <a href={`tel:+${siteConfig.contact.whatsappNumber}`} data-track="footer-phone" data-track-label="Footer — Téléphone">
+                  {siteConfig.contact.phone}
+                </a>
               </li>
               <li>
-                <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+                <a href={`mailto:${siteConfig.contact.email}`} data-track="footer-email" data-track-label="Footer — Email">
+                  {siteConfig.contact.email}
+                </a>
               </li>
               <li>{siteConfig.contact.address}</li>
             </ul>
             <h3 style={{ marginTop: 22 }}>Legal</h3>
             <ul className="footer-list">
               <li>
-                <Link href="/legal/mentions-legales">Mentions legales</Link>
+                <Link href="/legal/mentions-legales" data-track="footer-legal-mentions" data-track-label="Footer — Mentions légales">
+                  Mentions legales
+                </Link>
               </li>
               <li>
-                <Link href="/legal/confidentialite">Confidentialite</Link>
+                <Link href="/legal/confidentialite" data-track="footer-legal-confidentialite" data-track-label="Footer — Confidentialité">
+                  Confidentialite
+                </Link>
               </li>
             </ul>
           </div>

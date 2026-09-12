@@ -51,7 +51,7 @@ export function AboutPreview() {
             ))}
           </div>
           <div className="cta-row">
-            <ButtonLink href="/about" variant="secondary">
+            <ButtonLink href="/about" variant="secondary" trackId="about-preview-cta" trackLabel="À propos — En savoir plus">
               Découvrir le cabinet
             </ButtonLink>
           </div>

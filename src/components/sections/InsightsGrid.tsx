@@ -12,7 +12,7 @@ export function InsightsGrid() {
             center
             eyebrow="Ressources & insights"
             title="Des repères utiles pour vos décisions"
-            text="Une base éditoriale prête à évoluer avec les publications validées par Morocco Europe Consulting."
+            text="Des guides pratiques, datés et structurés par nos experts pour préparer vos décisions financières et vos projets Maroc-Europe."
           />
         </div>
         <div className="insight-grid insight-grid-priority" style={{ marginTop: 34 }}>

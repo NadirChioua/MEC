@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "MEC",
   tagline: "Conseil financier et stratégie Maroc-Europe.",
   description:
-    "Cabinet de conseil premium basé à Tanger, spécialisé en finance, audit, comptabilité, stratégie d'entreprise et accompagnement Maroc-Europe.",
+    "Cabinet de conseil financier et comptable à Tanger. MEC accompagne les entreprises en finance, fiscalité, audit, pilotage et implantation entre le Maroc et l'Europe.",
   url: "https://www.mecfinance.ma",
   locale: "fr_MA",
   contact: {
@@ -11,8 +11,12 @@ export const siteConfig = {
     whatsappNumber: "212614474936",
     email: "contact@mecfinance.ma",
     address: "1er étage N3, Rue Farabi, Résidence N18 - Tanger, Maroc",
-    hours: "Lun - Ven : 9h00 - 18h00"
+    hours: "Lun - Ven : 9h00 - 18h00",
+    city: "Tanger",
+    region: "Tanger-Tétouan-Al Hoceïma",
+    country: "MA"
   },
+  positioning: "Le partenaire financier et opérationnel des entreprises qui travaillent entre le Maroc et l'Europe.",
   languages: [
     { code: "FR", label: "Français", enabled: true },
     { code: "AR", label: "العربية", enabled: true },

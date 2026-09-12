@@ -20,7 +20,7 @@ export function QuickContact() {
           <strong>Email</strong>
           <p className="muted">{siteConfig.contact.email}</p>
         </div>
-        <ButtonLink href="/contact" variant="dark">
+        <ButtonLink href="/contact" variant="dark" trackId="quick-contact-cta" trackLabel="Contact rapide — Contacter MEC">
           Contacter MEC
         </ButtonLink>
       </div>

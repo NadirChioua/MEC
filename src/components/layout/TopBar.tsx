@@ -9,11 +9,15 @@ export function TopBar() {
         <ul className="topbar-list" aria-label="Informations de contact">
           <li>
             <Icon name="phone" />
-            <a href={`tel:+${siteConfig.contact.whatsappNumber}`}>{siteConfig.contact.phone}</a>
+            <a href={`tel:+${siteConfig.contact.whatsappNumber}`} data-track="topbar-phone" data-track-label="Barre haute — Téléphone">
+              {siteConfig.contact.phone}
+            </a>
           </li>
           <li className="hide-mobile">
             <Icon name="email" />
-            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+            <a href={`mailto:${siteConfig.contact.email}`} data-track="topbar-email" data-track-label="Barre haute — Email">
+              {siteConfig.contact.email}
+            </a>
           </li>
           <li className="hide-mobile"><Icon name="location" />{siteConfig.contact.address}</li>
           <li><Icon name="time" />{siteConfig.contact.hours}</li>

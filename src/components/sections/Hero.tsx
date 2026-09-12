@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/icons/Icon";
 
@@ -5,23 +6,28 @@ export function Hero() {
   return (
     <section className="hero">
       <div className="hero-background" aria-hidden="true">
-        <img src="/images/generated/mec-hero-consulting-meeting.png" alt="" />
+        <Image
+          src="/images/generated/mec-hero-consulting-meeting.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+        />
       </div>
       <div className="container hero-inner">
         <div className="hero-copy reveal">
-          <p className="eyebrow">Cabinet de conseil premium — Maroc & Europe</p>
-          <h1>L’excellence au service de votre entreprise.</h1>
+          <p className="eyebrow">Cabinet de conseil financier et comptable à Tanger</p>
+          <h1>Votre partenaire financier et opérationnel entre le Maroc et l’Europe.</h1>
           <p className="lead" style={{ marginTop: 22 }}>
-            Morocco Europe Consulting accompagne les entreprises marocaines et les sociétés internationales implantées ou
-            souhaitant s’implanter au Maroc dans leur gestion comptable, financière, fiscale et administrative. Nous
-            conseillons également les dirigeants dans leurs décisions stratégiques afin de soutenir durablement la croissance
-            de leur activité.
+            Morocco Europe Consulting accompagne les PME, investisseurs et sociétés internationales dans leur comptabilité,
+            leur fiscalité, leur gestion financière et leur implantation au Maroc. Nous transformons les chiffres et les
+            obligations en décisions claires pour sécuriser votre croissance entre le Maroc et l’Europe.
           </p>
           <div className="hero-actions">
-            <ButtonLink href="/contact" variant="primary">
+            <ButtonLink href="/contact" variant="primary" trackId="hero-cta-consultation" trackLabel="Hero — Consultation confidentielle">
               Consultation confidentielle
             </ButtonLink>
-            <ButtonLink href="/services" variant="secondary">
+            <ButtonLink href="/services" variant="secondary" trackId="hero-cta-services" trackLabel="Hero — Explorer les services">
               Explorer les services
             </ButtonLink>
           </div>

@@ -21,7 +21,13 @@ export function ServicesGrid({ showTitle = true }: ServicesGridProps) {
         ) : null}
         <div className="grid three" style={{ marginTop: showTitle ? 36 : 0 }}>
           {services.map((service) => (
-            <Link className="card service-card reveal" key={service.slug} href={`/services/${service.slug}`}>
+            <Link
+              className="card service-card reveal"
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              data-track={`service-card-${service.slug}`}
+              data-track-label={`Carte service — ${service.title}`}
+            >
               <span className="icon-box">
                 <Icon name={service.icon} />
               </span>

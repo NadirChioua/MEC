@@ -13,7 +13,7 @@ export function ContactCTA() {
             entre le Maroc et l’Europe.
           </p>
         </div>
-        <ButtonLink href="/contact" variant="primary">
+        <ButtonLink href="/contact" variant="primary" trackId="final-cta-consultation" trackLabel="CTA final — Demander une consultation">
           Demander une consultation
         </ButtonLink>
       </div>

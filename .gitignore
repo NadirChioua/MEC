@@ -18,3 +18,10 @@ pnpm-debug.log*
 
 .DS_Store
 Thumbs.db
+
+.vercel
+
+# Scratch et artefacts de build locaux
+tmp/
+debug.log
+tsconfig.tsbuildinfo
