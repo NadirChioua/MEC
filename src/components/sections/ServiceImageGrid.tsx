@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Icon } from "@/components/icons/Icon";
 import { services } from "@/data/services";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { lp, tr } from "@/lib/i18n-server";
 
 export function ServiceImageGrid() {
   return (
@@ -14,19 +15,19 @@ export function ServiceImageGrid() {
         />
         <div className="image-card-grid" style={{ marginTop: 34 }}>
           {services.map((service) => (
-            <Link className="image-service-card reveal" href={`/services/${service.slug}`} key={service.slug}>
+            <Link className="image-service-card reveal" href={lp(`/services/${service.slug}`)} key={service.slug}>
               <div className={`service-visual tone-${service.imageTone}`}>
-                <img src={service.imageSrc} alt={service.imageAlt} loading="lazy" />
-                <span>{service.imageLabel}</span>
+                <img src={service.imageSrc} alt={tr(service.imageAlt)} loading="lazy" />
+                <span>{tr(service.imageLabel)}</span>
               </div>
               <div className="image-service-content">
                 <span className="icon-box small">
                   <Icon name={service.icon} />
                 </span>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
+                <h3>{tr(service.title)}</h3>
+                <p>{tr(service.description)}</p>
                 <span className="card-link">
-                  Lire la suite <Icon name="arrow" />
+                  {tr("Lire la suite")} <Icon name="arrow" />
                 </span>
               </div>
             </Link>

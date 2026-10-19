@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/icons/Icon";
+import { tr } from "@/lib/i18n-server";
 
 const points = [
   "Structuration financière et administrative des projets transfrontaliers.",
@@ -12,17 +13,16 @@ export function MoroccoEuropePositioning() {
     <section className="section morocco-europe-section">
       <div className="container split">
         <div className="reveal">
-          <p className="eyebrow">Positionnement international</p>
-          <h2>Le pont stratégique entre le Maroc et l’Europe.</h2>
+          <p className="eyebrow">{tr("Positionnement international")}</p>
+          <h2>{tr("Le pont stratégique entre le Maroc et l’Europe.")}</h2>
           <p className="lead" style={{ marginTop: 14 }}>
-            MEC aide les entreprises à transformer la complexité transfrontalière en décisions structurées :
-            finance, audit, comptabilité, fiscalité opérationnelle et coordination des partenaires.
+            {tr("MEC aide les entreprises à transformer la complexité transfrontalière en décisions structurées : finance, audit, comptabilité, fiscalité opérationnelle et coordination des partenaires.")}
           </p>
           <ul className="positioning-list">
             {points.map((point) => (
               <li key={point}>
                 <Icon name="check" />
-                <span>{point}</span>
+                <span>{tr(point)}</span>
               </li>
             ))}
           </ul>
@@ -33,7 +33,7 @@ export function MoroccoEuropePositioning() {
           </div>
         </div>
         <div className="positioning-visual reveal">
-          <img loading="lazy" decoding="async" src="/images/generated/mec-morocco-europe-bridge.webp" alt="Équipe de conseil international discutant une stratégie Maroc Europe dans un bureau premium" />
+          <img loading="lazy" decoding="async" src="/images/generated/mec-morocco-europe-bridge.webp" alt={tr("Équipe de conseil international discutant une stratégie Maroc Europe dans un bureau premium")} />
           <div className="positioning-seal">
             <img loading="lazy" decoding="async" src="/images/brand/logo-mark.webp" alt="" aria-hidden="true" />
             <span>Morocco-Europe advisory</span>

@@ -2,10 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { navigation } from "@/data/navigation";
 import { siteConfig } from "@/data/site";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/icons/Icon";
+import { isLocalizedPath } from "@/lib/i18n-server";
+
+const LOCALES = ["nl", "en", "es", "ar"];
 
 /** Transforme un href en identifiant analytics stable : "/services/audit" -> "services-audit". */
 function trackSlug(href: string) {
@@ -14,11 +18,14 @@ function trackSlug(href: string) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  // on a translated page (/nl, /en, /es, /ar) menu links stay in that language
+  const prefix = usePathname()?.split("/")[1] ?? "";
+  const L = (href: string) => (LOCALES.includes(prefix) && isLocalizedPath(href) ? (href === "/" ? `/${prefix}` : `/${prefix}${href}`) : href);
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link className="brand" href="/" aria-label="Accueil Morocco Europe Consulting" data-track="header-logo" data-track-label="Header — Logo">
+        <Link className="brand" href={L("/")} aria-label="Accueil Morocco Europe Consulting" data-track="header-logo" data-track-label="Header — Logo">
           <img
             className="brand-logo brand-logo-main"
             src="/images/brand/logo-main.webp"
@@ -39,19 +46,19 @@ export function Header() {
                 <li className="nav-item" key={item.href}>
                   {item.children ? (
                     <>
-                      <Link className="nav-link" href={item.href} data-track={`nav-${trackSlug(item.href)}`} data-track-label={`Menu — ${item.label}`}>
+                      <Link className="nav-link" href={L(item.href)} data-track={`nav-${trackSlug(item.href)}`} data-track-label={`Menu — ${item.label}`}>
                         {item.label} <span className="dropdown-caret" aria-hidden="true" />
                       </Link>
                       <div className="dropdown" aria-label="Sous-menu Services">
                         {item.children.map((child) => (
-                          <Link key={child.href} href={child.href} data-track={`nav-dropdown-${trackSlug(child.href)}`} data-track-label={`Menu Services — ${child.label}`}>
+                          <Link key={child.href} href={L(child.href)} data-track={`nav-dropdown-${trackSlug(child.href)}`} data-track-label={`Menu Services — ${child.label}`}>
                             {child.label}
                           </Link>
                         ))}
                       </div>
                     </>
                   ) : (
-                    <Link className="nav-link" href={item.href} data-track={`nav-${trackSlug(item.href)}`} data-track-label={`Menu — ${item.label}`}>
+                    <Link className="nav-link" href={L(item.href)} data-track={`nav-${trackSlug(item.href)}`} data-track-label={`Menu — ${item.label}`}>
                       {item.label}
                     </Link>
                   )}
@@ -59,7 +66,7 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <ButtonLink href="/contact" variant="primary" trackId="header-cta-consultation" trackLabel="Header — Consultation confidentielle">
+          <ButtonLink href={L("/contact")} variant="primary" trackId="header-cta-consultation" trackLabel="Header — Consultation confidentielle">
             Consultation confidentielle
           </ButtonLink>
         </div>
@@ -85,23 +92,23 @@ export function Header() {
                 <details key={item.href} open>
                   <summary>{item.label}</summary>
                   <div className="mobile-subnav">
-                    <Link href={item.href} onClick={() => setOpen(false)} data-track="mobile-nav-services-all" data-track-label="Menu mobile — Tous les services">
+                    <Link href={L(item.href)} onClick={() => setOpen(false)} data-track="mobile-nav-services-all" data-track-label="Menu mobile — Tous les services">
                       Tous les services
                     </Link>
                     {item.children.map((child) => (
-                      <Link key={child.href} href={child.href} onClick={() => setOpen(false)} data-track={`mobile-nav-${trackSlug(child.href)}`} data-track-label={`Menu mobile — ${child.label}`}>
+                      <Link key={child.href} href={L(child.href)} onClick={() => setOpen(false)} data-track={`mobile-nav-${trackSlug(child.href)}`} data-track-label={`Menu mobile — ${child.label}`}>
                         {child.label}
                       </Link>
                     ))}
                   </div>
                 </details>
               ) : (
-                <Link key={item.href} href={item.href} onClick={() => setOpen(false)} data-track={`mobile-nav-${trackSlug(item.href)}`} data-track-label={`Menu mobile — ${item.label}`}>
+                <Link key={item.href} href={L(item.href)} onClick={() => setOpen(false)} data-track={`mobile-nav-${trackSlug(item.href)}`} data-track-label={`Menu mobile — ${item.label}`}>
                   {item.label}
                 </Link>
               )
             )}
-            <ButtonLink href="/contact" variant="primary" trackId="mobile-cta-consultation" trackLabel="Menu mobile — Consultation confidentielle">
+            <ButtonLink href={L("/contact")} variant="primary" trackId="mobile-cta-consultation" trackLabel="Menu mobile — Consultation confidentielle">
               Consultation confidentielle
             </ButtonLink>
           </nav>

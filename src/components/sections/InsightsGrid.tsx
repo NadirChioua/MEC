@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Icon } from "@/components/icons/Icon";
 import { insights } from "@/data/insights";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { lp, tr } from "@/lib/i18n-server";
 
 export function InsightsGrid() {
   return (
@@ -17,17 +18,17 @@ export function InsightsGrid() {
         </div>
         <div className="insight-grid insight-grid-priority" style={{ marginTop: 34 }}>
           {insights.map((insight) => (
-            <Link className="insight-card reveal" href={insight.href} key={insight.title}>
+            <Link className="insight-card reveal" href={lp(insight.href)} key={insight.title}>
               <div className={`insight-visual tone-${insight.imageTone}`}>
-                <img src={insight.imageSrc} alt={insight.imageAlt} loading="lazy" />
-                <span>{insight.category}</span>
+                <img src={insight.imageSrc} alt={tr(insight.imageAlt)} loading="lazy" />
+                <span>{tr(insight.category)}</span>
               </div>
               <div className="insight-content">
-                <span className="meta">{insight.category} - {insight.date}</span>
-                <h3>{insight.title}</h3>
-                <p>{insight.description}</p>
+                <span className="meta">{tr(insight.category)} - {tr(insight.date)}</span>
+                <h3>{tr(insight.title)}</h3>
+                <p>{tr(insight.description)}</p>
                 <span className="card-link">
-                  Consulter <Icon name="arrow" />
+                  {tr("Consulter")} <Icon name="arrow" />
                 </span>
               </div>
             </Link>

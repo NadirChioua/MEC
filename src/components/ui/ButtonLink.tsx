@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Icon } from "@/components/icons/Icon";
+import { lp, tr } from "@/lib/i18n-server";
 
 type ButtonLinkProps = {
   href: string;
@@ -14,8 +15,8 @@ type ButtonLinkProps = {
 
 export function ButtonLink({ href, children, variant = "primary", trackId, trackLabel }: ButtonLinkProps) {
   return (
-    <Link className={`button ${variant}`} href={href} data-track={trackId} data-track-label={trackLabel}>
-      {children}
+    <Link className={`button ${variant}`} href={lp(href)} data-track={trackId} data-track-label={trackLabel}>
+      {typeof children === "string" ? tr(children) : children}
       <Icon name="arrow" />
     </Link>
   );

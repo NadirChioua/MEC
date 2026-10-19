@@ -99,6 +99,9 @@ export function Footer() {
           {intlLangs.map((lang) => (
             <span key={lang} lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
               <strong>{landingLabels[lang].languageName}</strong>
+              <Link href={`/${lang}`} hrefLang={lang} data-track={`footer-intl-home-${lang}`} data-track-label={`Footer international — ${landingLabels[lang].home}`}>
+                {landingLabels[lang].home}
+              </Link>
               {landingPagesFor(lang).map((page) => (
                 <Link key={page.slug} href={landingPath(page)} hrefLang={lang} data-track={`footer-intl-${lang}`} data-track-label={`Footer international — ${page.title}`}>
                   {page.eyebrow}

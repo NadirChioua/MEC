@@ -1,5 +1,6 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Icon } from "@/components/icons/Icon";
+import { tr } from "@/lib/i18n-server";
 
 const reasons = [
   {
@@ -39,8 +40,8 @@ export function WhyChooseUs() {
               <span className="icon-box">
                 <Icon name={reason.icon} />
               </span>
-              <h3>{reason.title}</h3>
-              <p>{reason.text}</p>
+              <h3>{tr(reason.title)}</h3>
+              <p>{tr(reason.text)}</p>
             </div>
           ))}
         </div>

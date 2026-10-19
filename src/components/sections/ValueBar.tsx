@@ -1,4 +1,5 @@
 import { Icon } from "@/components/icons/Icon";
+import { tr } from "@/lib/i18n-server";
 
 const values = [
   { icon: "strategy", title: "Expertise stratégique", text: "Des décisions financières mieux cadrées." },
@@ -9,7 +10,7 @@ const values = [
 
 export function ValueBar() {
   return (
-    <section className="value-band" aria-label="Valeurs de MO-EU Consulting">
+    <section className="value-band" aria-label={tr("Valeurs de Morocco Europe Consulting")}>
       <div className="container value-grid">
         {values.map((item) => (
           <div className="value-item reveal" key={item.title}>
@@ -17,8 +18,8 @@ export function ValueBar() {
               <Icon name={item.icon} />
             </span>
             <div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+              <h3>{tr(item.title)}</h3>
+              <p>{tr(item.text)}</p>
             </div>
           </div>
         ))}

@@ -1,3 +1,5 @@
+import { pageEntries } from "./i18n-pages";
+
 export type Locale = "fr" | "ar" | "en" | "nl" | "es";
 
 export const locales: Array<{ code: Locale; label: string; nativeLabel: string; dir: "ltr" | "rtl" }> = [
@@ -8,7 +10,7 @@ export const locales: Array<{ code: Locale; label: string; nativeLabel: string; 
   { code: "es", label: "Espanol", nativeLabel: "ES", dir: "ltr" }
 ];
 
-type TranslationMap = Record<Locale, string>;
+export type TranslationMap = Record<Locale, string>;
 
 const entries: TranslationMap[] = [
   {
@@ -1684,4 +1686,4 @@ const completionEntries: TranslationMap[] = [
   }
 ];
 
-export const translations = [...entries, ...extendedEntries, ...finalEntries, ...serviceEntries, ...completionEntries];
+export const translations = [...entries, ...extendedEntries, ...finalEntries, ...serviceEntries, ...completionEntries, ...pageEntries];

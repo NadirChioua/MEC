@@ -1,5 +1,6 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Icon } from "@/components/icons/Icon";
+import { tr } from "@/lib/i18n-server";
 
 const approach = [
   {
@@ -40,8 +41,8 @@ export function Approach() {
               <span className="icon-box">
                 <Icon name={item.icon} />
               </span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+              <h3>{tr(item.title)}</h3>
+              <p>{tr(item.text)}</p>
             </div>
           ))}
         </div>
