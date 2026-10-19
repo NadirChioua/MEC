@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Tracker } from "@/components/analytics/Tracker";
 import { siteConfig } from "@/data/site";
 import { services } from "@/data/services";
+import { DEFAULT_OG_IMAGE, absoluteUrl } from "@/lib/seo";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -29,8 +30,8 @@ export const metadata: Metadata = {
     "conseil Maroc Europe"
   ],
   title: {
-    default: "Cabinet de conseil financier à Tanger | MEC",
-    template: "%s | Morocco Europe Consulting"
+    default: "Cabinet comptable et conseil financier à Tanger | MEC Finance",
+    template: "%s | MEC Finance"
   },
   description: siteConfig.description,
   openGraph: {
@@ -38,11 +39,11 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Cabinet de conseil financier à Tanger | MEC",
+    title: "Cabinet comptable et conseil financier à Tanger | MEC Finance",
     description: siteConfig.description,
     images: [
       {
-        url: "/images/generated/mec-hero-consulting-meeting.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "Morocco Europe Consulting - conseil financier et comptable à Tanger"
@@ -51,21 +52,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cabinet de conseil financier à Tanger | MEC",
+    title: "Cabinet comptable et conseil financier à Tanger | MEC Finance",
     description: siteConfig.description,
-    images: ["/images/generated/mec-hero-consulting-meeting.png"]
+    images: [DEFAULT_OG_IMAGE]
   },
   alternates: {
     canonical: siteConfig.url,
-    languages: { "fr-MA": siteConfig.url, "x-default": siteConfig.url }
-  },
-  icons: {
-    icon: "/images/brand/logo-mark.png",
-    apple: "/images/brand/logo-mark.png"
+    languages: { fr: siteConfig.url, "x-default": siteConfig.url }
   },
   robots: {
     index: true,
     follow: true
+  },
+  // Search Console / Bing Webmaster verification codes, set in Vercel env (empty = no tag)
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined
   }
 };
 
@@ -82,13 +86,13 @@ export default function SiteLayout({ children }: Readonly<{ children: ReactNode 
   const structuredData = [
     {
       "@context": "https://schema.org",
-      "@type": ["ProfessionalService", "Organization"],
+      "@type": ["AccountingService", "ProfessionalService"],
       "@id": organizationId,
       name: siteConfig.name,
       alternateName: siteConfig.shortName,
       url: siteConfig.url,
       logo: `${siteConfig.url}/images/brand/logo-main.png`,
-      image: `${siteConfig.url}/images/generated/mec-hero-consulting-meeting.png`,
+      image: absoluteUrl(DEFAULT_OG_IMAGE),
       description: siteConfig.description,
       telephone: siteConfig.contact.phone,
       email: siteConfig.contact.email,
@@ -99,9 +103,28 @@ export default function SiteLayout({ children }: Readonly<{ children: ReactNode 
         addressRegion: siteConfig.contact.region,
         addressCountry: siteConfig.contact.country
       },
+      hasMap: "https://www.google.com/maps/search/?api=1&query=Rue+Farabi+Residence+N18+Tanger+Maroc",
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:00",
+          closes: "18:00"
+        }
+      ],
       areaServed: [
+        { "@type": "City", name: "Tanger" },
+        { "@type": "AdministrativeArea", name: "Tanger-Tétouan-Al Hoceïma" },
         { "@type": "Country", name: "Maroc" },
-        { "@type": "AdministrativeArea", name: "Europe" }
+        { "@type": "Place", name: "Europe" }
+      ],
+      knowsAbout: [
+        "Comptabilité",
+        "Fiscalité des entreprises au Maroc",
+        "Création d'entreprise au Maroc",
+        "Implantation d'entreprises étrangères au Maroc",
+        "Audit interne et contrôle de gestion",
+        "Conseil financier et trésorerie"
       ],
       contactPoint: {
         "@type": "ContactPoint",
@@ -130,7 +153,7 @@ export default function SiteLayout({ children }: Readonly<{ children: ReactNode 
       url: siteConfig.url,
       name: siteConfig.name,
       description: siteConfig.description,
-      inLanguage: "fr-MA",
+      inLanguage: ["fr", "nl", "en", "es", "ar"],
       publisher: { "@id": organizationId }
     }
   ];

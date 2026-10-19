@@ -33,9 +33,9 @@ export function MoroccoEuropePositioning() {
           </div>
         </div>
         <div className="positioning-visual reveal">
-          <img src="/images/generated/mec-morocco-europe-bridge.png" alt="Équipe de conseil international discutant une stratégie Maroc Europe dans un bureau premium" />
+          <img loading="lazy" decoding="async" src="/images/generated/mec-morocco-europe-bridge.webp" alt="Équipe de conseil international discutant une stratégie Maroc Europe dans un bureau premium" />
           <div className="positioning-seal">
-            <img src="/images/brand/logo-mark.png" alt="" aria-hidden="true" />
+            <img loading="lazy" decoding="async" src="/images/brand/logo-mark.webp" alt="" aria-hidden="true" />
             <span>Morocco-Europe advisory</span>
           </div>
         </div>

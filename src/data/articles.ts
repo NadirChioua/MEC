@@ -34,7 +34,7 @@ export const articles: Article[] = [
     readingTime: "8 min",
     intro:
       "Créer une société au Maroc depuis l’Europe ne se résume pas au dépôt d’un dossier. La qualité du projet dépend surtout des décisions prises avant la première facture : forme juridique, gouvernance, flux bancaires, fiscalité, obligations sociales et méthode de pilotage. Cette checklist aide le dirigeant à organiser ces décisions avec ses conseils.",
-    imageSrc: "/images/generated/mec-morocco-europe-bridge.png",
+    imageSrc: "/images/generated/mec-morocco-europe-bridge.webp",
     imageAlt: "Réunion de conseil pour créer et implanter une société au Maroc depuis l’Europe",
     takeaways: [
       "Choisir la structure à partir du projet réel, des associés et des flux prévus.",
@@ -130,7 +130,7 @@ export const articles: Article[] = [
     readingTime: "7 min",
     intro:
       "Le bénéfice mesure une performance comptable sur une période. La trésorerie mesure l’argent réellement disponible à un instant donné. Une entreprise peut donc être rentable tout en manquant de cash lorsque les clients paient tard, que le stock augmente ou que les fournisseurs sont réglés trop vite.",
-    imageSrc: "/images/generated/mec-financial-advisory.png",
+    imageSrc: "/images/generated/mec-financial-advisory.webp",
     imageAlt: "Analyse du besoin en fonds de roulement et de la trésorerie d’une PME marocaine",
     takeaways: [
       "Le résultat ne dit pas quand l’argent entre et sort.",
@@ -190,7 +190,7 @@ export const articles: Article[] = [
     readingTime: "6 min",
     intro:
       "Un tableau de bord n’est pas une accumulation de graphiques. Il doit relier chaque indicateur à une décision, un responsable et une fréquence de revue. Pour une PME, quelques chiffres fiables et expliqués valent mieux qu’un reporting dense livré trop tard.",
-    imageSrc: "/images/sections/strategy-map.png",
+    imageSrc: "/images/sections/strategy-map.webp",
     imageAlt: "Tableau de bord financier et indicateurs de performance pour une PME au Maroc",
     takeaways: [
       "Chaque indicateur doit conduire à une décision possible.",
@@ -249,7 +249,7 @@ export const articles: Article[] = [
     readingTime: "7 min",
     intro:
       "Un audit interne bien préparé ne doit pas paralyser les équipes. Il commence par un périmètre clair, une liste de documents proportionnée aux risques et un calendrier partagé. L’objectif est d’obtenir des preuves fiables, de comprendre les causes et de prioriser les actions correctives.",
-    imageSrc: "/images/generated/mec-audit-compliance.png",
+    imageSrc: "/images/generated/mec-audit-compliance.webp",
     imageAlt: "Préparation d’un audit interne et contrôle des documents d’une entreprise",
     takeaways: [
       "Définir le risque et la question d’audit avant de demander des documents.",

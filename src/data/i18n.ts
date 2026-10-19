@@ -12,6 +12,13 @@ type TranslationMap = Record<Locale, string>;
 
 const entries: TranslationMap[] = [
   {
+    fr: "Notre équipe",
+    ar: "فريقنا",
+    en: "Our team",
+    nl: "Ons team",
+    es: "Nuestro equipo"
+  },
+  {
     fr: "Accueil",
     ar: "الرئيسية",
     en: "Home",

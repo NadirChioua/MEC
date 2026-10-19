@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           <h3 style={{ marginTop: 24 }}>Loi n°09-08</h3>
           <p>
             Le formulaire intègre un consentement relatif à la loi n°09-08 sur la protection des personnes physiques à
-            l'égard du traitement des données à caractère personnel.
+            l’égard du traitement des données à caractère personnel.
           </p>
           <h3 style={{ marginTop: 24 }}>Conservation et droits</h3>
           <p>

@@ -8,7 +8,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Notre équipe d’experts à Tanger",
   description: "Découvrez l’équipe MEC : comptables agréés, analystes financiers, conseillers en gestion et partenaires juridiques au service des entreprises au Maroc.",
   path: "/notre-equipe",
-  image: "/images/generated/mec-strategy-meeting.png"
+  image: "/images/generated/mec-strategy-meeting.webp"
 });
 
 const expertiseCards = [
@@ -47,7 +47,7 @@ export default function TeamPage() {
         <div className="container split">
           <div className="image-panel reveal">
             <img
-              src="/images/generated/mec-strategy-meeting.png"
+              src="/images/generated/mec-strategy-meeting.webp"
               alt="Équipe Morocco Europe Consulting réunie autour d’une mission de conseil stratégique"
             />
             <div className="experience-badge">

@@ -12,11 +12,12 @@ import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Cabinet de conseil financier et comptable à Tanger",
+  title: "Cabinet comptable à Tanger | Conseil financier Maroc-Europe – MEC",
+  absoluteTitle: true,
   description:
-    "Morocco Europe Consulting accompagne entreprises, PME et investisseurs en comptabilité, finance, fiscalité, audit et implantation entre le Maroc et l’Europe.",
+    "Cabinet comptable et de conseil financier à Tanger : comptabilité, fiscalité, audit, création et implantation d’entreprise au Maroc, pour PME, investisseurs et MRE. Première consultation gratuite.",
   path: "",
-  keywords: ["cabinet comptable Tanger", "conseil financier Maroc", "implantation entreprise Maroc", "audit Tanger"]
+  keywords: ["cabinet comptable Tanger", "conseil financier Maroc", "création entreprise Maroc", "implantation entreprise Maroc", "audit Tanger", "fiscalité entreprise Maroc"]
 });
 
 export default function HomePage() {

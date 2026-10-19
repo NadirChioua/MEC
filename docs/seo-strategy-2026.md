@@ -1,6 +1,6 @@
 # Stratégie SEO & visibilité IA — MEC Finance
 
-Dernière mise à jour : 11 septembre 2026  
+Dernière mise à jour : 17 octobre 2026  
 Domaine canonique : `https://www.mecfinance.ma`
 
 ## 1. Objectif et positionnement
@@ -29,7 +29,7 @@ La stratégie repose sur trois niveaux :
 - Le nouveau domaine n’a pas encore un historique de visibilité important dans les moteurs.
 - L’ancien domaine `mo-eu-consulting.com` apparaît encore dans les résultats de recherche. S’il appartient toujours à MEC, il faut le rediriger en 301, URL par URL, vers `www.mecfinance.ma`.
 - Les coordonnées publiques doivent être identiques sur le site, Google Business Profile, Bing Places, annuaires professionnels et profils sociaux. Une adresse différente apparaît dans certains annuaires : elle doit être vérifiée avant modification.
-- Le sélecteur de langue actuel fonctionne côté navigateur. Pour une indexation multilingue complète, les versions française, arabe, anglaise, espagnole et néerlandaise devront avoir des URL distinctes et des balises `hreflang`.
+- Le sélecteur de langue traduit encore le reste du site côté navigateur. Depuis octobre 2026, les pages commerciales clés ont des versions NL, EN, ES et AR avec leurs propres URL et des balises `hreflang` (voir section 11). Le reste du site reste à traduire de la même façon.
 
 ## 3. Architecture et mots-clés
 
@@ -151,3 +151,44 @@ Objectif : améliorer progressivement la qualité des prospects et le taux de co
 - Vérifier Google Business Profile et la cohérence NAP.
 - Décider du sort de l’ancien domaine et appliquer les redirections 301.
 - Lancer les partenariats et relations presse : ils nécessitent une validation humaine et ne peuvent pas être créés automatiquement depuis le code.
+
+## 11. Chantier SEO d’octobre 2026 (livré)
+
+### Vitesse
+
+- Les 15 visuels PNG (1,5 à 2 Mo chacun, ~25 Mo au total) sont servis en WebP 1600 px (20 à 140 Ko). Le bloc « Première consultation », présent sur toutes les pages, passe de 1,5 Mo à 26 Ko.
+- Logos de l’en-tête et du pied de page en WebP (51 Ko et 12 Ko au lieu de 0,5 et 1,1 Mo). Favicon dédié (`src/app/icon.png`, `apple-icon.png`) au lieu du logo de 1,1 Mo.
+- Images sous la ligne de flottaison en `loading="lazy"`. AVIF/WebP activés pour `next/image`, cache de 30 jours sur `/images/*`.
+- Aperçus sociaux en JPEG 1200×630 (`*-og.jpg`), car LinkedIn et WhatsApp ne lisent pas toujours le WebP.
+
+### Nouvelles pages et mots-clés
+
+| Langue | URL | Requêtes visées |
+|---|---|---|
+| FR | `/creation-entreprise-maroc-mre` | création entreprise Maroc MRE, créer une société au Maroc depuis la France / la Belgique |
+| FR | `/creation-sarl-maroc` | création SARL Maroc, SARL AU, capital minimum SARL Maroc |
+| FR | `/conseil-fiscal-tanger` | conseil fiscal Tanger, fiscalité entreprise Maroc, déclaration TVA Maroc |
+| NL | `/nl/bedrijf-oprichten-marokko`, `/nl/vestiging-bedrijf-marokko`, `/nl/boekhouder-tanger` | bedrijf oprichten Marokko, vestiging Marokko, boekhouder Tanger |
+| EN | `/en/company-formation-morocco`, `/en/set-up-business-morocco`, `/en/accountant-tangier` | company formation Morocco, subsidiary in Morocco, accountant Tangier |
+| ES | `/es/crear-empresa-marruecos`, `/es/implantacion-empresa-marruecos`, `/es/asesoria-contable-tanger` | crear empresa en Marruecos, filial en Marruecos, asesoría contable Tánger |
+| AR | `/ar/تأسيس-شركة-في-المغرب`, `/ar/توطين-شركة-أجنبية-في-المغرب`, `/ar/مكتب-محاسبة-طنجة` | تأسيس شركة في المغرب، مكتب محاسبة طنجة |
+
+Chaque version linguistique est rendue côté serveur, porte un `hreflang` réciproque vers ses équivalents (et `x-default` vers le français), figure dans le sitemap avec ses alternatives et est liée depuis le pied de page. Le français est déclaré en `fr` (et non plus `fr-MA`) pour viser aussi la France et la Belgique. Le sélecteur de langue ouvre la version indexable d’une page quand elle existe.
+
+Les textes traduits reprennent uniquement les faits déjà présents sur le site français (services, méthode, coordination avec notaire et avocat, première consultation gratuite). Aucun chiffre ni aucune promesse de résultat n’a été ajouté.
+
+### Données structurées et métadonnées
+
+- Organisation déclarée en `AccountingService` + `ProfessionalService` (entreprise locale), avec horaires, lien Google Maps, zone desservie (Tanger, région, Maroc, Europe) et domaines d’expertise.
+- Titres réécrits pour placer le mot-clé en tête (accueil, services, pages commerciales) et suffixe raccourci « | MEC Finance ».
+- Ajout de `/ar`, `/nl`, `/en`, `/es` dans `llms.txt`.
+
+### À faire hors code (priorité)
+
+1. **Google Search Console** : vérifier le domaine, soumettre `/sitemap.xml`, demander l’indexation des 15 nouvelles URL.
+2. **Google Business Profile** : catégorie « Cabinet comptable », mêmes nom, adresse et téléphone que le site, horaires, photos réelles du bureau, lien vers le site ; demander des avis aux clients satisfaits. C’est le premier levier pour « comptable Tanger » dans Google Maps.
+3. **Bing Webmaster Tools** (alimente aussi plusieurs moteurs IA) : importer depuis Search Console.
+4. **Ancien domaine `mo-eu-consulting.com`** : redirections 301 page par page vers `www.mecfinance.ma`.
+5. **Chiffres de l’accueil** (98 %, 15+, 300+, 20+ ans sur la page équipe) : les sourcer ou les retirer. Ils sont incohérents entre eux (15+ / 20+) et non vérifiables, ce qui affaiblit la confiance (E-E-A-T).
+6. **Langues de contact** : les données structurées annoncent un contact en FR, AR, EN, ES et NL. À confirmer, ou à réduire aux langues réellement parlées.
+7. **Liens entrants** : annuaires professionnels marocains et belges, chambres de commerce (CCI Tanger, chambres belgo- et hispano-marocaines), associations MRE, partenaires notaires et avocats (voir section 6).

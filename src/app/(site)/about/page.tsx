@@ -21,7 +21,7 @@ export default function AboutPage() {
       <section className="section">
         <div className="container split">
           <div className="image-panel reveal">
-            <img src="/images/generated/mec-financial-advisory.png" alt="Conseillers Morocco Europe Consulting analysant des documents financiers" />
+            <img loading="lazy" decoding="async" src="/images/generated/mec-financial-advisory.webp" alt="Conseillers Morocco Europe Consulting analysant des documents financiers" />
             <div className="experience-badge">
               <strong>15+</strong>
               <span>ans d’expertise</span>

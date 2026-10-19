@@ -21,7 +21,7 @@ export const services: Service[] = [
     icon: "finance",
     imageTone: "strategy",
     imageLabel: "Analyse financière",
-    imageSrc: "/images/generated/mec-financial-advisory.png",
+    imageSrc: "/images/generated/mec-financial-advisory.webp",
     imageAlt: "Conseillers financiers analysant des rapports et graphiques dans un bureau premium navy et or",
     detail:
       "Morocco Europe Consulting accompagne les entreprises dans la construction d'une stratégie financière claire, l'optimisation de la trésorerie et l'analyse des investissements afin d'améliorer la performance et la prise de décision.",
@@ -36,7 +36,7 @@ export const services: Service[] = [
     icon: "document",
     imageTone: "compliance",
     imageLabel: "Reporting comptable",
-    imageSrc: "/images/sections/finance-table.png",
+    imageSrc: "/images/sections/finance-table.webp",
     imageAlt: "Table financière avec ordinateur, calculatrice et graphiques pour reporting comptable professionnel",
     detail:
       "MEC prend en charge la comptabilité quotidienne et les obligations déclaratives avec rigueur, confidentialité et une vision utile au pilotage de l'entreprise.",
@@ -51,7 +51,7 @@ export const services: Service[] = [
     icon: "growth",
     imageTone: "operations",
     imageLabel: "Pilotage dirigeant",
-    imageSrc: "/images/generated/mec-strategy-meeting.png",
+    imageSrc: "/images/generated/mec-strategy-meeting.webp",
     imageAlt: "Équipe de conseil en réunion stratégique avec carte mondiale et données financières",
     detail:
       "Nous aidons les dirigeants à structurer l'organisation, suivre les indicateurs clés et mettre en place des méthodes de gestion adaptées à leur réalité opérationnelle.",
@@ -66,7 +66,7 @@ export const services: Service[] = [
     icon: "globe",
     imageTone: "international",
     imageLabel: "Expansion Maroc-Europe",
-    imageSrc: "/images/generated/mec-morocco-europe-bridge.png",
+    imageSrc: "/images/generated/mec-morocco-europe-bridge.webp",
     imageAlt: "Consultants discutant une strategie internationale Maroc Europe devant une carte elegante",
     detail:
       "MEC accompagne les projets d'implantation entre le Maroc et l'Europe, de l'analyse réglementaire à la structuration financière et juridique.",
@@ -81,7 +81,7 @@ export const services: Service[] = [
     icon: "shield",
     imageTone: "audit",
     imageLabel: "Audit et contrôle",
-    imageSrc: "/images/generated/mec-audit-compliance.png",
+    imageSrc: "/images/generated/mec-audit-compliance.webp",
     imageAlt: "Auditeurs professionnels examinant des documents de contrôle et de conformité",
     detail:
       "Nous mettons en place des dispositifs de contrôle pour sécuriser les opérations, fiabiliser les données et renforcer la gouvernance financière.",
@@ -96,7 +96,7 @@ export const services: Service[] = [
     icon: "partnership",
     imageTone: "advisory",
     imageLabel: "Relation de confiance",
-    imageSrc: "/images/generated/mec-contact-cta.png",
+    imageSrc: "/images/generated/mec-contact-cta.webp",
     imageAlt: "Accord professionnel entre client et consultant dans un bureau exécutif navy et or",
     detail:
       "Chaque mission MEC s'appuie sur une écoute précise des enjeux du client et un accompagnement progressif, lisible et confidentiel.",
@@ -111,7 +111,7 @@ export const services: Service[] = [
     icon: "market",
     imageTone: "trade",
     imageLabel: "Flux Maroc-Europe",
-    imageSrc: "/images/sections/strategy-map.png",
+    imageSrc: "/images/sections/strategy-map.webp",
     imageAlt: "Réunion de conseil international autour d'une carte mondiale et de supports stratégiques",
     detail:
       "Notre connaissance des échanges Maroc-Europe permet d'accompagner les entreprises dans leurs flux commerciaux, leurs obligations et leurs arbitrages financiers.",

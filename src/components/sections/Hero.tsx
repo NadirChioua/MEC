@@ -7,7 +7,7 @@ export function Hero() {
     <section className="hero">
       <div className="hero-background" aria-hidden="true">
         <Image
-          src="/images/generated/mec-hero-consulting-meeting.png"
+          src="/images/generated/mec-hero-consulting-meeting.webp"
           alt=""
           fill
           priority

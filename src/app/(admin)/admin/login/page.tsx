@@ -27,7 +27,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
   return (
     <section className="admin-login-shell">
       <div className="admin-login-card">
-        <Image src="/images/brand/logo-mark.png" alt="" aria-hidden="true" width={68} height={68} />
+        <Image src="/images/brand/logo-mark.webp" alt="" aria-hidden="true" width={68} height={68} />
         <p className="eyebrow">Accès confidentiel</p>
         <h1>Connexion administrateur</h1>
         <p className="muted">

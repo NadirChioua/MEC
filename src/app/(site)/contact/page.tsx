@@ -8,7 +8,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Contact - Cabinet de conseil à Tanger",
   description: "Contactez MEC à Tanger pour un premier échange en conseil financier, comptabilité, audit, création ou implantation d’entreprise au Maroc.",
   path: "/contact",
-  image: "/images/generated/mec-contact-cta.png"
+  image: "/images/generated/mec-contact-cta.webp"
 });
 
 export default function ContactPage() {

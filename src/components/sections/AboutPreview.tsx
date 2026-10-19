@@ -8,7 +8,7 @@ export function AboutPreview() {
     <section className="section about-section">
       <div className="container split">
         <div className="image-panel about-visual reveal">
-          <img src="/images/generated/mec-financial-advisory.png" alt="Analyse financière premium avec rapports, graphiques, ordinateur et conseillers" />
+          <img loading="lazy" decoding="async" src="/images/generated/mec-financial-advisory.webp" alt="Analyse financière premium avec rapports, graphiques, ordinateur et conseillers" />
           <div className="experience-badge">
             <strong>15+</strong>
             <span>ans d’expertise financière et stratégique</span>

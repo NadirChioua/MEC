@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 import { locales, translations, type Locale } from "@/data/i18n";
 
 const storageKey = "mec-locale";
@@ -8,8 +9,22 @@ const selector = "script, style, noscript, svg, input, textarea, select";
 const textSources = new WeakMap<Text, string>();
 const attributeSources = new WeakMap<HTMLElement, Record<string, string>>();
 
+/** Translated landing pages live under /nl, /en, /es and /ar: the URL decides their language. */
+function localeFromPath(pathname: string | null): Locale | null {
+  const prefix = pathname?.split("/")[1];
+  return prefix && prefix !== "fr" && locales.some((locale) => locale.code === prefix) ? (prefix as Locale) : null;
+}
+
+/** Server-rendered language version of the current page, if any (from its hreflang links). */
+function alternateUrl(locale: Locale) {
+  const link = document.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${locale}"]`);
+  return link?.href ?? null;
+}
+
 function getInitialLocale(): Locale {
   if (typeof window === "undefined") return "fr";
+  const fromPath = localeFromPath(window.location.pathname);
+  if (fromPath) return fromPath;
   const saved = window.localStorage.getItem(storageKey) as Locale | null;
   return locales.some((locale) => locale.code === saved) ? saved! : "fr";
 }
@@ -70,7 +85,10 @@ function translateDom(locale: Locale) {
 }
 
 export function LanguageRuntime() {
-  const [locale, setLocale] = useState<Locale>(getInitialLocale);
+  const [chosen, setLocale] = useState<Locale>(getInitialLocale);
+  const pathname = usePathname();
+  // translated pages (/nl, /en, /es, /ar) impose their language, including after client-side navigation
+  const locale = localeFromPath(pathname) ?? chosen;
   const current = useMemo(() => locales.find((item) => item.code === locale) ?? locales[0], [locale]);
 
   useEffect(() => {
@@ -98,9 +116,29 @@ export function LanguageRuntime() {
 }
 
 export function LanguageSwitcher() {
-  const [locale, setLocale] = useState<Locale>(getInitialLocale);
+  const [chosen, setLocale] = useState<Locale>(getInitialLocale);
+  const pathname = usePathname();
+  const locale = localeFromPath(pathname) ?? chosen;
+
+  // stay in sync with switches made elsewhere (other switcher instance, runtime)
+  useEffect(() => {
+    const handler = (event: Event) => {
+      const custom = event as CustomEvent<Locale>;
+      if (custom.detail) setLocale(custom.detail);
+    };
+    window.addEventListener("mec:locale", handler);
+    return () => window.removeEventListener("mec:locale", handler);
+  }, []);
 
   const selectLocale = (nextLocale: Locale) => {
+    // prefer the indexable version of this page in that language when it exists
+    const target = alternateUrl(nextLocale);
+    if (target && new URL(target).pathname !== window.location.pathname) {
+      window.localStorage.setItem(storageKey, nextLocale);
+      // same path on the current domain (works on preview deployments too)
+      window.location.assign(new URL(target).pathname);
+      return;
+    }
     setLocale(nextLocale);
     window.dispatchEvent(new CustomEvent("mec:locale", { detail: nextLocale }));
   };

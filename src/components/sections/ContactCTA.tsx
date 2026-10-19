@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 export function ContactCTA() {
   return (
     <section className="final-cta">
-      <img src="/images/generated/mec-contact-cta.png" alt="" aria-hidden="true" />
+      <img loading="lazy" decoding="async" src="/images/generated/mec-contact-cta.webp" alt="" aria-hidden="true" />
       <div className="container final-cta-content">
         <div>
           <p className="eyebrow">Première consultation</p>

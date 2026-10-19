@@ -21,12 +21,12 @@ export function Header() {
         <Link className="brand" href="/" aria-label="Accueil Morocco Europe Consulting" data-track="header-logo" data-track-label="Header — Logo">
           <img
             className="brand-logo brand-logo-main"
-            src="/images/brand/logo-main.png"
+            src="/images/brand/logo-main.webp"
             alt={siteConfig.name}
           />
           <img
             className="brand-logo brand-logo-mark"
-            src="/images/brand/logo-mark.png"
+            src="/images/brand/logo-mark.webp"
             alt=""
             aria-hidden="true"
           />

@@ -2,6 +2,11 @@ import Link from "next/link";
 import { navigation } from "@/data/navigation";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site";
+import { landingLabels } from "@/data/landing-i18n";
+import { landingPagesFor, landingPath, seoLandingPages } from "@/data/landing-pages";
+import type { HrefLang } from "@/lib/seo";
+
+const intlLangs: HrefLang[] = ["nl", "en", "es", "ar"];
 
 /** Transforme un href en identifiant analytics stable : "/services/audit" -> "services-audit". */
 function trackSlug(href: string) {
@@ -15,10 +20,10 @@ export function Footer() {
         <div className="footer-grid">
           <div>
             <Link className="brand" href="/" aria-label="Accueil Morocco Europe Consulting" data-track="footer-logo" data-track-label="Footer — Logo">
-              <img className="footer-logo" src="/images/brand/logo-main.png" alt={siteConfig.name} />
+              <img loading="lazy" decoding="async" className="footer-logo" src="/images/brand/logo-main.webp" alt={siteConfig.name} />
             </Link>
             <p className="muted" style={{ marginTop: 18 }}>
-              Conseil financier, audit, comptabilite et strategie pour les entreprises qui operent entre le Maroc et l&apos;Europe.
+              Cabinet comptable et de conseil financier à Tanger : comptabilité, fiscalité, audit et création d&apos;entreprise pour les sociétés qui opèrent entre le Maroc et l&apos;Europe.
             </p>
           </div>
           <div>
@@ -49,6 +54,18 @@ export function Footer() {
             </ul>
           </div>
           <div>
+            <h3>Expertises</h3>
+            <ul className="footer-list">
+              {seoLandingPages.map((page) => (
+                <li key={page.slug}>
+                  <Link href={landingPath(page)} data-track={`footer-landing-${page.slug}`} data-track-label={`Footer expertise — ${page.title}`}>
+                    {page.eyebrow}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
             <h3>Contact</h3>
             <ul className="footer-list">
               <li>
@@ -63,23 +80,35 @@ export function Footer() {
               </li>
               <li>{siteConfig.contact.address}</li>
             </ul>
-            <h3 style={{ marginTop: 22 }}>Legal</h3>
+            <h3 style={{ marginTop: 22 }}>Légal</h3>
             <ul className="footer-list">
               <li>
                 <Link href="/legal/mentions-legales" data-track="footer-legal-mentions" data-track-label="Footer — Mentions légales">
-                  Mentions legales
+                  Mentions légales
                 </Link>
               </li>
               <li>
                 <Link href="/legal/confidentialite" data-track="footer-legal-confidentialite" data-track-label="Footer — Confidentialité">
-                  Confidentialite
+                  Confidentialité
                 </Link>
               </li>
             </ul>
           </div>
         </div>
+        <nav className="footer-intl" aria-label="International">
+          {intlLangs.map((lang) => (
+            <span key={lang} lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
+              <strong>{landingLabels[lang].languageName}</strong>
+              {landingPagesFor(lang).map((page) => (
+                <Link key={page.slug} href={landingPath(page)} hrefLang={lang} data-track={`footer-intl-${lang}`} data-track-label={`Footer international — ${page.title}`}>
+                  {page.eyebrow}
+                </Link>
+              ))}
+            </span>
+          ))}
+        </nav>
         <div className="footer-bottom">
-          <span>2026 {siteConfig.name}. Tous droits reserves.</span>
+          <span>2026 {siteConfig.name}. Tous droits réservés.</span>
           <span>Tanger, Maroc</span>
         </div>
       </div>

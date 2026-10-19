@@ -63,7 +63,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       publisher: {
         "@type": "Organization",
         name: siteConfig.name,
-        logo: { "@type": "ImageObject", url: absoluteUrl("/images/brand/logo-main.png") }
+        logo: { "@type": "ImageObject", url: absoluteUrl("/images/brand/logo-main.webp") }
       }
     },
     {

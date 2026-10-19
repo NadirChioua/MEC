@@ -23,12 +23,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   if (!service) return {};
 
   const titles: Record<string, string> = {
-    comptabilite: "Comptabilité d’entreprise à Tanger",
-    "conseil-financier": "Conseil financier pour entreprises au Maroc",
-    "gestion-entreprise": "Conseil en gestion d’entreprise au Maroc",
+    comptabilite: "Comptabilité d’entreprise à Tanger : tenue, bilans, déclarations",
+    "conseil-financier": "Conseil financier entreprise au Maroc : trésorerie, investissement",
+    "gestion-entreprise": "Conseil en gestion d’entreprise au Maroc : pilotage, KPI",
     "implantation-internationale": "Implantation d’entreprise entre le Maroc et l’Europe",
     "audit-controle": "Audit interne et contrôle de gestion au Maroc",
-    "commerce-maroc-europe": "Conseil pour le commerce Maroc-Europe"
+    "accompagnement-personnalise": "Accompagnement personnalisé des dirigeants au Maroc",
+    "commerce-maroc-europe": "Import-export Maroc-Europe : conseil fiscal et financier"
   };
 
   return createPageMetadata({
