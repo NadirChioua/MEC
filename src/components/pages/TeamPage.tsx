@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Locale } from "@/data/i18n";
 import { PageHero } from "@/components/PageHero";
 import { ContactCTA } from "@/components/sections/ContactCTA";
@@ -29,7 +30,7 @@ export function TeamContent() {
       <section className="section">
         <div className="container split">
           <div className="image-panel reveal">
-            <img src="/images/generated/mec-strategy-meeting.webp" alt={tr("Équipe Morocco Europe Consulting réunie autour d’une mission de conseil stratégique")} />
+            <Image src="/images/generated/mec-strategy-meeting.webp" width={1600} height={840} sizes="(max-width: 900px) 100vw, 45vw" alt={tr("Équipe Morocco Europe Consulting réunie autour d’une mission de conseil stratégique")} />
             <div className="experience-badge">
               <strong>20+</strong>
               <span>{tr("ans d’expérience")}</span>

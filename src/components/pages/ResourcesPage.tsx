@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/data/i18n";
 import { Icon } from "@/components/icons/Icon";
@@ -52,7 +53,7 @@ export function ResourcesContent() {
               {insights.map((insight) => (
                 <Link className="insight-card reveal" href={lp(insight.href)} key={insight.title}>
                   <div className={`insight-visual tone-${insight.imageTone}`}>
-                    <img src={insight.imageSrc} alt={tr(insight.imageAlt)} loading="lazy" />
+                    <Image src={insight.imageSrc} width={1600} height={840} sizes="(max-width: 900px) 100vw, 40vw" alt={tr(insight.imageAlt)} />
                     <span>{tr(insight.category)}</span>
                   </div>
                   <div className="insight-content">

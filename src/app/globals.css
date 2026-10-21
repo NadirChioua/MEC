@@ -2223,12 +2223,12 @@ h2 {
   font-weight: 900;
 }
 
-.tone-strategy { background-image: linear-gradient(135deg, rgba(11,18,32,.92), rgba(201,162,77,.28)), url("/images/moeu-hero-consulting.webp"); }
+.tone-strategy { background-image: linear-gradient(135deg, rgba(11,18,32,.92), rgba(201,162,77,.28)), none; }
 .tone-compliance { background-image: linear-gradient(135deg, rgba(11,18,32,.92), rgba(232,214,163,.18)), url("/images/consulting-office.svg"); }
 .tone-operations { background-image: linear-gradient(135deg, rgba(16,33,63,.94), rgba(201,162,77,.22)), url("/images/tanger-med.svg"); }
 .tone-international { background-image: linear-gradient(135deg, rgba(11,18,32,.88), rgba(16,33,63,.74)), url("/images/tanger-med.svg"); }
 .tone-audit { background-image: linear-gradient(135deg, rgba(7,13,24,.96), rgba(80,64,30,.42)), url("/images/consulting-office.svg"); }
-.tone-advisory { background-image: linear-gradient(135deg, rgba(16,33,63,.92), rgba(201,162,77,.25)), url("/images/moeu-hero-consulting.webp"); }
+.tone-advisory { background-image: linear-gradient(135deg, rgba(16,33,63,.92), rgba(201,162,77,.25)), none; }
 .tone-trade { background-image: linear-gradient(135deg, rgba(11,18,32,.92), rgba(20,70,92,.45)), url("/images/tanger-med.svg"); }
 .tone-tax { background-image: linear-gradient(135deg, rgba(11,18,32,.9), rgba(201,162,77,.3)), url("/images/consulting-office.svg"); }
 .tone-market { background-image: linear-gradient(135deg, rgba(16,33,63,.95), rgba(201,162,77,.25)), url("/images/tanger-med.svg"); }
@@ -3584,5 +3584,84 @@ html.motion-ready .hero::after {
 @media (max-width: 900px) {
   .footer-intl {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ───── Performance (Core Web Vitals) ─────
+   - The hero is visible at first paint: no blur/opacity entrance before the LCP.
+   - Reveal effects animate only opacity and transform (GPU-composited), never filter.
+   - No box-shadow loop on buttons (repaints every frame). */
+.reveal,
+.reveal.is-visible,
+.motion-ready .reveal:not(.is-visible),
+.motion-ready .reveal.is-visible {
+  filter: none;
+  will-change: auto;
+}
+
+/* hero text is part of the first screen: shown immediately, never hidden by motion JS */
+.motion-ready .hero-copy.reveal:not(.is-visible),
+.motion-ready .hero-copy .reveal:not(.is-visible) {
+  opacity: 1;
+  transform: none;
+}
+
+/* decorative infinite loops cost main-thread and GPU time on every frame */
+.hero-background img,
+html.motion-ready .hero::after,
+.dark-band::after,
+.insights-section::before,
+.final-cta::before,
+.positioning-seal img {
+  animation: none;
+}
+
+.hero::after,
+.dark-band::after,
+.morocco-europe-section::before,
+.insights-section::before {
+  will-change: auto;
+}
+
+.hero-copy.reveal,
+.hero-copy.reveal.is-visible,
+.hero-copy .reveal,
+.hero-copy .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  animation: none;
+  transition: none;
+}
+
+.button.primary {
+  animation: none;
+}
+
+/* ───── Accessibility: readable gold on light backgrounds (WCAG AA) ───── */
+.eyebrow {
+  color: #8a6a12;
+}
+
+.site-footer .muted {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Phones: the hero photo sits under a 88–98 % navy overlay and was the slowest element
+   to paint (LCP). Hide it there; the headline becomes the LCP and paints immediately. */
+@media (max-width: 760px) {
+  .hero-background {
+    display: none;
   }
 }

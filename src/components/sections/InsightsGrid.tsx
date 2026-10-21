@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/icons/Icon";
 import { insights } from "@/data/insights";
@@ -20,7 +21,7 @@ export function InsightsGrid() {
           {insights.map((insight) => (
             <Link className="insight-card reveal" href={lp(insight.href)} key={insight.title}>
               <div className={`insight-visual tone-${insight.imageTone}`}>
-                <img src={insight.imageSrc} alt={tr(insight.imageAlt)} loading="lazy" />
+                <Image src={insight.imageSrc} width={1600} height={840} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 25vw" alt={tr(insight.imageAlt)} />
                 <span>{tr(insight.category)}</span>
               </div>
               <div className="insight-content">

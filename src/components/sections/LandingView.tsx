@@ -68,7 +68,7 @@ export function LandingView({ page }: { page: SeoLandingPage }) {
               <a className="button secondary" href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} target="_blank" rel="noreferrer" data-track="landing-cta-whatsapp" data-track-label={`Landing ${lang} — WhatsApp`}>{t.ctaWhatsapp}</a>
             </div>
           </div>
-          <div className="seo-landing-image"><Image src={page.imageSrc} alt={page.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 48vw" /></div>
+          <div className="seo-landing-image"><Image src={page.imageSrc} alt={page.imageAlt} fill priority fetchPriority="high" sizes="(max-width: 900px) 100vw, 48vw" /></div>
         </div>
       </section>
 
@@ -129,7 +129,7 @@ export function LandingView({ page }: { page: SeoLandingPage }) {
                 ))}
           </div>
           {Object.keys(alternates).length ? (
-            <p className="landing-languages">
+            <p className="landing-languages" translate="no">
               {(Object.entries(alternates) as [HrefLang, string][]).map(([code, path]) => (
                 <Link key={code} href={path} hrefLang={code} lang={code}>{landingLabels[code].languageName}</Link>
               ))}

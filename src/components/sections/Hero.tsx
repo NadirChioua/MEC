@@ -12,7 +12,8 @@ export function Hero() {
           alt=""
           fill
           priority
-          sizes="100vw"
+          fetchPriority="high"
+          sizes="(max-width: 760px) 1px, 100vw"
         />
       </div>
       <div className="container hero-inner">

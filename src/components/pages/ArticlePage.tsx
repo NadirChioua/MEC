@@ -104,7 +104,7 @@ export function ArticleContent({ article: frArticle }: { article: Article }) {
             </div>
           </div>
           <div className="article-cover">
-            <Image src={article.imageSrc} alt={article.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 36vw" />
+            <Image src={article.imageSrc} alt={article.imageAlt} fill priority fetchPriority="high" sizes="(max-width: 900px) 100vw, 36vw" />
           </div>
         </div>
       </header>

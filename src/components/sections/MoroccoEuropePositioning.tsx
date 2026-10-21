@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/icons/Icon";
 import { tr } from "@/lib/i18n-server";
@@ -33,7 +34,7 @@ export function MoroccoEuropePositioning() {
           </div>
         </div>
         <div className="positioning-visual reveal">
-          <img loading="lazy" decoding="async" src="/images/generated/mec-morocco-europe-bridge.webp" alt={tr("Équipe de conseil international discutant une stratégie Maroc Europe dans un bureau premium")} />
+          <Image src="/images/generated/mec-morocco-europe-bridge.webp" width={1600} height={840} sizes="(max-width: 900px) 100vw, 45vw" alt={tr("Équipe de conseil international discutant une stratégie Maroc Europe dans un bureau premium")} />
           <div className="positioning-seal">
             <img loading="lazy" decoding="async" src="/images/brand/logo-mark.webp" alt="" aria-hidden="true" />
             <span>Morocco-Europe advisory</span>

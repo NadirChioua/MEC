@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { stats } from "@/data/stats";
@@ -17,7 +18,7 @@ export function AboutPreview() {
     <section className="section about-section">
       <div className="container split">
         <div className="image-panel about-visual reveal">
-          <img loading="lazy" decoding="async" src="/images/generated/mec-financial-advisory.webp" alt={tr("Analyse financière premium avec rapports, graphiques, ordinateur et conseillers")} />
+          <Image src="/images/generated/mec-financial-advisory.webp" width={1600} height={840} sizes="(max-width: 900px) 100vw, 45vw" alt={tr("Analyse financière premium avec rapports, graphiques, ordinateur et conseillers")} />
           <div className="experience-badge">
             <strong>15+</strong>
             <span>{tr("ans d’expertise financière et stratégique")}</span>

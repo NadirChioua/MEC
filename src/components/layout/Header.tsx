@@ -5,9 +5,8 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/data/navigation";
 import { siteConfig } from "@/data/site";
-import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Icon } from "@/components/icons/Icon";
-import { isLocalizedPath } from "@/lib/i18n-server";
+import { isLocalizedPath } from "@/lib/i18n-paths";
 
 const LOCALES = ["nl", "en", "es", "ar"];
 
@@ -28,7 +27,7 @@ export function Header() {
         <Link className="brand" href={L("/")} aria-label="Accueil Morocco Europe Consulting" data-track="header-logo" data-track-label="Header — Logo">
           <img
             className="brand-logo brand-logo-main"
-            src="/images/brand/logo-main.webp"
+            src="/images/brand/logo-header.webp"
             alt={siteConfig.name}
           />
           <img
@@ -66,9 +65,10 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <ButtonLink href={L("/contact")} variant="primary" trackId="header-cta-consultation" trackLabel="Header — Consultation confidentielle">
+          <Link className="button primary" href={L("/contact")} data-track="header-cta-consultation" data-track-label="Header — Consultation confidentielle">
             Consultation confidentielle
-          </ButtonLink>
+            <Icon name="arrow" />
+          </Link>
         </div>
 
         <button
@@ -108,9 +108,10 @@ export function Header() {
                 </Link>
               )
             )}
-            <ButtonLink href={L("/contact")} variant="primary" trackId="mobile-cta-consultation" trackLabel="Menu mobile — Consultation confidentielle">
+            <Link className="button primary" href={L("/contact")} data-track="mobile-cta-consultation" data-track-label="Menu mobile — Consultation confidentielle">
               Consultation confidentielle
-            </ButtonLink>
+              <Icon name="arrow" />
+            </Link>
           </nav>
         </div>
       </div>

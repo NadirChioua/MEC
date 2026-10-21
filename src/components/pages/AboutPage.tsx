@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Locale } from "@/data/i18n";
 import { PageHero } from "@/components/PageHero";
 import { PARA_AMBITION, PARA_FOREIGN, PARA_MISSION } from "@/components/sections/AboutPreview";
@@ -27,7 +28,7 @@ export function AboutContent() {
       <section className="section">
         <div className="container split">
           <div className="image-panel reveal">
-            <img loading="lazy" decoding="async" src="/images/generated/mec-financial-advisory.webp" alt={tr("Conseillers Morocco Europe Consulting analysant des documents financiers")} />
+            <Image src="/images/generated/mec-financial-advisory.webp" width={1600} height={840} sizes="(max-width: 900px) 100vw, 45vw" alt={tr("Conseillers Morocco Europe Consulting analysant des documents financiers")} />
             <div className="experience-badge">
               <strong>15+</strong>
               <span>{tr("ans d’expertise")}</span>

@@ -149,6 +149,7 @@ export const pageEntries: TranslationMap[] = [
   { fr: "conseil gestion Maroc", nl: "managementadvies Marokko", en: "management consulting Morocco", es: "consultoría de gestión Marruecos", ar: "استشارة في التسيير المغرب" },
 
   // ───── Home ─────
+  { fr: "Nos engagements", nl: "Onze engagementen", en: "Our commitments", es: "Nuestros compromisos", ar: "التزاماتنا" },
   {
     fr: "Cabinet de conseil financier et comptable à Tanger",
     nl: "Financieel en boekhoudkundig adviesbureau in Tanger",

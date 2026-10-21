@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/icons/Icon";
 import { services } from "@/data/services";
@@ -17,7 +18,7 @@ export function ServiceImageGrid() {
           {services.map((service) => (
             <Link className="image-service-card reveal" href={lp(`/services/${service.slug}`)} key={service.slug}>
               <div className={`service-visual tone-${service.imageTone}`}>
-                <img src={service.imageSrc} alt={tr(service.imageAlt)} loading="lazy" />
+                <Image src={service.imageSrc} width={1600} height={840} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt={tr(service.imageAlt)} />
                 <span>{tr(service.imageLabel)}</span>
               </div>
               <div className="image-service-content">

@@ -1,5 +1,9 @@
 import { cache } from "react";
 import { translations, type Locale } from "@/data/i18n";
+import { pageEntries } from "@/data/i18n-pages";
+import { localizedPath } from "@/lib/i18n-paths";
+
+export { isLocalizedPath, localizedPath, pageAlternates } from "@/lib/i18n-paths";
 
 /**
  * Server-side translation for the localized pages (/nl, /en, /es, /ar).
@@ -27,7 +31,8 @@ let index: Map<string, Record<Locale, string>> | null = null;
 function lookup(fr: string) {
   if (!index) {
     index = new Map();
-    for (const entry of translations) index.set(norm(entry.fr), entry);
+    // page entries come last so they win over older wording
+    for (const entry of [...translations, ...pageEntries]) index.set(norm(entry.fr), entry);
   }
   return index.get(norm(fr));
 }
@@ -51,31 +56,7 @@ export function tr(fr: string): string {
   return trIn(getPageLocale(), fr);
 }
 
-/** Pages that exist in every language. Anything else (legal pages…) stays French. */
-const LOCALIZED = [/^\/$/, /^\/about$/, /^\/notre-equipe$/, /^\/services(\/[^/]+)?$/, /^\/contact$/, /^\/resources(\/[^/]+)?$/];
-
-export function isLocalizedPath(path: string) {
-  return LOCALIZED.some((re) => re.test(path));
-}
-
-/** Path of a French page in a given locale. */
-export function localizedPath(locale: Locale, path: string) {
-  if (locale === "fr" || !path.startsWith("/") || !isLocalizedPath(path)) return path;
-  return path === "/" ? `/${locale}` : `/${locale}${path}`;
-}
-
 /** Internal link in the current page's locale. */
 export function lp(path: string) {
   return localizedPath(getPageLocale(), path);
-}
-
-/** hreflang alternates of a localized page, as site paths. */
-export function pageAlternates(path: string) {
-  return {
-    fr: path,
-    nl: localizedPath("nl", path),
-    en: localizedPath("en", path),
-    es: localizedPath("es", path),
-    ar: localizedPath("ar", path)
-  };
 }

@@ -11,6 +11,7 @@ const values = [
 export function ValueBar() {
   return (
     <section className="value-band" aria-label={tr("Valeurs de Morocco Europe Consulting")}>
+      <h2 className="sr-only">{tr("Nos engagements")}</h2>
       <div className="container value-grid">
         {values.map((item) => (
           <div className="value-item reveal" key={item.title}>

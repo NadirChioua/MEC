@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { locales, translations, type Locale } from "@/data/i18n";
 
 const storageKey = "mec-locale";
-const selector = "script, style, noscript, svg, input, textarea, select";
+// [translate="no"]: content that must keep its own language (language links, names…)
+const selector = 'script, style, noscript, svg, input, textarea, select, [translate="no"]';
 const textSources = new WeakMap<Text, string>();
 const attributeSources = new WeakMap<HTMLElement, Record<string, string>>();
 
@@ -29,11 +30,25 @@ function getInitialLocale(): Locale {
   return locales.some((locale) => locale.code === saved) ? saved! : "fr";
 }
 
+const normalize = (text: string) => text.trim().replace(/\s+/g, " ");
+
+// text (in any language) → its dictionary entry; built once, then every lookup is O(1)
+let index: Map<string, (typeof translations)[number]> | null = null;
 function findTranslation(text: string, target: Locale) {
-  const clean = text.trim().replace(/\s+/g, " ");
-  const entry = translations.find((item) => Object.values(item).some((value) => value.trim().replace(/\s+/g, " ") === clean));
-  return entry?.[target];
+  if (!index) {
+    index = new Map();
+    for (const entry of translations) {
+      for (const value of Object.values(entry)) {
+        const key = normalize(value);
+        if (!index.has(key)) index.set(key, entry);
+      }
+    }
+  }
+  return index.get(normalize(text))?.[target];
 }
+
+// French pages are served in French: nothing to do until the visitor picks another language
+let translatedOnce = false;
 
 function replaceTextPreservingSpacing(original: string, translated: string) {
   const prefix = original.match(/^\s*/)?.[0] ?? "";
@@ -96,11 +111,24 @@ export function LanguageRuntime() {
     document.documentElement.lang = locale;
     document.documentElement.dir = current.dir;
     document.documentElement.dataset.locale = locale;
+    if (locale === "fr" && !translatedOnce) return;
+    translatedOnce = true;
     translateDom(locale);
 
-    const observer = new MutationObserver(() => translateDom(locale));
+    // re-translate content added later (client navigation), at most once per frame
+    let frame = 0;
+    const observer = new MutationObserver(() => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        translateDom(locale);
+      });
+    });
     observer.observe(document.body, { childList: true, subtree: true });
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
   }, [locale, current.dir]);
 
   useEffect(() => {
