@@ -1,0 +1,9 @@
+.next
+node_modules
+tmp
+debug.log
+tsconfig.tsbuildinfo
+output
+.env
+.env.*
+!.env.example
