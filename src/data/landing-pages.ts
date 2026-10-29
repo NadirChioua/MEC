@@ -261,6 +261,94 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     relatedServices: ["comptabilite", "commerce-maroc-europe", "conseil-financier"],
     keywords: ["conseil fiscal Tanger", "fiscalité entreprise Maroc", "déclaration TVA Maroc", "impôt sur les sociétés Maroc", "fiscaliste Tanger"]
+  },
+  {
+    slug: "representation-fiscale-maroc",
+    group: "representation",
+    seoTitle: "Représentation fiscale au Maroc pour entreprises non résidentes | MEC",
+    eyebrow: "Entreprises non résidentes",
+    title: "Représentation fiscale au Maroc pour les entreprises étrangères",
+    description:
+      "Votre société étrangère réalise des opérations imposables au Maroc sans y être établie ? MEC, cabinet basé à Tanger, analyse vos obligations et assure votre représentation fiscale : TVA, déclarations, paiements et échanges avec l’administration.",
+    intro:
+      "Une entreprise étrangère peut facturer des clients au Maroc, y réaliser une prestation ou y exécuter un contrat sans y créer de société. La réglementation fiscale marocaine peut alors exiger la désignation d’un représentant fiscal domicilié au Maroc, notamment pour la TVA. Morocco Europe Consulting vérifie d’abord si votre situation l’impose, puis prend en charge les démarches, les déclarations et le suivi, avec un interlocuteur dédié à Tanger.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "Représentation fiscale d’une entreprise étrangère au Maroc",
+    outcomes: ["Obligations analysées avant d’agir", "Un représentant domicilié au Maroc", "Déclarations et paiements suivis", "Un interlocuteur unique à Tanger"],
+    sections: [
+      {
+        title: "Savoir si vous devez désigner un représentant fiscal",
+        text: "Tout dépend de la nature de vos opérations au Maroc, de vos clients, de la durée de la mission et de l’existence ou non d’un établissement stable. Nous analysons vos contrats et vos flux, puis nous vous indiquons clairement les obligations qui s’appliquent, y compris les conséquences d’une absence de représentant (par exemple une TVA ou une retenue à la charge de votre client marocain).",
+        items: ["Nature des opérations réalisées au Maroc", "Clients et lieu d’exécution", "Risque d’établissement stable", "Conventions fiscales applicables"]
+      },
+      {
+        title: "Une représentation fiscale prise en charge de bout en bout",
+        text: "Lorsque la représentation est nécessaire, MEC prépare le dossier auprès de l’administration fiscale, tient le calendrier, établit les déclarations de TVA, organise les paiements et conserve les justificatifs. Vous recevez un suivi régulier et êtes alerté avant chaque échéance.",
+        items: ["Dossier d’accréditation auprès de l’administration", "Déclarations et paiements de TVA", "Suivi des retenues à la source", "Archivage des pièces justificatives"]
+      },
+      {
+        title: "Préparer la suite : mission ponctuelle ou implantation",
+        text: "Si votre activité au Maroc se développe, la question d’une filiale, d’une succursale ou d’un partenaire local se pose. Nous comparons les scénarios avec vous et coordonnons, lorsque c’est nécessaire, avec le notaire ou l’avocat compétent."
+      }
+    ],
+    process: [
+      { title: "Analyse", text: "Contrats, flux, clients et obligations au Maroc." },
+      { title: "Désignation", text: "Dossier de représentation et formalités." },
+      { title: "Déclarations", text: "TVA, paiements et calendrier fiscal." },
+      { title: "Suivi", text: "Reporting, alertes et évolution de l’activité." }
+    ],
+    faq: [
+      { question: "Qu’est-ce qu’un représentant fiscal au Maroc ?", answer: "C’est une personne domiciliée au Maroc, désignée par une entreprise non résidente pour remplir en son nom certaines obligations fiscales, notamment en matière de TVA : déclarations, paiements et échanges avec l’administration." },
+      { question: "Mon entreprise étrangère doit-elle désigner un représentant fiscal ?", answer: "Cela dépend de vos opérations, de vos clients et de votre présence au Maroc. MEC analyse votre situation au cas par cas avant toute démarche ; les règles applicables sont confirmées selon votre dossier." },
+      { question: "Faut-il créer une société au Maroc ?", answer: "Pas nécessairement. Une mission ponctuelle peut être réalisée sans société locale. Si l’activité devient durable, nous comparons avec vous les options : filiale, succursale ou partenariat." },
+      { question: "Peut-on travailler entièrement à distance ?", answer: "Oui, l’essentiel du suivi se fait à distance. Notre équipe vous reçoit aussi sur rendez-vous au centre de Tanger." }
+    ],
+    relatedServices: ["implantation-internationale", "commerce-maroc-europe", "comptabilite"],
+    keywords: ["représentation fiscale Maroc", "représentant fiscal Maroc", "entreprise non résidente Maroc TVA", "fiscal representative Morocco", "TVA non résident Maroc"]
+  },
+  {
+    slug: "due-diligence-maroc",
+    group: "transaction",
+    seoTitle: "Due diligence et conseil en transaction au Maroc | MEC Tanger",
+    eyebrow: "Conseil en transaction",
+    title: "Due diligence financière et conseil en transaction au Maroc",
+    description:
+      "Rachat d’entreprise, prise de participation, partenariat : MEC analyse les comptes, la trésorerie, les risques fiscaux et sociaux de la cible au Maroc pour sécuriser votre décision et votre négociation.",
+    intro:
+      "Avant de racheter une société, d’entrer à son capital ou de s’associer à un partenaire marocain, il faut savoir ce que l’on achète vraiment. Morocco Europe Consulting réalise des due diligences financières centrées sur les points qui changent la décision : qualité des résultats, trésorerie, dettes, engagements, risques fiscaux et sociaux. Les aspects juridiques sont traités avec l’avocat ou le notaire compétent.",
+    imageSrc: "/images/generated/mec-audit-compliance.webp",
+    imageAlt: "Due diligence financière avant une acquisition au Maroc",
+    outcomes: ["Risques identifiés avant de signer", "Résultats et trésorerie retraités", "Points de négociation documentés", "Rapport clair pour la décision"],
+    sections: [
+      {
+        title: "Une due diligence ciblée sur ce qui compte",
+        text: "Nous commençons par vos questions : que voulez-vous acheter, à quel prix, avec quels risques acceptables ? Le périmètre de la revue en découle, pour éviter un rapport volumineux qui ne répond pas à la décision.",
+        items: ["Qualité et récurrence des résultats", "Trésorerie, BFR et dette nette", "Engagements hors bilan", "Risques fiscaux et sociaux"]
+      },
+      {
+        title: "Des constats transformés en leviers de négociation",
+        text: "Chaque point relevé est chiffré lorsque c’est possible et relié à une conséquence concrète : ajustement de prix, garantie à prévoir, condition préalable ou point à corriger avant la signature. Vous disposez ainsi d’éléments documentés pour négocier.",
+        items: ["Retraitements et normalisation", "Revue du plan d’affaires", "Points de vigilance pour le contrat", "Synthèse pour le comité de décision"]
+      },
+      {
+        title: "Après la transaction : intégrer et piloter",
+        text: "Une acquisition réussie se joue aussi après la signature. MEC peut mettre en place le reporting vers l’acquéreur, la clôture mensuelle, le tableau de bord et le suivi des engagements, en particulier pour les groupes européens qui reprennent une société au Maroc."
+      }
+    ],
+    process: [
+      { title: "Cadrage", text: "Objectifs, périmètre, calendrier et accès aux données." },
+      { title: "Revue", text: "Comptes, trésorerie, fiscalité, social et engagements." },
+      { title: "Restitution", text: "Constats chiffrés et points de négociation." },
+      { title: "Intégration", text: "Reporting, clôture et pilotage après la signature." }
+    ],
+    faq: [
+      { question: "Qu’est-ce qu’une due diligence financière ?", answer: "C’est une revue approfondie des comptes et de la situation financière d’une entreprise avant une transaction : qualité des résultats, trésorerie, dettes, engagements et risques. Elle sert à sécuriser la décision et la négociation." },
+      { question: "La due diligence juridique est-elle incluse ?", answer: "MEC traite les volets financier, fiscal et social. Le volet juridique (contrats, propriété, litiges, actes) est confié à l’avocat ou au notaire compétent, avec lequel nous coordonnons le calendrier et les constats." },
+      { question: "Combien de temps dure une due diligence ?", answer: "Cela dépend du périmètre, de la taille de la cible et de la disponibilité des données. Un cadrage précis au départ permet de fixer un calendrier réaliste." },
+      { question: "Accompagnez-vous les acquéreurs étrangers ?", answer: "Oui, notamment les entreprises européennes qui reprennent ou prennent une participation dans une société au Maroc, avec un rapport adapté à leurs exigences de reporting." }
+    ],
+    relatedServices: ["audit-controle", "conseil-financier", "implantation-internationale"],
+    keywords: ["due diligence Maroc", "due diligence financière Maroc", "conseil en transaction Maroc", "transaction advisory Morocco", "rachat entreprise Maroc"]
   }
 ];
 

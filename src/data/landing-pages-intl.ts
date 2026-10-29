@@ -716,5 +716,368 @@ export const intlLandingPages: SeoLandingPage[] = [
     ],
     relatedServices: [],
     keywords: ["استشارة جبائية المغرب", "الضريبة على القيمة المضافة المغرب", "الضريبة على الشركات المغرب", "التصريحات الضريبية للشركات"]
+  },
+  // ───────────────────────── Fiscal representation (group "representation") ─────────────────────────
+  {
+    slug: "fiscal-representation-morocco",
+    group: "representation",
+    locale: "en",
+    seoTitle: "Fiscal Representation in Morocco for Non-Resident Companies | MEC",
+    eyebrow: "Non-resident companies",
+    title: "Fiscal representation in Morocco for foreign companies",
+    description:
+      "Does your foreign company carry out taxable operations in Morocco without being established there? MEC, based in Tangier, reviews your obligations and acts as your fiscal representative: VAT, returns, payments and contact with the tax administration.",
+    intro:
+      "A foreign company can invoice Moroccan clients, deliver a service in Morocco or perform a contract there without setting up a local company. Moroccan tax rules may then require it to appoint a fiscal representative domiciled in Morocco, in particular for VAT. Morocco Europe Consulting first checks whether your situation requires it, then handles the formalities, filings and follow-up, with one dedicated contact in Tangier.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "Fiscal representation of a foreign company in Morocco",
+    outcomes: ["Obligations reviewed before acting", "A representative domiciled in Morocco", "Returns and payments tracked", "One point of contact in Tangier"],
+    sections: [
+      {
+        title: "Find out whether you need a fiscal representative",
+        text: "It depends on the nature of your operations in Morocco, your clients, the length of the assignment and whether you have a permanent establishment. We review your contracts and flows and tell you clearly which obligations apply, including what happens without a representative (for example VAT or withholding borne by your Moroccan client).",
+        items: ["Type of operations carried out in Morocco", "Clients and place of performance", "Permanent establishment risk", "Applicable tax treaties"]
+      },
+      {
+        title: "Fiscal representation handled end to end",
+        text: "When representation is required, MEC prepares the file with the tax administration, keeps the calendar, prepares the VAT returns, organises payments and keeps the supporting documents. You get regular updates and alerts before each deadline.",
+        items: ["Accreditation file with the tax administration", "VAT returns and payments", "Withholding tax follow-up", "Document retention"]
+      },
+      {
+        title: "Plan what comes next: one-off contract or local entity",
+        text: "If your business in Morocco grows, the question of a subsidiary, a branch or a local partner arises. We compare the scenarios with you and coordinate, when needed, with the relevant notary or lawyer."
+      }
+    ],
+    process: [
+      { title: "Review", text: "Contracts, flows, clients and obligations in Morocco." },
+      { title: "Appointment", text: "Representation file and formalities." },
+      { title: "Filings", text: "VAT, payments and tax calendar." },
+      { title: "Follow-up", text: "Reporting, alerts and business changes." }
+    ],
+    faq: [
+      { question: "What is a fiscal representative in Morocco?", answer: "A person domiciled in Morocco appointed by a non-resident company to meet certain tax obligations on its behalf, in particular for VAT: returns, payments and contact with the tax administration." },
+      { question: "Does my foreign company need a fiscal representative?", answer: "It depends on your operations, your clients and your presence in Morocco. MEC reviews your situation case by case before any step; the applicable rules are confirmed for your file." },
+      { question: "Do I need to set up a company in Morocco?", answer: "Not necessarily. A one-off assignment can be performed without a local company. If the activity becomes long-term, we compare the options with you: subsidiary, branch or partnership." },
+      { question: "Can everything be handled remotely?", answer: "Yes, most of the follow-up is done remotely. Our team can also meet you by appointment in central Tangier." }
+    ],
+    relatedServices: [],
+    keywords: ["fiscal representation Morocco", "fiscal representative Morocco", "tax representative Morocco", "non-resident company VAT Morocco", "VAT representative Morocco"]
+  },
+  {
+    slug: "fiscale-vertegenwoordiging-marokko",
+    group: "representation",
+    locale: "nl",
+    seoTitle: "Fiscale vertegenwoordiging in Marokko voor buitenlandse bedrijven | MEC",
+    eyebrow: "Niet-ingezeten bedrijven",
+    title: "Fiscale vertegenwoordiging in Marokko voor buitenlandse bedrijven",
+    description:
+      "Voert je buitenlands bedrijf belastbare verrichtingen uit in Marokko zonder er gevestigd te zijn? MEC in Tanger bekijkt je verplichtingen en treedt op als fiscaal vertegenwoordiger: btw, aangiftes, betalingen en contact met de belastingadministratie.",
+    intro:
+      "Een buitenlands bedrijf kan Marokkaanse klanten factureren, er een dienst leveren of er een contract uitvoeren zonder een lokale vennootschap op te richten. De Marokkaanse fiscale regels kunnen dan een fiscaal vertegenwoordiger met woonplaats in Marokko vereisen, vooral voor de btw. Morocco Europe Consulting kijkt eerst na of jouw situatie dat vraagt en neemt daarna de formaliteiten, aangiftes en opvolging op zich, met één vaste contactpersoon in Tanger.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "Fiscale vertegenwoordiging van een buitenlands bedrijf in Marokko",
+    outcomes: ["Verplichtingen eerst geanalyseerd", "Een vertegenwoordiger in Marokko", "Aangiftes en betalingen opgevolgd", "Eén contactpersoon in Tanger"],
+    sections: [
+      {
+        title: "Weten of je een fiscaal vertegenwoordiger nodig hebt",
+        text: "Dat hangt af van je verrichtingen in Marokko, je klanten, de duur van de opdracht en het al dan niet bestaan van een vaste inrichting. We analyseren je contracten en stromen en zeggen je duidelijk welke verplichtingen gelden, ook wat er gebeurt zonder vertegenwoordiger (bijvoorbeeld btw of een inhouding ten laste van je Marokkaanse klant).",
+        items: ["Soort verrichtingen in Marokko", "Klanten en plaats van uitvoering", "Risico op vaste inrichting", "Toepasselijke belastingverdragen"]
+      },
+      {
+        title: "Fiscale vertegenwoordiging van begin tot eind",
+        text: "Is vertegenwoordiging nodig, dan bereidt MEC het dossier voor bij de belastingadministratie, bewaakt de kalender, stelt de btw-aangiftes op, organiseert de betalingen en bewaart de bewijsstukken. Je krijgt een regelmatige opvolging en alerts vóór elke deadline.",
+        items: ["Erkenningsdossier bij de administratie", "Btw-aangiftes en betalingen", "Opvolging van bronheffingen", "Bewaring van bewijsstukken"]
+      },
+      {
+        title: "Vooruitkijken: eenmalige opdracht of vestiging",
+        text: "Groeit je activiteit in Marokko, dan komt de vraag naar een filiaal, een bijkantoor of een lokale partner. We vergelijken de scenario's met jou en stemmen waar nodig af met de bevoegde notaris of advocaat."
+      }
+    ],
+    process: [
+      { title: "Analyse", text: "Contracten, stromen, klanten en verplichtingen." },
+      { title: "Aanstelling", text: "Vertegenwoordigingsdossier en formaliteiten." },
+      { title: "Aangiftes", text: "Btw, betalingen en fiscale kalender." },
+      { title: "Opvolging", text: "Rapportering, alerts en evolutie van de activiteit." }
+    ],
+    faq: [
+      { question: "Wat is een fiscaal vertegenwoordiger in Marokko?", answer: "Een persoon met woonplaats in Marokko die een niet-ingezeten bedrijf aanstelt om bepaalde fiscale verplichtingen in zijn naam te vervullen, vooral voor de btw: aangiftes, betalingen en contact met de administratie." },
+      { question: "Moet mijn buitenlands bedrijf een fiscaal vertegenwoordiger aanstellen?", answer: "Dat hangt af van je verrichtingen, je klanten en je aanwezigheid in Marokko. MEC bekijkt je situatie geval per geval vóór elke stap; de toepasselijke regels worden voor je dossier bevestigd." },
+      { question: "Moet ik een vennootschap oprichten in Marokko?", answer: "Niet noodzakelijk. Een eenmalige opdracht kan zonder lokale vennootschap. Wordt de activiteit blijvend, dan vergelijken we de opties: filiaal, bijkantoor of partnership." },
+      { question: "Kan alles op afstand?", answer: "Ja, het grootste deel van de opvolging gebeurt op afstand. Op afspraak ontvangen we je ook in het centrum van Tanger." }
+    ],
+    relatedServices: [],
+    keywords: ["fiscale vertegenwoordiging Marokko", "fiscaal vertegenwoordiger Marokko", "btw Marokko buitenlands bedrijf", "niet-ingezeten bedrijf Marokko"]
+  },
+  {
+    slug: "representante-fiscal-marruecos",
+    group: "representation",
+    locale: "es",
+    seoTitle: "Representante fiscal en Marruecos para empresas no residentes | MEC",
+    eyebrow: "Empresas no residentes",
+    title: "Representación fiscal en Marruecos para empresas extranjeras",
+    description:
+      "¿Su empresa extranjera realiza operaciones sujetas a impuestos en Marruecos sin estar establecida allí? MEC, en Tánger, analiza sus obligaciones y actúa como su representante fiscal: IVA, declaraciones, pagos y relación con la administración tributaria.",
+    intro:
+      "Una empresa extranjera puede facturar a clientes marroquíes, prestar un servicio en Marruecos o ejecutar allí un contrato sin crear una sociedad local. La normativa fiscal marroquí puede exigir entonces la designación de un representante fiscal domiciliado en Marruecos, en particular para el IVA. Morocco Europe Consulting comprueba primero si su situación lo requiere y después se ocupa de los trámites, las declaraciones y el seguimiento, con un interlocutor dedicado en Tánger.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "Representación fiscal de una empresa extranjera en Marruecos",
+    outcomes: ["Obligaciones analizadas antes de actuar", "Un representante domiciliado en Marruecos", "Declaraciones y pagos al día", "Un único interlocutor en Tánger"],
+    sections: [
+      {
+        title: "Saber si debe designar un representante fiscal",
+        text: "Depende de la naturaleza de sus operaciones en Marruecos, de sus clientes, de la duración de la misión y de la existencia o no de un establecimiento permanente. Analizamos sus contratos y flujos y le indicamos con claridad las obligaciones aplicables, incluidas las consecuencias de no tener representante (por ejemplo, un IVA o una retención a cargo de su cliente marroquí).",
+        items: ["Naturaleza de las operaciones en Marruecos", "Clientes y lugar de ejecución", "Riesgo de establecimiento permanente", "Convenios fiscales aplicables"]
+      },
+      {
+        title: "Una representación fiscal gestionada de principio a fin",
+        text: "Cuando la representación es necesaria, MEC prepara el expediente ante la administración tributaria, controla el calendario, elabora las declaraciones de IVA, organiza los pagos y conserva los justificantes. Recibe un seguimiento regular y alertas antes de cada plazo.",
+        items: ["Expediente de acreditación ante la administración", "Declaraciones y pagos de IVA", "Seguimiento de las retenciones", "Archivo de justificantes"]
+      },
+      {
+        title: "Preparar el futuro: misión puntual o implantación",
+        text: "Si su actividad en Marruecos crece, se plantea la opción de una filial, una sucursal o un socio local. Comparamos los escenarios con usted y coordinamos, cuando es necesario, con el notario o el abogado competente."
+      }
+    ],
+    process: [
+      { title: "Análisis", text: "Contratos, flujos, clientes y obligaciones." },
+      { title: "Designación", text: "Expediente de representación y trámites." },
+      { title: "Declaraciones", text: "IVA, pagos y calendario fiscal." },
+      { title: "Seguimiento", text: "Reporting, alertas y evolución de la actividad." }
+    ],
+    faq: [
+      { question: "¿Qué es un representante fiscal en Marruecos?", answer: "Una persona domiciliada en Marruecos designada por una empresa no residente para cumplir en su nombre determinadas obligaciones fiscales, en particular en materia de IVA: declaraciones, pagos y relación con la administración." },
+      { question: "¿Mi empresa extranjera debe designar un representante fiscal?", answer: "Depende de sus operaciones, sus clientes y su presencia en Marruecos. MEC analiza su situación caso por caso antes de cualquier trámite; las normas aplicables se confirman según su expediente." },
+      { question: "¿Es necesario crear una sociedad en Marruecos?", answer: "No necesariamente. Una misión puntual puede realizarse sin sociedad local. Si la actividad se vuelve duradera, comparamos las opciones: filial, sucursal o alianza." },
+      { question: "¿Se puede gestionar todo a distancia?", answer: "Sí, la mayor parte del seguimiento se hace a distancia. Nuestro equipo también le recibe con cita previa en el centro de Tánger." }
+    ],
+    relatedServices: [],
+    keywords: ["representante fiscal Marruecos", "representación fiscal Marruecos", "IVA no residente Marruecos", "empresa española Marruecos impuestos"]
+  },
+  {
+    slug: "التمثيل-الجبائي-في-المغرب",
+    group: "representation",
+    locale: "ar",
+    seoTitle: "التمثيل الجبائي في المغرب للشركات غير المقيمة | MEC طنجة",
+    eyebrow: "الشركات غير المقيمة",
+    title: "التمثيل الجبائي في المغرب للشركات الأجنبية",
+    description:
+      "هل تقوم شركتكم الأجنبية بعمليات خاضعة للضريبة في المغرب دون أن تكون مستقرة فيه؟ يحلّل مكتب MEC بطنجة التزاماتكم ويتولى تمثيلكم الجبائي: الضريبة على القيمة المضافة، والتصريحات، والأداءات، والتواصل مع الإدارة الجبائية.",
+    intro:
+      "يمكن لشركة أجنبية أن تفوتر لزبناء مغاربة أو تقدّم خدمة في المغرب أو تنفّذ فيه عقدًا دون تأسيس شركة محلية. وقد تفرض القواعد الجبائية المغربية حينها تعيين ممثل جبائي مقيم في المغرب، خاصة بالنسبة للضريبة على القيمة المضافة. يتحقق مكتب Morocco Europe Consulting أولًا مما إذا كانت وضعيتكم تستلزم ذلك، ثم يتولى الإجراءات والتصريحات والتتبّع، مع مخاطَب مخصّص في طنجة.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "التمثيل الجبائي لشركة أجنبية في المغرب",
+    outcomes: ["تحليل الالتزامات قبل أي إجراء", "ممثل مقيم في المغرب", "تتبّع التصريحات والأداءات", "مخاطَب واحد في طنجة"],
+    sections: [
+      {
+        title: "معرفة ما إذا كان عليكم تعيين ممثل جبائي",
+        text: "يتوقف ذلك على طبيعة عملياتكم في المغرب وزبنائكم ومدة المهمة ووجود منشأة دائمة من عدمه. نحلل عقودكم وتدفقاتكم ونوضّح لكم الالتزامات المطبقة، بما في ذلك عواقب غياب الممثل (مثل ضريبة على القيمة المضافة أو اقتطاع على عاتق زبونكم المغربي).",
+        items: ["طبيعة العمليات المنجزة في المغرب", "الزبناء ومكان التنفيذ", "خطر المنشأة الدائمة", "الاتفاقيات الجبائية المطبقة"]
+      },
+      {
+        title: "تمثيل جبائي متكامل من البداية إلى النهاية",
+        text: "عندما يكون التمثيل ضروريًا، يُعدّ MEC الملف لدى الإدارة الجبائية، ويضبط الجدول الزمني، ويُعدّ تصريحات الضريبة على القيمة المضافة، وينظّم الأداءات، ويحتفظ بالوثائق المثبتة. وتتوصلون بتتبّع منتظم وتنبيهات قبل كل أجل.",
+        items: ["ملف الاعتماد لدى الإدارة", "تصريحات وأداءات الضريبة على القيمة المضافة", "تتبّع الاقتطاعات من المنبع", "أرشفة الوثائق المثبتة"]
+      },
+      {
+        title: "التحضير للمرحلة المقبلة: مهمة ظرفية أو توطين",
+        text: "إذا تطوّر نشاطكم في المغرب، يُطرح خيار الشركة التابعة أو الفرع أو الشريك المحلي. نقارن السيناريوهات معكم وننسّق عند الحاجة مع الموثق أو المحامي المختص."
+      }
+    ],
+    process: [
+      { title: "التحليل", text: "العقود والتدفقات والزبناء والالتزامات." },
+      { title: "التعيين", text: "ملف التمثيل والإجراءات." },
+      { title: "التصريحات", text: "الضريبة على القيمة المضافة والأداءات والجدول الجبائي." },
+      { title: "التتبّع", text: "التقارير والتنبيهات وتطور النشاط." }
+    ],
+    faq: [
+      { question: "ما هو الممثل الجبائي في المغرب؟", answer: "شخص مقيم في المغرب تعيّنه شركة غير مقيمة للقيام نيابة عنها ببعض الالتزامات الجبائية، خاصة المتعلقة بالضريبة على القيمة المضافة: التصريحات والأداءات والتواصل مع الإدارة." },
+      { question: "هل يجب على شركتي الأجنبية تعيين ممثل جبائي؟", answer: "يتوقف ذلك على عملياتكم وزبنائكم وحضوركم في المغرب. يدرس MEC وضعيتكم حالة بحالة قبل أي إجراء، ويُتحقق من القواعد المطبقة حسب ملفكم." },
+      { question: "هل يجب تأسيس شركة في المغرب؟", answer: "ليس بالضرورة. يمكن إنجاز مهمة ظرفية دون شركة محلية. وإذا أصبح النشاط دائمًا، نقارن معكم الخيارات: شركة تابعة أو فرع أو شراكة." },
+      { question: "هل يمكن إنجاز كل شيء عن بُعد؟", answer: "نعم، يتم الجزء الأكبر من التتبّع عن بُعد. ويستقبلكم فريقنا أيضًا بموعد في وسط طنجة." }
+    ],
+    relatedServices: [],
+    keywords: ["التمثيل الجبائي في المغرب", "ممثل جبائي المغرب", "الضريبة على القيمة المضافة لغير المقيمين", "شركة أجنبية الضرائب المغرب"]
+  },
+
+  // ───────────────────────── Transaction advisory (group "transaction") ─────────────────────────
+  {
+    slug: "transaction-advisory-morocco",
+    group: "transaction",
+    locale: "en",
+    seoTitle: "Transaction Advisory & Financial Due Diligence in Morocco | MEC",
+    eyebrow: "Transaction advisory",
+    title: "Financial due diligence and transaction advisory in Morocco",
+    description:
+      "Acquisition, equity stake or partnership: MEC reviews the target's accounts, cash, tax and social risks in Morocco to secure your decision and your negotiation.",
+    intro:
+      "Before buying a company, investing in its capital or partnering with a Moroccan business, you need to know what you are really buying. Morocco Europe Consulting performs financial due diligence focused on what changes the decision: quality of earnings, cash, debt, commitments, tax and social risks. Legal aspects are handled with the relevant lawyer or notary.",
+    imageSrc: "/images/generated/mec-audit-compliance.webp",
+    imageAlt: "Financial due diligence before an acquisition in Morocco",
+    outcomes: ["Risks identified before signing", "Earnings and cash normalised", "Documented negotiation points", "A clear report for the decision"],
+    sections: [
+      {
+        title: "Due diligence focused on what matters",
+        text: "We start from your questions: what do you want to buy, at what price, with which acceptable risks? The scope of the review follows from them, to avoid a bulky report that does not answer the decision.",
+        items: ["Quality and recurrence of earnings", "Cash, working capital and net debt", "Off-balance-sheet commitments", "Tax and social risks"]
+      },
+      {
+        title: "Findings turned into negotiation levers",
+        text: "Each finding is quantified where possible and linked to a concrete consequence: price adjustment, warranty to include, condition precedent or issue to fix before signing. You get documented arguments to negotiate.",
+        items: ["Adjustments and normalisation", "Business plan review", "Points of attention for the contract", "Summary for the decision committee"]
+      },
+      {
+        title: "After the deal: integrate and manage",
+        text: "A successful acquisition is also decided after signing. MEC can set up reporting to the buyer, monthly closing, dashboards and commitment tracking, in particular for European groups taking over a company in Morocco."
+      }
+    ],
+    process: [
+      { title: "Scoping", text: "Goals, scope, timeline and data access." },
+      { title: "Review", text: "Accounts, cash, tax, social and commitments." },
+      { title: "Reporting", text: "Quantified findings and negotiation points." },
+      { title: "Integration", text: "Reporting, closing and management after signing." }
+    ],
+    faq: [
+      { question: "What is financial due diligence?", answer: "An in-depth review of a company's accounts and financial position before a transaction: quality of earnings, cash, debt, commitments and risks. It secures the decision and the negotiation." },
+      { question: "Is legal due diligence included?", answer: "MEC covers the financial, tax and social aspects. The legal side (contracts, ownership, litigation, deeds) is handled by the relevant lawyer or notary, with whom we coordinate the timeline and findings." },
+      { question: "How long does due diligence take?", answer: "It depends on the scope, the size of the target and data availability. Precise scoping at the start allows a realistic timeline." },
+      { question: "Do you support foreign buyers?", answer: "Yes, in particular European companies acquiring or investing in a company in Morocco, with a report suited to their reporting requirements." }
+    ],
+    relatedServices: [],
+    keywords: ["transaction advisory Morocco", "due diligence Morocco", "financial due diligence Morocco", "acquisition Morocco company", "M&A advisory Morocco"]
+  },
+  {
+    slug: "due-diligence-marokko",
+    group: "transaction",
+    locale: "nl",
+    seoTitle: "Due diligence en transactieadvies in Marokko | MEC Tanger",
+    eyebrow: "Transactieadvies",
+    title: "Financiële due diligence en transactieadvies in Marokko",
+    description:
+      "Overname, participatie of partnership: MEC analyseert de rekeningen, de thesaurie en de fiscale en sociale risico's van het doelbedrijf in Marokko om je beslissing en onderhandeling te beveiligen.",
+    intro:
+      "Voor je een bedrijf overneemt, instapt in het kapitaal of samenwerkt met een Marokkaanse partner, moet je weten wat je echt koopt. Morocco Europe Consulting voert financiële due diligences uit, gericht op wat de beslissing verandert: kwaliteit van de resultaten, thesaurie, schulden, verplichtingen, fiscale en sociale risico's. Juridische aspecten worden behandeld met de bevoegde advocaat of notaris.",
+    imageSrc: "/images/generated/mec-audit-compliance.webp",
+    imageAlt: "Financiële due diligence vóór een overname in Marokko",
+    outcomes: ["Risico's gekend vóór de ondertekening", "Resultaten en thesaurie genormaliseerd", "Gedocumenteerde onderhandelingspunten", "Een helder rapport voor de beslissing"],
+    sections: [
+      {
+        title: "Een due diligence gericht op wat telt",
+        text: "We vertrekken van jouw vragen: wat wil je kopen, tegen welke prijs, met welke aanvaardbare risico's? De scope van het onderzoek volgt daaruit, zodat je geen lijvig rapport krijgt dat de beslissing niet beantwoordt.",
+        items: ["Kwaliteit en terugkerend karakter van de resultaten", "Thesaurie, werkkapitaal en nettoschuld", "Buitenbalansverplichtingen", "Fiscale en sociale risico's"]
+      },
+      {
+        title: "Vaststellingen omgezet in onderhandelingshefbomen",
+        text: "Elk punt wordt waar mogelijk becijferd en gekoppeld aan een concreet gevolg: prijsaanpassing, garantie, opschortende voorwaarde of punt dat vóór de ondertekening moet worden rechtgezet. Zo heb je onderbouwde argumenten om te onderhandelen.",
+        items: ["Correcties en normalisering", "Review van het businessplan", "Aandachtspunten voor het contract", "Samenvatting voor het beslissingscomité"]
+      },
+      {
+        title: "Na de transactie: integreren en sturen",
+        text: "Een geslaagde overname speelt zich ook af na de ondertekening. MEC kan de rapportering naar de koper, de maandafsluiting, het dashboard en de opvolging van verplichtingen opzetten, zeker voor Europese groepen die een bedrijf in Marokko overnemen."
+      }
+    ],
+    process: [
+      { title: "Afbakening", text: "Doelen, scope, kalender en toegang tot gegevens." },
+      { title: "Onderzoek", text: "Rekeningen, thesaurie, fiscaliteit, sociaal en verplichtingen." },
+      { title: "Rapport", text: "Becijferde vaststellingen en onderhandelingspunten." },
+      { title: "Integratie", text: "Rapportering, afsluiting en sturing na de ondertekening." }
+    ],
+    faq: [
+      { question: "Wat is een financiële due diligence?", answer: "Een grondig onderzoek van de rekeningen en de financiële toestand van een bedrijf vóór een transactie: kwaliteit van de resultaten, thesaurie, schulden, verplichtingen en risico's. Het beveiligt de beslissing en de onderhandeling." },
+      { question: "Is de juridische due diligence inbegrepen?", answer: "MEC behandelt de financiële, fiscale en sociale kant. Het juridische luik (contracten, eigendom, geschillen, akten) gebeurt door de bevoegde advocaat of notaris, met wie we kalender en vaststellingen afstemmen." },
+      { question: "Hoe lang duurt een due diligence?", answer: "Dat hangt af van de scope, de omvang van het doelbedrijf en de beschikbaarheid van gegevens. Een nauwkeurige afbakening maakt een realistische kalender mogelijk." },
+      { question: "Begeleiden jullie buitenlandse kopers?", answer: "Ja, onder meer Europese bedrijven die een vennootschap in Marokko overnemen of erin investeren, met een rapport afgestemd op hun rapporteringseisen." }
+    ],
+    relatedServices: [],
+    keywords: ["due diligence Marokko", "transactieadvies Marokko", "bedrijf overnemen Marokko", "financiële due diligence"]
+  },
+  {
+    slug: "due-diligence-marruecos",
+    group: "transaction",
+    locale: "es",
+    seoTitle: "Due diligence y asesoría en transacciones en Marruecos | MEC",
+    eyebrow: "Asesoría en transacciones",
+    title: "Due diligence financiera y asesoría en transacciones en Marruecos",
+    description:
+      "Compra de empresa, toma de participación o alianza: MEC analiza las cuentas, la tesorería y los riesgos fiscales y sociales de la sociedad objetivo en Marruecos para asegurar su decisión y su negociación.",
+    intro:
+      "Antes de comprar una sociedad, entrar en su capital o asociarse con un socio marroquí, hay que saber qué se compra realmente. Morocco Europe Consulting realiza due diligences financieras centradas en lo que cambia la decisión: calidad de los resultados, tesorería, deuda, compromisos y riesgos fiscales y sociales. Los aspectos jurídicos se tratan con el abogado o el notario competente.",
+    imageSrc: "/images/generated/mec-audit-compliance.webp",
+    imageAlt: "Due diligence financiera antes de una adquisición en Marruecos",
+    outcomes: ["Riesgos identificados antes de firmar", "Resultados y tesorería normalizados", "Puntos de negociación documentados", "Un informe claro para decidir"],
+    sections: [
+      {
+        title: "Una due diligence centrada en lo importante",
+        text: "Partimos de sus preguntas: ¿qué quiere comprar, a qué precio y con qué riesgos aceptables? El alcance de la revisión se deriva de ellas, para evitar un informe voluminoso que no responde a la decisión.",
+        items: ["Calidad y recurrencia de los resultados", "Tesorería, fondo de maniobra y deuda neta", "Compromisos fuera de balance", "Riesgos fiscales y sociales"]
+      },
+      {
+        title: "Hallazgos convertidos en palancas de negociación",
+        text: "Cada punto se cuantifica cuando es posible y se vincula a una consecuencia concreta: ajuste de precio, garantía, condición suspensiva o punto que corregir antes de la firma. Dispone así de argumentos documentados para negociar.",
+        items: ["Ajustes y normalización", "Revisión del plan de negocio", "Puntos de atención para el contrato", "Síntesis para el comité de decisión"]
+      },
+      {
+        title: "Después de la operación: integrar y controlar",
+        text: "Una adquisición exitosa también se juega después de la firma. MEC puede implantar el reporting hacia el comprador, el cierre mensual, el cuadro de mando y el seguimiento de compromisos, especialmente para grupos europeos que adquieren una sociedad en Marruecos."
+      }
+    ],
+    process: [
+      { title: "Definición", text: "Objetivos, alcance, calendario y acceso a los datos." },
+      { title: "Revisión", text: "Cuentas, tesorería, fiscalidad, social y compromisos." },
+      { title: "Informe", text: "Hallazgos cuantificados y puntos de negociación." },
+      { title: "Integración", text: "Reporting, cierre y control tras la firma." }
+    ],
+    faq: [
+      { question: "¿Qué es una due diligence financiera?", answer: "Una revisión en profundidad de las cuentas y la situación financiera de una empresa antes de una operación: calidad de los resultados, tesorería, deudas, compromisos y riesgos. Sirve para asegurar la decisión y la negociación." },
+      { question: "¿Incluye la due diligence jurídica?", answer: "MEC trata los aspectos financieros, fiscales y sociales. El aspecto jurídico (contratos, propiedad, litigios, escrituras) lo lleva el abogado o el notario competente, con quien coordinamos el calendario y los hallazgos." },
+      { question: "¿Cuánto dura una due diligence?", answer: "Depende del alcance, del tamaño de la sociedad objetivo y de la disponibilidad de los datos. Un encuadre preciso al inicio permite fijar un calendario realista." },
+      { question: "¿Acompañan a compradores extranjeros?", answer: "Sí, en particular a empresas españolas y europeas que adquieren o invierten en una sociedad en Marruecos, con un informe adaptado a sus exigencias de reporting." }
+    ],
+    relatedServices: [],
+    keywords: ["due diligence Marruecos", "asesoría en transacciones Marruecos", "comprar empresa en Marruecos", "due diligence financiera"]
+  },
+  {
+    slug: "الفحص-النافي-للجهالة-في-المغرب",
+    group: "transaction",
+    locale: "ar",
+    seoTitle: "الفحص النافي للجهالة والاستشارة في الصفقات بالمغرب | MEC",
+    eyebrow: "الاستشارة في الصفقات",
+    title: "الفحص المالي النافي للجهالة والاستشارة في الصفقات بالمغرب",
+    description:
+      "استحواذ أو مساهمة في رأسمال أو شراكة: يحلّل MEC حسابات الشركة المستهدفة في المغرب وخزينتها ومخاطرها الجبائية والاجتماعية لتأمين قراركم وتفاوضكم.",
+    intro:
+      "قبل شراء شركة أو الدخول في رأسمالها أو الشراكة مع مقاولة مغربية، يجب معرفة ما تشترونه فعلًا. ينجز مكتب Morocco Europe Consulting فحوصًا مالية نافية للجهالة تركّز على ما يغيّر القرار: جودة النتائج والخزينة والديون والالتزامات والمخاطر الجبائية والاجتماعية. وتُعالَج الجوانب القانونية مع المحامي أو الموثق المختص.",
+    imageSrc: "/images/generated/mec-audit-compliance.webp",
+    imageAlt: "فحص مالي نافٍ للجهالة قبل استحواذ في المغرب",
+    outcomes: ["مخاطر محدّدة قبل التوقيع", "نتائج وخزينة معاد معالجتها", "نقاط تفاوض موثّقة", "تقرير واضح لاتخاذ القرار"],
+    sections: [
+      {
+        title: "فحص يركّز على ما يهم",
+        text: "ننطلق من أسئلتكم: ماذا تريدون شراءه، وبأي ثمن، وما المخاطر المقبولة؟ ومنها يُحدَّد نطاق الفحص، لتفادي تقرير ضخم لا يجيب عن القرار.",
+        items: ["جودة النتائج وتكرارها", "الخزينة ورأس المال العامل وصافي الديون", "الالتزامات خارج الميزانية", "المخاطر الجبائية والاجتماعية"]
+      },
+      {
+        title: "ملاحظات تتحول إلى أوراق تفاوض",
+        text: "تُقدَّر كل ملاحظة بالأرقام كلما أمكن، وتُربط بنتيجة ملموسة: تعديل الثمن، أو ضمان يجب إدراجه، أو شرط واقف، أو نقطة يجب تصحيحها قبل التوقيع. وبذلك تتوفرون على حجج موثّقة للتفاوض.",
+        items: ["إعادة المعالجة والتطبيع", "مراجعة مخطط الأعمال", "نقاط اليقظة في العقد", "خلاصة للجنة القرار"]
+      },
+      {
+        title: "بعد الصفقة: الإدماج والقيادة",
+        text: "يُحسم نجاح الاستحواذ أيضًا بعد التوقيع. يمكن لـ MEC إرساء التقارير الموجّهة إلى المشتري والإقفال الشهري ولوحة القيادة وتتبّع الالتزامات، خاصة بالنسبة للمجموعات الأوروبية التي تستحوذ على شركة في المغرب."
+      }
+    ],
+    process: [
+      { title: "التأطير", text: "الأهداف والنطاق والجدول الزمني والولوج إلى المعطيات." },
+      { title: "الفحص", text: "الحسابات والخزينة والجبايات والجانب الاجتماعي والالتزامات." },
+      { title: "التقرير", text: "ملاحظات مقدّرة بالأرقام ونقاط تفاوض." },
+      { title: "الإدماج", text: "التقارير والإقفال والقيادة بعد التوقيع." }
+    ],
+    faq: [
+      { question: "ما هو الفحص المالي النافي للجهالة؟", answer: "مراجعة معمّقة لحسابات المقاولة ووضعيتها المالية قبل صفقة: جودة النتائج والخزينة والديون والالتزامات والمخاطر. ويهدف إلى تأمين القرار والتفاوض." },
+      { question: "هل يشمل الفحص الجانب القانوني؟", answer: "يتولى MEC الجوانب المالية والجبائية والاجتماعية، أما الجانب القانوني (العقود والملكية والنزاعات والعقود الرسمية) فيتولاه المحامي أو الموثق المختص، وننسّق معه الجدول الزمني والملاحظات." },
+      { question: "كم تستغرق مدة الفحص؟", answer: "تتوقف على النطاق وحجم الشركة المستهدفة وتوفر المعطيات، ويتيح التأطير الدقيق منذ البداية وضع جدول زمني واقعي." },
+      { question: "هل تواكبون المشترين الأجانب؟", answer: "نعم، خاصة الشركات الأوروبية التي تستحوذ على شركة في المغرب أو تستثمر فيها، مع تقرير ملائم لمتطلباتها في التقارير." }
+    ],
+    relatedServices: [],
+    keywords: ["الفحص النافي للجهالة المغرب", "الاستشارة في الصفقات المغرب", "شراء شركة في المغرب", "due diligence المغرب"]
   }
 ];
