@@ -147,7 +147,7 @@ export const intlLandingPages: SeoLandingPage[] = [
     slug: "company-formation-morocco",
     group: "creation",
     locale: "en",
-    seoTitle: "Company Formation in Morocco: Step-by-Step Support | MEC Tangier",
+    seoTitle: "Company Formation & Corporate Services in Morocco | MEC Tangier",
     eyebrow: "Formation and structuring",
     title: "Company formation in Morocco, structured from day one",
     description:
@@ -185,7 +185,7 @@ export const intlLandingPages: SeoLandingPage[] = [
       { question: "Can you support us after incorporation?", answer: "Yes. Support can continue with bookkeeping, tax filings, cash management, reporting and performance monitoring." }
     ],
     relatedServices: [],
-    keywords: ["company formation Morocco", "set up a company in Morocco", "register a business in Morocco", "SARL Morocco", "start a business in Morocco"]
+    keywords: ["company formation Morocco", "corporate services Morocco", "company incorporation Morocco", "set up a company in Morocco", "SARL Morocco"]
   },
   {
     slug: "set-up-business-morocco",
@@ -234,9 +234,9 @@ export const intlLandingPages: SeoLandingPage[] = [
     slug: "accountant-tangier",
     group: "comptable",
     locale: "en",
-    seoTitle: "Accounting Firm in Tangier: Bookkeeping, Tax & Payroll | MEC",
+    seoTitle: "Accounting & Bookkeeping Services in Morocco | MEC Tangier",
     eyebrow: "Accounting and control in Tangier",
-    title: "Accounting firm in Tangier for companies and investors",
+    title: "Accounting and bookkeeping services in Morocco, from Tangier",
     description:
       "MEC supports companies in Tangier with bookkeeping, tax filings, reporting, payroll, dashboards and financial control.",
     intro:
@@ -272,7 +272,7 @@ export const intlLandingPages: SeoLandingPage[] = [
       { question: "Can we start with a diagnosis?", answer: "Yes. A first conversation scopes the assignment: available documents, urgent points and the right follow-up frequency." }
     ],
     relatedServices: [],
-    keywords: ["accountant Tangier", "accounting firm Tangier", "bookkeeping Morocco", "tax accountant Morocco", "payroll Morocco"]
+    keywords: ["accounting services Morocco", "bookkeeping Morocco", "accounting company Morocco", "accountant Tangier", "accounting firm Tangier", "payroll Morocco"]
   },
 
   // ───────────────────────── ESPAÑOL ─────────────────────────
@@ -280,7 +280,7 @@ export const intlLandingPages: SeoLandingPage[] = [
     slug: "crear-empresa-marruecos",
     group: "creation",
     locale: "es",
-    seoTitle: "Crear una empresa en Marruecos: acompañamiento paso a paso | MEC",
+    seoTitle: "Abrir una empresa en Marruecos: constitución paso a paso | MEC",
     eyebrow: "Creación y estructuración",
     title: "Crear una empresa en Marruecos con un método claro",
     description:
@@ -318,7 +318,7 @@ export const intlLandingPages: SeoLandingPage[] = [
       { question: "¿Nos acompañan después de la creación?", answer: "Sí. El acompañamiento puede continuar con la contabilidad, las declaraciones, la tesorería, el reporting y el seguimiento de la actividad." }
     ],
     relatedServices: [],
-    keywords: ["crear empresa en Marruecos", "constituir sociedad en Marruecos", "abrir empresa en Marruecos", "SARL Marruecos", "invertir en Marruecos"]
+    keywords: ["abrir empresa en Marruecos", "constitución de empresas en Marruecos", "crear empresa en Marruecos", "SARL Marruecos", "consultoría negocios Marruecos"]
   },
   {
     slug: "implantacion-empresa-marruecos",
@@ -539,5 +539,182 @@ export const intlLandingPages: SeoLandingPage[] = [
     ],
     relatedServices: [],
     keywords: ["مكتب محاسبة طنجة", "محاسب في طنجة", "مسك المحاسبة بالمغرب", "التصريحات الضريبية للشركات", "مكتب استشارة مالية طنجة"]
+  },
+  // ───────────────────────── Tax advisory (group "fiscal") ─────────────────────────
+  {
+    slug: "tax-advisory-morocco",
+    group: "fiscal",
+    locale: "en",
+    seoTitle: "Tax Advisory in Morocco: VAT, Corporate Tax & Compliance | MEC",
+    eyebrow: "Corporate tax in Morocco",
+    title: "Tax advisory and tax compliance for companies in Morocco",
+    description:
+      "VAT, corporate income tax, withholding taxes, payroll and Morocco–Europe flows: MEC organises your company's tax calendar in Morocco, prepares your filings and secures cross-border invoicing.",
+    intro:
+      "Corporate tax in Morocco is not only about filing on time. The business model and the tax treatment must stay consistent, especially when a company invoices European clients, receives services from abroad or pays a non-resident. Morocco Europe Consulting, based in Tangier, organises your deadlines, prepares your returns and alerts you before key dates.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "Tax compliance and filings for a company in Morocco",
+    outcomes: ["Tax calendar under control", "Returns prepared and tracked", "Morocco–Europe flows analysed", "Alerts before deadlines"],
+    sections: [
+      {
+        title: "A filing calendar kept all year round",
+        text: "VAT, corporate income tax, salary income tax, withholding taxes and the annual tax return each have their own frequency. We build your company's calendar, prepare the returns and follow the e-filings on the tax administration's (DGI) online services.",
+        items: ["VAT", "Corporate income tax", "Salary tax and withholding taxes", "Annual accounts and tax return"]
+      },
+      {
+        title: "Flows with Europe, analysed before you invoice",
+        text: "A company that invoices European clients, receives intra-group services or pays a non-resident provider does not face the same issues as a purely local business. The tax treaties Morocco has signed with France, Belgium, Spain or the Netherlands must be read against the real flows. We map contracts and payments, then have the applicable treatment validated.",
+        items: ["Invoicing European clients", "Intra-group services", "Payments to non-residents", "Tax treaties"]
+      },
+      {
+        title: "Each Finance Act, translated for your business",
+        text: "Morocco's annual Finance Act changes part of the rules every year. We identify the measures that actually affect your business and adapt your forecasts and organisation. Complex tax choices are validated for your situation, with licensed professionals when needed."
+      }
+    ],
+    process: [
+      { title: "Diagnosis", text: "Obligations, possible delays and risks." },
+      { title: "Calendar", text: "Deadlines, owners and documents to provide." },
+      { title: "Filings", text: "Preparation, review and e-filing." },
+      { title: "Monitoring", text: "Finance Act updates and deadline alerts." }
+    ],
+    faq: [
+      { question: "Which tax returns must a company file in Morocco?", answer: "Generally VAT, corporate income tax and its instalments, salary income tax, some withholding taxes and the annual tax return. The exact list and frequency depend on the company's activity and tax regime." },
+      { question: "Can you take over a file with late filings?", answer: "Yes. The diagnosis starts with an inventory of filed and missing returns, then we set up a catch-up plan with priorities and the documents needed." },
+      { question: "Do you support companies invoicing in Europe?", answer: "Yes. We analyse contracts and flows with Europe, including VAT, withholding taxes and the application of tax treaties, then have the sensitive points validated." }
+    ],
+    relatedServices: [],
+    keywords: ["tax advisory Morocco", "tax compliance Morocco", "corporate tax Morocco", "VAT Morocco", "tax services Morocco"]
+  },
+  {
+    slug: "fiscaal-advies-marokko",
+    group: "fiscal",
+    locale: "nl",
+    seoTitle: "Fiscaal advies in Marokko: btw, vennootschapsbelasting | MEC",
+    eyebrow: "Bedrijfsfiscaliteit in Marokko",
+    title: "Fiscaal advies en aangiftes voor bedrijven in Marokko",
+    description:
+      "Btw, vennootschapsbelasting, bronheffingen, lonen en stromen met Europa: MEC organiseert de fiscale kalender van je bedrijf in Marokko en zorgt voor correcte aangiftes.",
+    intro:
+      "Fiscaliteit in Marokko is meer dan op tijd aangifte doen. Het commerciële model en de fiscale behandeling moeten kloppen, zeker wanneer je bedrijf Europese klanten factureert, diensten uit het buitenland ontvangt of een niet-inwoner betaalt. Morocco Europe Consulting in Tanger plant je deadlines, bereidt je aangiftes voor en waarschuwt je vóór de belangrijke data.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "Fiscale aangiftes van een bedrijf in Marokko",
+    outcomes: ["Fiscale kalender onder controle", "Aangiftes voorbereid en opgevolgd", "Stromen Marokko-Europa geanalyseerd", "Alerts vóór de deadlines"],
+    sections: [
+      {
+        title: "Een aangiftekalender die het hele jaar klopt",
+        text: "Btw, vennootschapsbelasting, belasting op lonen, bronheffingen en de jaarlijkse fiscale aangifte hebben elk hun eigen ritme. We stellen de kalender van je bedrijf op, bereiden de aangiftes voor en volgen de elektronische aangiftes bij de Marokkaanse belastingadministratie (DGI) op.",
+        items: ["Btw", "Vennootschapsbelasting", "Belasting op lonen en bronheffingen", "Jaarrekening en fiscale aangifte"]
+      },
+      {
+        title: "Stromen met Europa, bekeken vóór je factureert",
+        text: "Een bedrijf dat Europese klanten factureert, intragroepsdiensten ontvangt of een niet-inwoner betaalt, heeft andere aandachtspunten dan een louter lokale activiteit. De belastingverdragen van Marokko met België, Nederland, Frankrijk of Spanje moeten gelezen worden in het licht van de echte stromen. We brengen contracten en betalingen in kaart en laten de toepasselijke behandeling bevestigen.",
+        items: ["Facturatie aan Europese klanten", "Intragroepsdiensten", "Betalingen aan niet-inwoners", "Belastingverdragen"]
+      },
+      {
+        title: "Elke Marokkaanse financiewet, vertaald naar je bedrijf",
+        text: "De jaarlijkse financiewet wijzigt telkens een deel van de regels. We bekijken welke maatregelen je activiteit echt raken en passen je prognoses en organisatie aan. Complexe fiscale keuzes worden afgetoetst aan je situatie, waar nodig met de bevoegde professionals."
+      }
+    ],
+    process: [
+      { title: "Diagnose", text: "Verplichtingen, eventuele achterstand en risico's." },
+      { title: "Kalender", text: "Deadlines, verantwoordelijken en documenten." },
+      { title: "Aangiftes", text: "Voorbereiding, controle en elektronische aangifte." },
+      { title: "Opvolging", text: "Financiewet en alerts vóór de deadlines." }
+    ],
+    faq: [
+      { question: "Welke fiscale aangiftes moet een vennootschap in Marokko indienen?", answer: "Meestal de btw, de vennootschapsbelasting en de voorschotten, de belasting op lonen, bepaalde bronheffingen en de jaarlijkse fiscale aangifte. De precieze lijst en frequentie hangen af van de activiteit en het belastingstelsel van het bedrijf." },
+      { question: "Kunnen jullie een dossier met achterstand overnemen?", answer: "Ja. De diagnose begint met een overzicht van de ingediende en ontbrekende aangiftes, daarna volgt een inhaalplan met prioriteiten en de nodige documenten." },
+      { question: "Begeleiden jullie bedrijven die in Europa factureren?", answer: "Ja. We analyseren contracten en stromen met Europa, onder meer btw, bronheffingen en de toepassing van belastingverdragen, en laten de gevoelige punten bevestigen." }
+    ],
+    relatedServices: [],
+    keywords: ["fiscaal advies Marokko", "btw Marokko", "vennootschapsbelasting Marokko", "boekhouder Marokko belasting", "fiscaliteit Marokko bedrijf"]
+  },
+  {
+    slug: "asesoria-fiscal-marruecos",
+    group: "fiscal",
+    locale: "es",
+    seoTitle: "Asesoría fiscal en Marruecos: IVA, impuesto de sociedades | MEC",
+    eyebrow: "Fiscalidad de empresas en Marruecos",
+    title: "Asesoría fiscal y declaraciones para empresas en Marruecos",
+    description:
+      "IVA, impuesto sobre sociedades, retenciones, nóminas y flujos con Europa: MEC organiza el calendario fiscal de su empresa en Marruecos y asegura sus declaraciones.",
+    intro:
+      "La fiscalidad de una empresa en Marruecos no se limita a declarar a tiempo. El modelo comercial y el tratamiento fiscal deben ser coherentes, sobre todo cuando la empresa factura a clientes europeos, recibe servicios del extranjero o paga a un no residente. Morocco Europe Consulting, con sede en Tánger, organiza sus plazos, prepara sus declaraciones y le avisa antes de las fechas clave.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "Declaraciones fiscales de una empresa en Marruecos",
+    outcomes: ["Calendario fiscal bajo control", "Declaraciones preparadas y seguidas", "Flujos Marruecos-Europa analizados", "Alertas antes de los plazos"],
+    sections: [
+      {
+        title: "Un calendario de declaraciones al día todo el año",
+        text: "IVA, impuesto sobre sociedades, impuesto sobre la renta de los asalariados, retenciones y declaración fiscal anual: cada obligación tiene su periodicidad. Elaboramos el calendario de su empresa, preparamos las declaraciones y seguimos las presentaciones telemáticas ante la administración tributaria marroquí (DGI).",
+        items: ["IVA", "Impuesto sobre sociedades", "IR sobre salarios y retenciones", "Cuentas anuales y declaración fiscal"]
+      },
+      {
+        title: "Los flujos con Europa, analizados antes de facturar",
+        text: "Una sociedad que factura a clientes europeos, recibe servicios intragrupo o paga a un proveedor no residente no tiene los mismos retos que una actividad puramente local. Los convenios fiscales firmados por Marruecos con España, Francia, Bélgica o los Países Bajos deben leerse a la luz de los flujos reales. Mapeamos contratos y pagos y hacemos validar el tratamiento aplicable.",
+        items: ["Facturación a clientes europeos", "Servicios intragrupo", "Pagos a no residentes", "Convenios fiscales"]
+      },
+      {
+        title: "Cada Ley de Finanzas, traducida para su empresa",
+        text: "La Ley de Finanzas anual modifica cada año parte de las reglas. Identificamos las medidas que afectan realmente a su actividad y adaptamos sus previsiones y su organización. Las decisiones fiscales complejas se validan según su situación, con los profesionales habilitados cuando es necesario."
+      }
+    ],
+    process: [
+      { title: "Diagnóstico", text: "Obligaciones, posibles retrasos y riesgos." },
+      { title: "Calendario", text: "Plazos, responsables y documentos." },
+      { title: "Declaraciones", text: "Preparación, control y presentación telemática." },
+      { title: "Seguimiento", text: "Ley de Finanzas y alertas antes de los plazos." }
+    ],
+    faq: [
+      { question: "¿Qué declaraciones fiscales debe presentar una sociedad en Marruecos?", answer: "Por lo general, el IVA, el impuesto sobre sociedades y sus pagos a cuenta, el impuesto sobre la renta de los asalariados, algunas retenciones y la declaración fiscal anual. La lista exacta y la periodicidad dependen de la actividad y del régimen de la empresa." },
+      { question: "¿Pueden retomar un expediente con retrasos?", answer: "Sí. El diagnóstico empieza por el inventario de las declaraciones presentadas y pendientes; después establecemos un plan de regularización con prioridades y documentos." },
+      { question: "¿Acompañan a empresas que facturan en Europa?", answer: "Sí. Analizamos los contratos y flujos con Europa, en particular el IVA, las retenciones y la aplicación de los convenios fiscales, y hacemos validar los puntos sensibles." }
+    ],
+    relatedServices: [],
+    keywords: ["asesoría fiscal Marruecos", "IVA Marruecos", "impuesto de sociedades Marruecos", "asesoría internacional Marruecos", "fiscalidad empresa Marruecos"]
+  },
+  {
+    slug: "استشارة-جبائية-في-المغرب",
+    group: "fiscal",
+    locale: "ar",
+    seoTitle: "الاستشارة الجبائية في المغرب: الضريبة على القيمة المضافة والشركات | MEC",
+    eyebrow: "جبايات المقاولات في المغرب",
+    title: "الاستشارة الجبائية والتصريحات الضريبية للمقاولات في المغرب",
+    description:
+      "الضريبة على القيمة المضافة، الضريبة على الشركات، الاقتطاعات من المنبع، الأجور والتدفقات مع أوروبا: ينظّم MEC الجدول الجبائي لمقاولتكم في المغرب ويؤمّن تصريحاتكم.",
+    intro:
+      "لا تقتصر جبايات المقاولة في المغرب على التصريح في الآجال. فيجب أن يظل النموذج التجاري منسجمًا مع المعالجة الجبائية، خاصة عندما تفوتر المقاولة لزبناء أوروبيين أو تتلقى خدمات من الخارج أو تؤدي لغير مقيم. ينظّم مكتب Morocco Europe Consulting بطنجة آجالكم ويُعدّ تصريحاتكم وينبّهكم قبل التواريخ المهمة.",
+    imageSrc: "/images/sections/finance-table.webp",
+    imageAlt: "التصريحات الجبائية لمقاولة في المغرب",
+    outcomes: ["جدول جبائي تحت السيطرة", "تصريحات محضّرة ومتابَعة", "تدفقات المغرب-أوروبا محلَّلة", "تنبيهات قبل الآجال"],
+    sections: [
+      {
+        title: "جدول تصريحات مضبوط طوال السنة",
+        text: "لكل التزام وتيرته: الضريبة على القيمة المضافة، والضريبة على الشركات، والضريبة على دخل الأجراء، والاقتطاعات من المنبع، والإقرار الجبائي السنوي. نُعدّ جدول مقاولتكم ونحضّر التصريحات ونتابع الإيداع الإلكتروني لدى المديرية العامة للضرائب.",
+        items: ["الضريبة على القيمة المضافة", "الضريبة على الشركات", "الضريبة على الأجور والاقتطاعات من المنبع", "القوائم التركيبية والإقرار الجبائي"]
+      },
+      {
+        title: "التدفقات مع أوروبا تُحلَّل قبل الفوترة",
+        text: "المقاولة التي تفوتر لزبناء أوروبيين أو تتلقى خدمات داخل المجموعة أو تؤدي لمورّد غير مقيم لا تواجه نفس الرهانات التي يواجهها نشاط محلي صرف. ويجب قراءة الاتفاقيات الجبائية التي وقّعها المغرب مع فرنسا وبلجيكا وإسبانيا وهولندا في ضوء التدفقات الفعلية. نرسم خريطة العقود والأداءات ثم نتحقق من المعالجة المطبقة.",
+        items: ["الفوترة لزبناء أوروبيين", "الخدمات داخل المجموعة", "الأداءات لغير المقيمين", "الاتفاقيات الجبائية"]
+      },
+      {
+        title: "كل قانون مالية مترجَم لمقاولتكم",
+        text: "يغيّر قانون المالية كل سنة جزءًا من القواعد. نحدد التدابير التي تهم نشاطكم فعلًا ونكيّف توقعاتكم وتنظيمكم. ويُتحقق من الاختيارات الجبائية المعقدة حسب وضعيتكم، مع المهنيين المؤهلين عند الحاجة."
+      }
+    ],
+    process: [
+      { title: "التشخيص", text: "الالتزامات والتأخرات المحتملة والمخاطر." },
+      { title: "الجدول الزمني", text: "الآجال والمسؤولون والوثائق المطلوبة." },
+      { title: "التصريحات", text: "الإعداد والمراقبة والإيداع الإلكتروني." },
+      { title: "اليقظة", text: "قانون المالية والتنبيهات قبل الآجال." }
+    ],
+    faq: [
+      { question: "ما هي التصريحات الجبائية التي يجب على الشركة إيداعها في المغرب؟", answer: "عمومًا: الضريبة على القيمة المضافة، والضريبة على الشركات وتسبيقاتها، والضريبة على دخل الأجراء، وبعض الاقتطاعات من المنبع، والإقرار الجبائي السنوي. وتتوقف اللائحة الدقيقة والوتيرة على النشاط والنظام الجبائي للمقاولة." },
+      { question: "هل يمكنكم استلام ملف متأخر؟", answer: "نعم. يبدأ التشخيص بجرد التصريحات المودعة والناقصة، ثم نضع خطة تسوية بالأولويات والوثائق اللازمة." },
+      { question: "هل تواكبون المقاولات التي تفوتر في أوروبا؟", answer: "نعم. نحلل العقود والتدفقات مع أوروبا، خاصة الضريبة على القيمة المضافة والاقتطاعات من المنبع وتطبيق الاتفاقيات الجبائية، ثم نتحقق من النقاط الحساسة." }
+    ],
+    relatedServices: [],
+    keywords: ["استشارة جبائية المغرب", "الضريبة على القيمة المضافة المغرب", "الضريبة على الشركات المغرب", "التصريحات الضريبية للشركات"]
   }
 ];

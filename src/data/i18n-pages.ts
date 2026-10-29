@@ -149,6 +149,15 @@ export const pageEntries: TranslationMap[] = [
   { fr: "conseil gestion Maroc", nl: "managementadvies Marokko", en: "management consulting Morocco", es: "consultoría de gestión Marruecos", ar: "استشارة في التسيير المغرب" },
 
   // ───── Home ─────
+  { fr: "Expertises clés", nl: "Kernexpertises", en: "Key services", es: "Servicios clave", ar: "خدماتنا الأساسية" },
+  { fr: "Votre projet, étape par étape", nl: "Uw project, stap voor stap", en: "Your project, step by step", es: "Su proyecto, paso a paso", ar: "مشروعكم، خطوة بخطوة" },
+  {
+    fr: "Création de société, implantation, comptabilité et fiscalité : chaque parcours décrit ce que nous faisons, dans quel ordre.",
+    nl: "Oprichting, vestiging, boekhouding en fiscaliteit: elk traject beschrijft wat we doen en in welke volgorde.",
+    en: "Company formation, business set-up, accounting and tax: each path describes what we do, and in what order.",
+    es: "Creación de sociedades, implantación, contabilidad y fiscalidad: cada recorrido describe lo que hacemos y en qué orden.",
+    ar: "تأسيس الشركات والتوطين والمحاسبة والجبايات: كل مسار يوضّح ما نقوم به وبأي ترتيب."
+  },
   { fr: "Nos engagements", nl: "Onze engagementen", en: "Our commitments", es: "Nuestros compromisos", ar: "التزاماتنا" },
   {
     fr: "Cabinet de conseil financier et comptable à Tanger",

@@ -4,6 +4,7 @@ import { Approach } from "@/components/sections/Approach";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { Hero } from "@/components/sections/Hero";
 import { InsightsGrid } from "@/components/sections/InsightsGrid";
+import { KeyPages } from "@/components/sections/KeyPages";
 import { MoroccoEuropePositioning } from "@/components/sections/MoroccoEuropePositioning";
 import { QuickContact } from "@/components/sections/QuickContact";
 import { ServiceImageGrid } from "@/components/sections/ServiceImageGrid";
@@ -30,6 +31,7 @@ export function HomeContent() {
       <QuickContact />
       <AboutPreview />
       <ServicesGrid />
+      <KeyPages />
       <MoroccoEuropePositioning />
       <ServiceImageGrid />
       <WhyChooseUs />
