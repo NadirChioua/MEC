@@ -25,3 +25,6 @@ Thumbs.db
 tmp/
 debug.log
 tsconfig.tsbuildinfo
+
+# Internal files (client hand-over, media): never commit
+_media/
