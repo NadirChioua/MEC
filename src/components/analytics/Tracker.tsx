@@ -73,6 +73,25 @@ function isExcludedPath(path: string) {
   return path.startsWith("/admin");
 }
 
+/**
+ * Contact links without a data-track attribute still count as contacts:
+ * WhatsApp, phone and email links get a stable automatic identifier.
+ */
+function autoContactId(element: Element): { id: string; label: string } | null {
+  const link = element.closest<HTMLAnchorElement>("a[href]");
+  if (!link) return null;
+  const href = link.getAttribute("href") ?? "";
+  if (/^https:\/\/(wa\.me|api\.whatsapp\.com)\//i.test(href)) return { id: "auto-whatsapp", label: "Lien WhatsApp" };
+  if (/^tel:/i.test(href)) return { id: "auto-phone", label: "Lien téléphone" };
+  if (/^mailto:/i.test(href)) return { id: "auto-email", label: "Lien email" };
+  return null;
+}
+
+/** Other components can record an event (e.g. a successful form send) without a click. */
+export function trackEvent(id: string, label: string) {
+  window.dispatchEvent(new CustomEvent("mec:track", { detail: { id, label } }));
+}
+
 export function Tracker() {
   const queue = useRef<TrackedEvent[]>([]);
   const sessionId = useRef<string>("");
@@ -120,18 +139,21 @@ export function Tracker() {
       const target = event.target;
       if (!(target instanceof Element)) return;
 
-      const tracked = target.closest<HTMLElement>("[data-track]");
-      if (!tracked) return;
-
-      const elementId = tracked.dataset.track?.trim();
-      if (!elementId) return;
       if (isExcludedPath(window.location.pathname)) return;
 
+      const tracked = target.closest<HTMLElement>("[data-track]");
+      const auto = tracked ? null : autoContactId(target);
+      if (!tracked && !auto) return;
+
+      const elementId = tracked ? tracked.dataset.track?.trim() : auto!.id;
+      if (!elementId) return;
+
       const label =
-        tracked.dataset.trackLabel?.trim() ||
-        tracked.getAttribute("aria-label")?.trim() ||
-        tracked.textContent?.trim().replace(/\s+/g, " ").slice(0, 120) ||
-        elementId;
+        (tracked
+          ? tracked.dataset.trackLabel?.trim() ||
+            tracked.getAttribute("aria-label")?.trim() ||
+            tracked.textContent?.trim().replace(/\s+/g, " ").slice(0, 120)
+          : auto!.label) || elementId;
 
       queue.current.push({
         event_type: "click",
@@ -146,6 +168,20 @@ export function Tracker() {
       flush();
     };
 
+    const onCustomEvent = (event: Event) => {
+      const detail = (event as CustomEvent<{ id?: string; label?: string }>).detail;
+      if (!detail?.id || isExcludedPath(window.location.pathname)) return;
+      queue.current.push({
+        event_type: "click",
+        path: window.location.pathname,
+        element_id: detail.id.slice(0, 120),
+        element_label: (detail.label ?? detail.id).slice(0, 200),
+        session_id: sessionId.current,
+        locale: currentLocale()
+      });
+      flush();
+    };
+
     const onVisibilityChange = () => {
       if (document.visibilityState === "hidden") flush();
     };
@@ -155,6 +191,7 @@ export function Tracker() {
     document.addEventListener("click", onClick, { capture: true, passive: true });
     document.addEventListener("visibilitychange", onVisibilityChange);
     window.addEventListener("pagehide", flush);
+    window.addEventListener("mec:track", onCustomEvent);
 
     const timer = window.setInterval(flush, FLUSH_INTERVAL_MS);
 
@@ -164,6 +201,7 @@ export function Tracker() {
       document.removeEventListener("click", onClick, { capture: true });
       document.removeEventListener("visibilitychange", onVisibilityChange);
       window.removeEventListener("pagehide", flush);
+      window.removeEventListener("mec:track", onCustomEvent);
       enabled.current = false;
     };
   }, []);

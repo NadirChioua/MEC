@@ -13,15 +13,20 @@ import {
 } from "@/components/dashboard/primitives";
 import { CONTACT_PATH, CONTACT_SUBMIT_ID } from "@/lib/analytics/constants";
 import { PERIOD_COMPARISON_LABELS, type ResolvedPeriod } from "@/lib/analytics/period";
-import type { DashboardData, KpiWithTrend } from "@/lib/analytics/queries";
+import type { ContactData, DashboardData, KpiWithTrend } from "@/lib/analytics/queries";
 import type { BreakdownRow } from "@/lib/supabase/types";
 
-export function DashboardView({ data, period }: { data: DashboardData; period: ResolvedPeriod }) {
+export function DashboardView({ data, contacts, period }: { data: DashboardData; contacts: ContactData | null; period: ResolvedPeriod }) {
   const comparison = PERIOD_COMPARISON_LABELS[period.key];
   const hasTraffic = data.kpis.pageviews.value > 0;
 
   return (
     <div className="dash-stack">
+      {/* ---------------------------------------------------------- */}
+      {/* 0. Contacts : WhatsApp, appels, emails, formulaires          */}
+      {/* ---------------------------------------------------------- */}
+      <ContactsSection contacts={contacts} visitors={data.kpis.uniqueVisitors.value} comparison={comparison} />
+
       {/* ---------------------------------------------------------- */}
       {/* 1. KPI                                                      */}
       {/* ---------------------------------------------------------- */}
@@ -35,10 +40,10 @@ export function DashboardView({ data, period }: { data: DashboardData; period: R
         <KpiCard label="Pages vues" kpi={data.kpis.pageviews} comparison={comparison} />
         <KpiCard label="Sessions" kpi={data.kpis.sessions} comparison={comparison} />
         <KpiCard
-          label="Formulaires envoyés"
+          label="Clics sur « Envoyer »"
           kpi={data.kpis.formSubmits}
           comparison={comparison}
-          hint="Clics sur le bouton d’envoi du formulaire de contact."
+          hint="Tentatives d’envoi du formulaire. Les envois réussis sont dans la section Contacts."
         />
       </div>
 
@@ -181,6 +186,84 @@ export function DashboardView({ data, period }: { data: DashboardData; period: R
         ) : null}
       </DashPanel>
     </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Contacts                                                            */
+/* ------------------------------------------------------------------ */
+
+function ContactsSection({ contacts, visitors, comparison }: { contacts: ContactData | null; visitors: number; comparison: string }) {
+  if (!contacts) {
+    return (
+      <DashPanel title="Contacts" description="WhatsApp, appels, emails et formulaires envoyés.">
+        <EmptyState
+          title="Indicateurs de contact pas encore activés."
+          hint="Exécutez la migration supabase/migrations/0004_contact_kpis.sql dans le SQL Editor de Supabase (voir docs/DASHBOARD.md), puis rechargez cette page."
+        />
+      </DashPanel>
+    );
+  }
+
+  const rate = visitors > 0 ? (contacts.total.value / visitors) * 100 : null;
+  const asRows = (rows: ContactData["breakdowns"]["locale"]): BreakdownRow[] =>
+    rows.map((row) => ({ dimension: row.dimension, value: row.value, visitors: row.contacts, events: row.contacts }));
+
+  return (
+    <>
+      <div className="dash-kpis dash-kpis-contacts">
+        <KpiCard
+          label="Contacts (total)"
+          kpi={contacts.total}
+          comparison={comparison}
+          hint={`Taux de contact : ${formatPercent(rate)} des visiteurs.`}
+          info="Somme des clics WhatsApp, des clics sur un numéro de téléphone, des clics sur une adresse email et des formulaires envoyés avec succès."
+        />
+        <KpiCard label="WhatsApp" kpi={contacts.channels.whatsapp} comparison={comparison} hint="Clics vers WhatsApp (bouton flottant, pages, contact)." />
+        <KpiCard label="Appels" kpi={contacts.channels.phone} comparison={comparison} hint="Clics sur un numéro de téléphone." />
+        <KpiCard label="Emails" kpi={contacts.channels.email} comparison={comparison} hint="Clics sur une adresse email." />
+        <KpiCard label="Formulaires envoyés" kpi={contacts.channels.form} comparison={comparison} hint="Envois réussis du formulaire de contact." />
+      </div>
+
+      <DashPanel title="Pages qui génèrent des contacts" description="Sur quelle page le visiteur a cliqué WhatsApp, appelé, écrit ou envoyé le formulaire.">
+        {contacts.pages.length === 0 ? (
+          <EmptyState title="Aucun contact sur cette période." hint="Chaque clic WhatsApp, téléphone ou email et chaque formulaire envoyé apparaît ici." />
+        ) : (
+          <div className="dash-table-scroll">
+            <table className="dash-table">
+              <thead>
+                <tr>
+                  <th scope="col">Page</th>
+                  <th scope="col" className="num">WhatsApp</th>
+                  <th scope="col" className="num">Appels</th>
+                  <th scope="col" className="num">Emails</th>
+                  <th scope="col" className="num">Formulaires</th>
+                  <th scope="col" className="num">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {contacts.pages.map((page) => (
+                  <tr key={page.path}>
+                    <th scope="row"><code>{page.path}</code></th>
+                    <td className="num">{formatNumber(page.whatsapp)}</td>
+                    <td className="num">{formatNumber(page.phone)}</td>
+                    <td className="num">{formatNumber(page.email)}</td>
+                    <td className="num">{formatNumber(page.form)}</td>
+                    <td className="num strong">{formatNumber(page.total)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </DashPanel>
+
+      <div className="dash-breakdowns">
+        <BreakdownCard title="Contacts par langue" rows={asRows(contacts.breakdowns.locale)} format={labelForLocale} />
+        <BreakdownCard title="Contacts par pays" rows={asRows(contacts.breakdowns.country)} format={labelForCountry} limit={6} />
+        <BreakdownCard title="Contacts par appareil" rows={asRows(contacts.breakdowns.device)} format={labelForDevice} />
+      </div>
+    </>
   );
 }
 

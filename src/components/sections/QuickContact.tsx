@@ -14,12 +14,12 @@ export function QuickContact() {
         <div>
           <Icon name="phone" />
           <strong>{tr("Téléphone")}</strong>
-          <p className="muted">{siteConfig.contact.phone}</p>
+          <p className="muted"><a href={`tel:+${siteConfig.contact.whatsappNumber}`} data-track="quick-contact-phone" data-track-label="Contact rapide — Téléphone">{siteConfig.contact.phone}</a></p>
         </div>
         <div>
           <Icon name="email" />
           <strong>{tr("Email")}</strong>
-          <p className="muted">{siteConfig.contact.email}</p>
+          <p className="muted"><a href={`mailto:${siteConfig.contact.email}`} data-track="quick-contact-email" data-track-label="Contact rapide — Email">{siteConfig.contact.email}</a></p>
         </div>
         <ButtonLink href="/contact" variant="dark" trackId="quick-contact-cta" trackLabel="Contact rapide — Contacter MEC">
           Contacter MEC

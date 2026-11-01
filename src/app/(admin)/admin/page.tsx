@@ -7,7 +7,7 @@ import { DashboardView } from "@/components/dashboard/DashboardView";
 import { PeriodSwitcher } from "@/components/dashboard/PeriodSwitcher";
 import { EmptyState } from "@/components/dashboard/primitives";
 import { parsePeriod, resolvePeriod, PERIOD_LABELS } from "@/lib/analytics/period";
-import { AnalyticsUnavailableError, loadDashboardData } from "@/lib/analytics/queries";
+import { AnalyticsUnavailableError, loadContactData, loadDashboardData } from "@/lib/analytics/queries";
 import { getAdminIdentity } from "@/lib/supabase/admin-guard";
 import "./dashboard.css";
 
@@ -40,7 +40,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
       <header className="dash-header">
         <div>
           <p className="eyebrow">Tableau de bord</p>
-          <h1>Fréquentation du site</h1>
+          <h1>Fréquentation et contacts</h1>
           <p className="dash-header-meta">
             Connecté en tant que <strong>{identity.admin.email}</strong>
           </p>
@@ -66,12 +66,13 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
 
 async function DashboardSection({ period }: { period: ReturnType<typeof resolvePeriod> }) {
   let data: Awaited<ReturnType<typeof loadDashboardData>>;
+  let contacts: Awaited<ReturnType<typeof loadContactData>> = null;
 
   // Le try n'enveloppe que le chargement des données, jamais le rendu :
   // React ne rend pas les composants de façon synchrone, une erreur de
   // rendu ne serait donc pas interceptée ici de toute façon.
   try {
-    data = await loadDashboardData(period);
+    [data, contacts] = await Promise.all([loadDashboardData(period), loadContactData(period)]);
   } catch (error) {
     if (error instanceof AnalyticsUnavailableError) {
       return (
@@ -86,7 +87,7 @@ async function DashboardSection({ period }: { period: ReturnType<typeof resolveP
     throw error;
   }
 
-  return <DashboardView data={data} period={period} />;
+  return <DashboardView data={data} contacts={contacts} period={period} />;
 }
 
 function formatDay(day: string) {

@@ -2,6 +2,10 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { percentChange, type ResolvedPeriod } from "@/lib/analytics/period";
 import type {
   BreakdownRow,
+  ContactBreakdownRow,
+  ContactChannel,
+  ContactChannelRow,
+  ContactPageRow,
   ContactFunnelRow,
   KpiRow,
   TimeseriesRow,
@@ -113,6 +117,66 @@ export async function loadDashboardData(period: ResolvedPeriod): Promise<Dashboa
       referrer: pickDimension(breakdownRows, "referrer")
     },
     contactFunnel: normalizeFunnel(firstRow(funnelResult.data))
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Contacts (WhatsApp, appels, emails, formulaires) — migration 0004   */
+/* ------------------------------------------------------------------ */
+
+export type ContactData = {
+  channels: Record<ContactChannel, KpiWithTrend>;
+  total: KpiWithTrend;
+  pages: ContactPageRow[];
+  breakdowns: {
+    locale: ContactBreakdownRow[];
+    country: ContactBreakdownRow[];
+    device: ContactBreakdownRow[];
+  };
+};
+
+const CHANNELS: ContactChannel[] = ["whatsapp", "phone", "email", "form"];
+
+/**
+ * Contact indicators. Returns null when migration 0004 has not been run yet,
+ * so the rest of the dashboard keeps working and shows how to enable them.
+ */
+export async function loadContactData(period: ResolvedPeriod): Promise<ContactData | null> {
+  const supabase = await createSupabaseServerClient();
+  const range = { range_start: period.start, range_end: period.end };
+  const previousRange = { range_start: period.previousStart, range_end: period.previousEnd };
+
+  const [current, previous, pages, breakdowns] = await Promise.all([
+    supabase.rpc("dashboard_contact_channels", range),
+    supabase.rpc("dashboard_contact_channels", previousRange),
+    supabase.rpc("dashboard_contact_pages", { ...range, max_rows: 15 }),
+    supabase.rpc("dashboard_contact_breakdowns", range)
+  ]);
+  if (current.error || previous.error || pages.error || breakdowns.error) return null;
+
+  const sumBy = (rows: ContactChannelRow[] | null, channel?: ContactChannel) =>
+    (rows ?? []).filter((row) => !channel || row.channel === channel).reduce((sum, row) => sum + Number(row.contacts), 0);
+  const currentRows = current.data as ContactChannelRow[] | null;
+  const previousRows = previous.data as ContactChannelRow[] | null;
+
+  const breakdownRows = ((breakdowns.data ?? []) as ContactBreakdownRow[]).map((row) => ({ ...row, contacts: Number(row.contacts) }));
+  const pick = (dimension: ContactBreakdownRow["dimension"]) =>
+    breakdownRows.filter((row) => row.dimension === dimension).sort((a, b) => b.contacts - a.contacts);
+
+  return {
+    channels: Object.fromEntries(
+      CHANNELS.map((channel) => [channel, withTrend(sumBy(currentRows, channel), sumBy(previousRows, channel))])
+    ) as Record<ContactChannel, KpiWithTrend>,
+    total: withTrend(sumBy(currentRows), sumBy(previousRows)),
+    pages: ((pages.data ?? []) as ContactPageRow[]).map((row) => ({
+      path: row.path,
+      whatsapp: Number(row.whatsapp),
+      phone: Number(row.phone),
+      email: Number(row.email),
+      form: Number(row.form),
+      total: Number(row.total)
+    })),
+    breakdowns: { locale: pick("locale"), country: pick("country"), device: pick("device") }
   };
 }
 

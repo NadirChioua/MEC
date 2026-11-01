@@ -89,6 +89,29 @@ export type ContactFunnelRow = {
   conversion_rate: number | null;
 };
 
+export type ContactChannel = "whatsapp" | "phone" | "email" | "form";
+
+export type ContactChannelRow = {
+  channel: ContactChannel;
+  contacts: number;
+  unique_contacts: number;
+};
+
+export type ContactPageRow = {
+  path: string;
+  whatsapp: number;
+  phone: number;
+  email: number;
+  form: number;
+  total: number;
+};
+
+export type ContactBreakdownRow = {
+  dimension: "locale" | "country" | "device";
+  value: string;
+  contacts: number;
+};
+
 export type Database = {
   public: {
     Tables: {
@@ -144,6 +167,18 @@ export type Database = {
       dashboard_contact_funnel: {
         Args: DateRangeArgs;
         Returns: ContactFunnelRow[];
+      };
+      dashboard_contact_channels: {
+        Args: DateRangeArgs;
+        Returns: ContactChannelRow[];
+      };
+      dashboard_contact_pages: {
+        Args: DateRangeArgs & { max_rows?: number };
+        Returns: ContactPageRow[];
+      };
+      dashboard_contact_breakdowns: {
+        Args: DateRangeArgs;
+        Returns: ContactBreakdownRow[];
       };
     };
     Enums: Record<never, never>;

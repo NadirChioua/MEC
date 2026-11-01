@@ -82,13 +82,14 @@ dossier `supabase/migrations/` du dépôt.
 3. Ouvrez le fichier `supabase/migrations/0001_analytics.sql`, copiez **tout**
    son contenu, collez-le dans l'éditeur, puis cliquez sur **Run**.
 4. Vous devez voir `Success. No rows returned`.
-5. Répétez pour `0002_functions.sql`, puis pour `0003_dashboard_api.sql`.
+5. Répétez pour `0002_functions.sql`, puis `0003_dashboard_api.sql`, puis `0004_contact_kpis.sql`.
 
 | Fichier | Rôle |
 |---|---|
 | `0001_analytics.sql` | Tables `analytics_events`, `analytics_daily`, `admin_users` + sécurité RLS |
 | `0002_functions.sql` | Agrégation quotidienne et purge à 90 jours |
 | `0003_dashboard_api.sql` | Fonctions de lecture utilisées par le dashboard |
+| `0004_contact_kpis.sql` | Indicateurs de contact : WhatsApp, appels, emails, formulaires envoyés |
 
 Ces fichiers sont **idempotents** : les rejouer ne casse rien et n'efface
 aucune donnée.
@@ -504,3 +505,29 @@ Ajouter un service crée donc ses identifiants sans intervention.
 `accompagnement-personnalise`, `commerce-maroc-europe`.
 
 **Codes de langue :** `fr`, `ar`, `en`, `nl`, `es`.
+
+
+---
+
+## Annexe — Indicateurs de contact (migration 0004)
+
+La section **Contacts**, en haut du dashboard, compte chaque prise de contact :
+
+| Canal | Ce qui est compté |
+|---|---|
+| WhatsApp | clics sur un lien WhatsApp (bouton flottant, pages, page contact) |
+| Appels | clics sur un numéro de téléphone (`tel:`) |
+| Emails | clics sur une adresse email (`mailto:`) |
+| Formulaires | envois **réussis** du formulaire de contact (`contact-form-success`) |
+
+Elle affiche aussi le **taux de contact** (contacts ÷ visiteurs), les **pages qui génèrent
+des contacts** et la répartition par **langue, pays et appareil**.
+
+Le canal est déduit de l'identifiant `data-track` : il doit contenir `whatsapp`, `phone`,
+`tel`, `call`, `email` ou `mail`. Les liens WhatsApp, `tel:` et `mailto:` sans
+`data-track` sont comptés automatiquement (`auto-whatsapp`, `auto-phone`, `auto-email`).
+
+**Activation :** exécuter `supabase/migrations/0004_contact_kpis.sql` dans le SQL Editor.
+Tant que ce n'est pas fait, le dashboard fonctionne normalement et affiche une note à la place
+de la section Contacts. Les clics enregistrés avant la migration sont déjà dans la base : ils
+apparaissent dès l'activation (sauf « formulaires envoyés », mesuré à partir de cette version).

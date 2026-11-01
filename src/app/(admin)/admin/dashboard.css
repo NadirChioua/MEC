@@ -559,3 +559,20 @@
     padding: 18px 14px;
   }
 }
+
+/* Contacts: five KPI cards (total, WhatsApp, calls, emails, forms) */
+.dash-kpis-contacts {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .dash-kpis-contacts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .dash-kpis-contacts {
+    grid-template-columns: 1fr 1fr;
+  }
+}

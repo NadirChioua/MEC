@@ -26,11 +26,18 @@ export function ContactContent() {
           <aside className="grid">
             <div className="card">
               <h3>{tr("Téléphone")}</h3>
-              <p>{siteConfig.contact.phone}</p>
+              <p>
+                <a href={`tel:+${siteConfig.contact.whatsappNumber}`} data-track="contact-page-phone" data-track-label="Page contact — Téléphone">{siteConfig.contact.phone}</a>
+              </p>
+              <p>
+                <a href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} target="_blank" rel="noreferrer" data-track="contact-page-whatsapp" data-track-label="Page contact — WhatsApp">WhatsApp</a>
+              </p>
             </div>
             <div className="card">
               <h3>{tr("Email")}</h3>
-              <p>{siteConfig.contact.email}</p>
+              <p>
+                <a href={`mailto:${siteConfig.contact.email}`} data-track="contact-page-email" data-track-label="Page contact — Email">{siteConfig.contact.email}</a>
+              </p>
             </div>
             <div className="card">
               <h3>{tr("Adresse")}</h3>

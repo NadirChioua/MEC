@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 import { services } from "@/data/services";
+import { trackEvent } from "@/components/analytics/Tracker";
+import { CONTACT_SUCCESS_ID } from "@/lib/analytics/constants";
 
 const consentText =
   "J’accepte que mes données personnelles soient collectées et traitées conformément à la loi n°09-08 relative à la protection des personnes physiques à l’égard du traitement des données à caractère personnel. Les informations recueillies sont utilisées uniquement pour répondre à ma demande.";
@@ -64,6 +66,8 @@ export function ContactForm() {
       formElement.reset();
       setErrors({});
       setStatus("success");
+      // counted as a contact in the dashboard (the click alone may fail validation or sending)
+      trackEvent(CONTACT_SUCCESS_ID, "Formulaire de contact envoyé");
     } catch (error) {
       setStatus("error");
       setErrors({
