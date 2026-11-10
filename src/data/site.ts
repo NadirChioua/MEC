@@ -16,6 +16,8 @@ export const siteConfig = {
     region: "Tanger-Tétouan-Al Hoceïma",
     country: "MA"
   },
+  /** Google Business Profile (Maps listing) */
+  googleBusinessUrl: "https://share.google/lqN8sWvkFI2psplDH",
   positioning: "Le partenaire financier et opérationnel des entreprises qui travaillent entre le Maroc et l'Europe.",
   languages: [
     { code: "FR", label: "Français", enabled: true },

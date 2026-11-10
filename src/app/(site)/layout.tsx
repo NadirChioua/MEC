@@ -100,10 +100,12 @@ export default function SiteLayout({ children }: Readonly<{ children: ReactNode 
         "@type": "PostalAddress",
         streetAddress: "1er étage N3, Rue Farabi, Résidence N18",
         addressLocality: siteConfig.contact.city,
+        postalCode: "90000",
         addressRegion: siteConfig.contact.region,
         addressCountry: siteConfig.contact.country
       },
-      hasMap: "https://www.google.com/maps/search/?api=1&query=Rue+Farabi+Residence+N18+Tanger+Maroc",
+      hasMap: siteConfig.googleBusinessUrl,
+      sameAs: [siteConfig.googleBusinessUrl],
       openingHoursSpecification: [
         {
           "@type": "OpeningHoursSpecification",

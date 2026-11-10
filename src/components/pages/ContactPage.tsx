@@ -50,7 +50,7 @@ export function ContactContent() {
             <div className="card">
               <h3>{tr("Tanger, Maroc")}</h3>
               <p>{tr("Notre équipe vous accueille sur rendez-vous au centre de Tanger pour un échange confidentiel sur votre projet.")}</p>
-              <a href="https://www.google.com/maps/search/?api=1&query=Rue+Farabi+Residence+N18+Tanger+Maroc" target="_blank" rel="noreferrer" data-track="contact-map-link" data-track-label="Contact — Voir l’adresse sur Google Maps">
+              <a href={siteConfig.googleBusinessUrl} target="_blank" rel="noreferrer" data-track="contact-map-link" data-track-label="Contact — Voir l’adresse sur Google Maps">
                 {tr("Voir l’adresse sur Google Maps")}
               </a>
             </div>
