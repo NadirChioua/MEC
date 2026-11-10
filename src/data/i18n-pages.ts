@@ -149,6 +149,7 @@ export const pageEntries: TranslationMap[] = [
   { fr: "conseil gestion Maroc", nl: "managementadvies Marokko", en: "management consulting Morocco", es: "consultoría de gestión Marruecos", ar: "استشارة في التسيير المغرب" },
 
   // ───── Home ─────
+  { fr: "Parcours détaillés", nl: "Uitgewerkte trajecten", en: "Detailed guides", es: "Guías detalladas", ar: "مسارات مفصّلة" },
   { fr: "Expertises clés", nl: "Kernexpertises", en: "Key services", es: "Servicios clave", ar: "خدماتنا الأساسية" },
   { fr: "Votre projet, étape par étape", nl: "Uw project, stap voor stap", en: "Your project, step by step", es: "Su proyecto, paso a paso", ar: "مشروعكم، خطوة بخطوة" },
   {

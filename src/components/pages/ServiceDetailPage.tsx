@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { landingPagesFor, landingPath } from "@/data/landing-pages";
 import { services, type Service } from "@/data/services";
 import { siteConfig } from "@/data/site";
 import { getPageLocale, localizedPath, lp, tr } from "@/lib/i18n-server";
@@ -20,6 +21,21 @@ const seoTitles: Record<string, string> = {
   "commerce-maroc-europe": "Import-export Maroc-Europe : conseil fiscal et financier"
 };
 
+/**
+ * Detailed landing pages related to each service. Search Console showed the generic
+ * service pages ranking instead of the dedicated pages for queries such as
+ * "tax advisory morocco": these links tell search engines which page is the specific one.
+ */
+const relatedGroups: Record<string, string[]> = {
+  comptabilite: ["comptable", "fiscal"],
+  "conseil-financier": ["fiscal", "transaction"],
+  "gestion-entreprise": ["creation", "sarl", "comptable"],
+  "implantation-internationale": ["implantation", "representation", "mre"],
+  "audit-controle": ["transaction", "comptable"],
+  "accompagnement-personnalise": ["mre", "creation"],
+  "commerce-maroc-europe": ["representation", "fiscal", "implantation"]
+};
+
 export const serviceMetadata = (lang: Locale, service: Service) =>
   localizedMetadata(lang, {
     path: `/services/${service.slug}`,
@@ -32,6 +48,10 @@ export const serviceMetadata = (lang: Locale, service: Service) =>
 export function ServiceDetailContent({ service }: { service: Service }) {
   const lang = getPageLocale();
   const otherServices = services.filter((item) => item.slug !== service.slug);
+  const groups = relatedGroups[service.slug] ?? [];
+  const relatedPages = landingPagesFor(lang)
+    .filter((page) => groups.includes(page.group))
+    .sort((a, b) => groups.indexOf(a.group) - groups.indexOf(b.group));
   const serviceUrl = absoluteUrl(localizedPath(lang, `/services/${service.slug}`));
   const structuredData = [
     {
@@ -92,6 +112,20 @@ export function ServiceDetailContent({ service }: { service: Service }) {
                 </ul>
               </div>
             </div>
+            {relatedPages.length ? (
+              <div className="card">
+                <h3>{tr("Parcours détaillés")}</h3>
+                <ul className="plain-list">
+                  {relatedPages.map((page) => (
+                    <li key={page.slug}>
+                      <Link href={landingPath(page)} data-track={`service-related-${page.group}`} data-track-label={`Fiche service — ${page.title}`}>
+                        {page.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <div className="card">
               <h3>{tr("Besoin d’un avis structuré ?")}</h3>
               <p>{tr("Planifiez une première consultation pour cadrer vos priorités et identifier les prochaines étapes.")}</p>

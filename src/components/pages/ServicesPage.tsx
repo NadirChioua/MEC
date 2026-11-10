@@ -1,6 +1,7 @@
 import type { Locale } from "@/data/i18n";
 import { PageHero } from "@/components/PageHero";
 import { ContactCTA } from "@/components/sections/ContactCTA";
+import { KeyPages } from "@/components/sections/KeyPages";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { localizedMetadata } from "./pageMeta";
 
@@ -17,6 +18,7 @@ export function ServicesContent() {
     <>
       <PageHero title="Nos Services" intro="Des services de conseil fiables et performants pour accompagner votre développement au Maroc et en Europe." />
       <ServicesGrid showTitle={false} />
+      <KeyPages />
       <ContactCTA />
     </>
   );
