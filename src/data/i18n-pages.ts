@@ -4,11 +4,11 @@ import type { TranslationMap } from "./i18n";
 export const pageEntries: TranslationMap[] = [
   // ───── Page titles and meta descriptions ─────
   {
-    fr: "Cabinet comptable à Tanger | Conseil financier Maroc-Europe – MEC",
-    nl: "Boekhoudkantoor in Tanger | Financieel advies Marokko-Europa – MEC",
-    en: "Accounting Firm in Tangier | Morocco–Europe Financial Advice – MEC",
-    es: "Asesoría contable en Tánger | Consultoría financiera Marruecos-Europa – MEC",
-    ar: "مكتب محاسبة في طنجة | استشارة مالية بين المغرب وأوروبا – MEC"
+    fr: "Morocco Europe Consulting (MEC) | Cabinet comptable à Tanger, Maroc",
+    nl: "Morocco Europe Consulting (MEC) | Boekhoudkantoor in Tanger, Marokko",
+    en: "Morocco Europe Consulting (MEC) | Accounting Firm in Tangier, Morocco",
+    es: "Morocco Europe Consulting (MEC) | Asesoría contable en Tánger, Marruecos",
+    ar: "Morocco Europe Consulting (MEC) | مكتب محاسبة في طنجة، المغرب"
   },
   {
     fr: "Cabinet comptable et de conseil financier à Tanger : comptabilité, fiscalité, audit, création et implantation d’entreprise au Maroc, pour PME, investisseurs et MRE. Première consultation gratuite.",

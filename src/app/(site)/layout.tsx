@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "conseil Maroc Europe"
   ],
   title: {
-    default: "Cabinet comptable et conseil financier à Tanger | MEC Finance",
+    default: "Morocco Europe Consulting (MEC) | Cabinet comptable à Tanger, Maroc",
     template: "%s | MEC Finance"
   },
   description: siteConfig.description,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Cabinet comptable et conseil financier à Tanger | MEC Finance",
+    title: "Morocco Europe Consulting (MEC) | Cabinet comptable à Tanger, Maroc",
     description: siteConfig.description,
     images: [
       {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cabinet comptable et conseil financier à Tanger | MEC Finance",
+    title: "Morocco Europe Consulting (MEC) | Cabinet comptable à Tanger, Maroc",
     description: siteConfig.description,
     images: [DEFAULT_OG_IMAGE]
   },
@@ -89,7 +89,7 @@ export default function SiteLayout({ children }: Readonly<{ children: ReactNode 
       "@type": ["AccountingService", "ProfessionalService"],
       "@id": organizationId,
       name: siteConfig.name,
-      alternateName: siteConfig.shortName,
+      alternateName: ["MEC", "MEC Finance", "Maroc Europe Consulting", "Marokko Europa Consulting", "Marruecos Europa Consulting"],
       url: siteConfig.url,
       logo: `${siteConfig.url}/images/brand/logo-main.png`,
       image: absoluteUrl(DEFAULT_OG_IMAGE),
@@ -152,6 +152,7 @@ export default function SiteLayout({ children }: Readonly<{ children: ReactNode 
       "@id": `${siteConfig.url}/#website`,
       url: siteConfig.url,
       name: siteConfig.name,
+      alternateName: ["MEC Finance", "Maroc Europe Consulting", "MEC"],
       description: siteConfig.description,
       inLanguage: ["fr", "nl", "en", "es", "ar"],
       publisher: { "@id": organizationId }

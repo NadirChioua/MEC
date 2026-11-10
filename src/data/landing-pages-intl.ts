@@ -1079,5 +1079,186 @@ export const intlLandingPages: SeoLandingPage[] = [
     ],
     relatedServices: [],
     keywords: ["الفحص النافي للجهالة المغرب", "الاستشارة في الصفقات المغرب", "شراء شركة في المغرب", "due diligence المغرب"]
+  },
+  // ───────────────────────── Diaspora / founders abroad (group "mre") ─────────────────────────
+  {
+    slug: "investeren-in-marokko-vanuit-belgie-nederland",
+    group: "mre",
+    locale: "nl",
+    seoTitle: "Investeren in Marokko vanuit België of Nederland | MEC Tanger",
+    eyebrow: "Marokkanen in België en Nederland",
+    title: "Investeren en ondernemen in Marokko als je in België of Nederland woont",
+    description:
+      "Je woont in Antwerpen, Brussel, Rotterdam of Amsterdam en wil een zaak starten in Marokko? MEC in Tanger zet je project stap voor stap op, documenteert je geld uit Europa en volgt je dossier ter plaatse op.",
+    intro:
+      "Een bedrijf starten in Marokko terwijl je in Europa woont, roept één vraag op: wie volgt mijn dossier daar echt op? Morocco Europe Consulting (MEC), een boekhoud- en financieel adviesbureau in Tanger, organiseert je project stap voor stap, documenteert de financiering die uit België of Nederland komt en werkt samen met de bevoegde notaris of advocaat wanneer er een akte nodig is. Je houdt één vaste contactpersoon, van het eerste gesprek tot de opstart.",
+    imageSrc: "/images/generated/mec-morocco-europe-bridge.webp",
+    imageAlt: "Begeleiding van Marokkanen in België en Nederland die in Marokko willen ondernemen",
+    outcomes: ["Eén vaste contactpersoon in Tanger", "Geld uit Europa gedocumenteerd", "Stappen en documenten vooraf gekend", "Notaris of advocaat voor de akten"],
+    sections: [
+      {
+        title: "Je project voorbereiden vóór je geld overschrijft",
+        text: "Activiteit, vennoten, bestuur, budget, zetel en kalender bepalen de rechtsvorm en de opbouw van je dossier. We bekijken dat samen op afstand en leggen vast welke documenten je moet voorzien en in welke volgorde alles gebeurt.",
+        items: ["Activiteit en vennoten", "Rechtsvorm die bij je project past", "Opstartbudget", "Kalender van de stappen"]
+      },
+      {
+        title: "Het geld dat je vanuit Europa stuurt, documenteren",
+        text: "Bij een investering vanuit het buitenland is de traceerbaarheid van deviezen essentieel. Het circuit van de fondsen ligt vast vóór de eerste overschrijving (kapitaal, rekening-courant of een ander mechanisme) en de bankbewijzen worden vanaf dag één bewaard.",
+        items: ["Overschrijvingsopdrachten en creditberichten", "Bankattesten", "Afspraken tussen vennoten", "Latere verantwoording van inkomsten of verkoop"]
+      },
+      {
+        title: "Opvolging ter plaatse, zonder tussenpersonen te stapelen",
+        text: "MEC stemt de informatie af tussen jou, de bank, de administratie en de juristen. Na de oprichting kan de begeleiding doorlopen met boekhouding, aangiftes en rapportering, zodat je vanuit Europa altijd zicht houdt op je zaak."
+      }
+    ],
+    process: [
+      { title: "Eerste gesprek op afstand", text: "Je project, je vragen, je beperkingen." },
+      { title: "Structuur", text: "Rechtsvorm, financiering, geldstromen en kalender." },
+      { title: "Opvolging in Tanger", text: "Documenten, betrokkenen en formaliteiten." },
+      { title: "Opstart", text: "Boekhouding, fiscaliteit, bank en dashboard." }
+    ],
+    faq: [
+      { question: "Kan ik een vennootschap oprichten in Marokko zonder er te wonen?", answer: "Ja, dat komt vaak voor bij Marokkanen in het buitenland. De exacte documenten en eventuele volmachten hangen af van je situatie; we lijsten ze op bij de start en laten ze bevestigen door de bevoegde professionals." },
+      { question: "Hoe stuur ik het kapitaal vanuit België of Nederland?", answer: "Het circuit van de fondsen leggen we vast vóór de eerste overschrijving en alles wordt gedocumenteerd: overschrijvingsopdrachten, creditberichten en bankattesten. Zo kan je de investering later altijd verantwoorden." },
+      { question: "Vervangt MEC de notaris of de advocaat?", answer: "Nee. MEC neemt de financiële, boekhoudkundige en operationele kant op zich en werkt samen met de notaris of advocaat wanneer je dossier een akte of juridisch advies vraagt." },
+      { question: "Moet ik naar Tanger komen?", answer: "Het eerste gesprek en een groot deel van de opvolging gebeuren op afstand. Ben je in Marokko, dan ontvangen we je op afspraak in het centrum van Tanger." }
+    ],
+    relatedServices: [],
+    keywords: ["investeren in Marokko", "bedrijf starten in Marokko vanuit Nederland", "zaak starten in Marokko vanuit België", "Marokkaanse diaspora investeren", "MRE investeren Marokko"]
+  },
+  {
+    slug: "start-business-in-morocco-from-abroad",
+    group: "mre",
+    locale: "en",
+    seoTitle: "Start a Business in Morocco from Abroad (Moroccans Overseas) | MEC",
+    eyebrow: "Founders living abroad",
+    title: "Starting a business in Morocco while living abroad",
+    description:
+      "Living in Europe, the UK or elsewhere and planning a company in Morocco? MEC, based in Tangier, structures the project, documents funds sent from abroad and follows your file on the ground.",
+    intro:
+      "Setting up a company in Morocco from a distance raises one question: who really follows the file on site? Morocco Europe Consulting (MEC), an accounting and financial advisory firm in Tangier, organises the project step by step, documents funding coming from abroad and works with the relevant notary or lawyer when a legal deed is required. You keep one dedicated contact, from the first call to launch.",
+    imageSrc: "/images/generated/mec-morocco-europe-bridge.webp",
+    imageAlt: "Support for Moroccans abroad and foreign founders starting a business in Morocco",
+    outcomes: ["One dedicated contact in Tangier", "Funds from abroad documented", "Steps and documents known upfront", "Notary or lawyer for legal deeds"],
+    sections: [
+      {
+        title: "Prepare the project before sending any transfer",
+        text: "Activity, shareholders, governance, budget, registered office and timeline determine the legal form and how the file is built. We clarify them with you remotely, then set the list of documents to gather and the order of the steps.",
+        items: ["Activity and shareholders", "Legal form suited to the project", "Launch budget", "Timeline of formalities"]
+      },
+      {
+        title: "Document the funds you send from abroad",
+        text: "For an investment funded from abroad, foreign-currency traceability is central. The route of the funds is defined before the first transfer (share capital, shareholder current account or another mechanism), and bank evidence is kept from day one.",
+        items: ["Transfer orders and credit advices", "Bank certificates", "Agreements between shareholders", "Future justification of income or a sale"]
+      },
+      {
+        title: "Follow-up on the ground, without stacking intermediaries",
+        text: "MEC coordinates information between you, the bank, the administration and legal professionals. After incorporation, support can continue with bookkeeping, filings and reporting, so you keep a clear view of your business from abroad."
+      }
+    ],
+    process: [
+      { title: "First call, remotely", text: "Your project, constraints and questions." },
+      { title: "Structuring", text: "Legal form, funding, flows and timeline." },
+      { title: "Coordination in Tangier", text: "Documents, stakeholders and formalities." },
+      { title: "Launch", text: "Accounting, tax, banking and dashboard." }
+    ],
+    faq: [
+      { question: "Can I set up a company in Morocco without living there?", answer: "Yes, it is common for Moroccans living abroad and foreign founders. The exact documents and any powers of attorney depend on your situation; we list them at the start and have them confirmed by the relevant professionals." },
+      { question: "How do I send the share capital from abroad?", answer: "The route of the funds is defined before the first transfer and documented: transfer orders, credit advices and bank certificates. This makes it easier to justify the investment later." },
+      { question: "Does MEC replace a notary or lawyer?", answer: "No. MEC handles the financial, accounting and operational side and coordinates with the notary or lawyer when the file requires a legal deed or opinion." },
+      { question: "Do I need to travel to Tangier?", answer: "The first call and most of the follow-up are done remotely. When you are in Morocco, our team can meet you by appointment in central Tangier." }
+    ],
+    relatedServices: [],
+    keywords: ["start a business in Morocco from abroad", "invest in Morocco from UK", "Moroccans abroad invest in Morocco", "open a company in Morocco as a foreigner", "Morocco diaspora investment"]
+  },
+  {
+    slug: "invertir-en-marruecos-desde-espana",
+    group: "mre",
+    locale: "es",
+    seoTitle: "Invertir en Marruecos desde España: crear su empresa | MEC Tánger",
+    eyebrow: "Marroquíes residentes en España",
+    title: "Invertir y emprender en Marruecos viviendo en España",
+    description:
+      "¿Vive en España y quiere crear su empresa en Marruecos? MEC, en Tánger, estructura el proyecto, documenta los fondos enviados desde Europa y sigue su expediente sobre el terreno.",
+    intro:
+      "Crear una empresa en Marruecos a distancia plantea una pregunta sencilla: ¿quién sigue realmente el expediente allí? Morocco Europe Consulting (MEC), asesoría contable y financiera en Tánger, organiza el proyecto paso a paso, documenta la financiación procedente de España y trabaja con el notario o el abogado competente cuando se necesita un acto jurídico. Usted conserva un interlocutor dedicado, desde la primera conversación hasta el arranque.",
+    imageSrc: "/images/generated/mec-morocco-europe-bridge.webp",
+    imageAlt: "Acompañamiento a marroquíes residentes en España para emprender en Marruecos",
+    outcomes: ["Un interlocutor dedicado en Tánger", "Fondos desde Europa documentados", "Etapas y documentos conocidos de antemano", "Notario o abogado para los actos"],
+    sections: [
+      {
+        title: "Preparar el proyecto antes de enviar una transferencia",
+        text: "La actividad, los socios, la gobernanza, el presupuesto, el domicilio y el calendario determinan la forma jurídica y la organización del expediente. Lo aclaramos con usted a distancia y fijamos la lista de documentos y el orden de los trámites.",
+        items: ["Actividad y socios", "Forma jurídica adaptada al proyecto", "Presupuesto de lanzamiento", "Calendario de trámites"]
+      },
+      {
+        title: "Documentar los fondos enviados desde España",
+        text: "En una inversión financiada desde el extranjero, la trazabilidad de las divisas es fundamental. El circuito de los fondos se define antes de la primera transferencia (capital, cuenta corriente de socio u otro mecanismo) y los justificantes bancarios se conservan desde el principio.",
+        items: ["Órdenes de transferencia y avisos de abono", "Certificados bancarios", "Acuerdos entre socios", "Justificación futura de ingresos o de una venta"]
+      },
+      {
+        title: "Seguimiento sobre el terreno, sin multiplicar intermediarios",
+        text: "MEC coordina la información entre usted, el banco, la administración y los profesionales del derecho. Después de la creación, el acompañamiento puede continuar con la contabilidad, las declaraciones y el reporting."
+      }
+    ],
+    process: [
+      { title: "Primera conversación a distancia", text: "Su proyecto, sus limitaciones, sus preguntas." },
+      { title: "Estructuración", text: "Forma jurídica, financiación, flujos y calendario." },
+      { title: "Coordinación en Tánger", text: "Documentos, intervinientes y trámites." },
+      { title: "Arranque", text: "Contabilidad, fiscalidad, banco y cuadro de mando." }
+    ],
+    faq: [
+      { question: "¿Se puede crear una sociedad en Marruecos sin residir allí?", answer: "Sí, es habitual entre los marroquíes residentes en el extranjero. Los documentos exactos y los posibles poderes dependen de cada caso; los enumeramos al inicio y los validamos con los profesionales competentes." },
+      { question: "¿Cómo envío el capital desde España?", answer: "El circuito de los fondos se define antes de la primera transferencia y se documenta: órdenes de transferencia, avisos de abono y certificados bancarios. Así resulta más fácil justificar la inversión después." },
+      { question: "¿MEC sustituye al notario o al abogado?", answer: "No. MEC se ocupa de los aspectos financieros, contables y operativos y coordina con el notario o el abogado cuando el expediente requiere un acto o un dictamen jurídico." },
+      { question: "¿Tengo que desplazarme a Tánger?", answer: "La primera conversación y gran parte del seguimiento se hacen a distancia. Cuando esté en Marruecos, nuestro equipo le recibe con cita previa en el centro de Tánger." }
+    ],
+    relatedServices: [],
+    keywords: ["invertir en Marruecos desde España", "crear empresa en Marruecos desde España", "marroquíes residentes en España invertir", "abrir negocio en Marruecos"]
+  },
+  {
+    slug: "الاستثمار-في-المغرب-للمغاربة-المقيمين-بالخارج",
+    group: "mre",
+    locale: "ar",
+    seoTitle: "الاستثمار في المغرب للمغاربة المقيمين بالخارج: تأسيس شركتك | MEC",
+    eyebrow: "مغاربة العالم",
+    title: "الاستثمار وتأسيس شركة في المغرب للمغاربة المقيمين بالخارج",
+    description:
+      "تقيم في فرنسا أو بلجيكا أو هولندا أو إسبانيا وتريد تأسيس شركتك في المغرب؟ يهيكل مكتب MEC بطنجة مشروعك ويوثّق الأموال القادمة من أوروبا ويتابع ملفك في عين المكان.",
+    intro:
+      "تأسيس مقاولة في المغرب عن بُعد يطرح سؤالًا بسيطًا: من يتابع الملف فعلًا في عين المكان؟ ينظّم مكتب Morocco Europe Consulting (MEC)، وهو مكتب محاسبة واستشارة مالية بطنجة، مشروعكم خطوة بخطوة، ويوثّق التمويل القادم من أوروبا، ويعمل مع الموثق أو المحامي المختص عندما يتطلب الملف عقدًا قانونيًا. وتحتفظون بمخاطَب واحد مخصّص، من أول اتصال إلى انطلاق النشاط.",
+    imageSrc: "/images/generated/mec-morocco-europe-bridge.webp",
+    imageAlt: "مواكبة المغاربة المقيمين بالخارج لتأسيس شركة في المغرب",
+    outcomes: ["مخاطَب مخصّص في طنجة", "أموال قادمة من أوروبا موثّقة", "مراحل ووثائق معروفة مسبقًا", "موثق أو محامٍ للعقود"],
+    sections: [
+      {
+        title: "تحضير المشروع قبل إرسال أي تحويل",
+        text: "النشاط والشركاء والحكامة والميزانية والمقر والجدول الزمني تحدد الشكل القانوني وتنظيم الملف. نوضّحها معكم عن بُعد، ثم نحدد لائحة الوثائق وترتيب الإجراءات.",
+        items: ["النشاط والشركاء", "الشكل القانوني الملائم للمشروع", "ميزانية الانطلاق", "الجدول الزمني للإجراءات"]
+      },
+      {
+        title: "توثيق الأموال المرسلة من أوروبا",
+        text: "في استثمار ممول من الخارج، تُعدّ إمكانية تتبّع العملة الأجنبية مسألة أساسية. يُحدَّد مسار الأموال قبل أول تحويل (الرأسمال أو الحساب الجاري للشريك أو آلية أخرى)، ويُحتفظ بالمستندات البنكية منذ البداية.",
+        items: ["أوامر التحويل وإشعارات الإيداع", "الشهادات البنكية", "الاتفاقيات بين الشركاء", "إثبات المداخيل أو التفويت مستقبلًا"]
+      },
+      {
+        title: "تتبّع في عين المكان دون تعدد الوسطاء",
+        text: "ينسّق MEC المعلومات بينكم وبين البنك والإدارة ورجال القانون. وبعد التأسيس، يمكن أن تستمر المواكبة في المحاسبة والتصريحات والتقارير، لتبقوا على اطلاع على مقاولتكم من الخارج."
+      }
+    ],
+    process: [
+      { title: "أول اتصال عن بُعد", text: "مشروعكم وإكراهاتكم وأسئلتكم." },
+      { title: "الهيكلة", text: "الشكل القانوني والتمويل والتدفقات والجدول الزمني." },
+      { title: "التنسيق في طنجة", text: "الوثائق والمتدخلون والإجراءات." },
+      { title: "الانطلاق", text: "المحاسبة والجبايات والبنك ولوحة القيادة." }
+    ],
+    faq: [
+      { question: "هل يمكن تأسيس شركة في المغرب دون الإقامة فيه؟", answer: "نعم، وهي حالة شائعة لدى المغاربة المقيمين بالخارج. تتوقف الوثائق المطلوبة والوكالات المحتملة على وضعيتكم، ونحددها منذ البداية ونتحقق منها مع المهنيين المختصين." },
+      { question: "كيف أرسل الرأسمال من أوروبا؟", answer: "يُحدَّد مسار الأموال قبل أول تحويل ويُوثَّق: أوامر التحويل وإشعارات الإيداع والشهادات البنكية. وهذا يسهّل إثبات الاستثمار لاحقًا." },
+      { question: "هل يعوّض MEC الموثق أو المحامي؟", answer: "لا. يتولى MEC الجوانب المالية والمحاسبية والتشغيلية، وينسّق مع الموثق أو المحامي عندما يتطلب الملف عقدًا أو رأيًا قانونيًا." },
+      { question: "هل يجب أن أتنقل إلى طنجة؟", answer: "يتم أول اتصال وجزء كبير من التتبّع عن بُعد. وعندما تكونون في المغرب، يستقبلكم فريقنا بموعد في وسط طنجة." }
+    ],
+    relatedServices: [],
+    keywords: ["الاستثمار في المغرب للمغاربة المقيمين بالخارج", "مغاربة العالم تأسيس شركة", "إنشاء مقاولة في المغرب من أوروبا", "استثمار الجالية المغربية"]
   }
 ];

@@ -16,7 +16,7 @@ import { localizedMetadata } from "./pageMeta";
 export const homeMetadata = (lang: Locale) =>
   localizedMetadata(lang, {
     path: "/",
-    title: "Cabinet comptable à Tanger | Conseil financier Maroc-Europe – MEC",
+    title: "Morocco Europe Consulting (MEC) | Cabinet comptable à Tanger, Maroc",
     absoluteTitle: true,
     description:
       "Cabinet comptable et de conseil financier à Tanger : comptabilité, fiscalité, audit, création et implantation d’entreprise au Maroc, pour PME, investisseurs et MRE. Première consultation gratuite.",

@@ -23,7 +23,7 @@ export function Footer() {
               <img loading="lazy" decoding="async" className="footer-logo" src="/images/brand/logo-footer.webp" alt={siteConfig.name} />
             </Link>
             <p className="muted" style={{ marginTop: 18 }}>
-              Cabinet comptable et de conseil financier à Tanger : comptabilité, fiscalité, audit et création d&apos;entreprise pour les sociétés qui opèrent entre le Maroc et l&apos;Europe.
+              Morocco Europe Consulting (Maroc Europe Consulting, MEC Finance), cabinet comptable et de conseil financier à Tanger : comptabilité, fiscalité, audit et création d&apos;entreprise pour les sociétés qui opèrent entre le Maroc et l&apos;Europe.
             </p>
           </div>
           <div>
